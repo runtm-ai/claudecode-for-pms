@@ -4,11 +4,29 @@ number: 4
 blurb: Skills auto-load by trigger phrase. Stop re-typing the same instructions in chat.
 ---
 
-A prompt is a one-time ask. A skill is a teammate that shows up every time the situation calls for them.
+Skills are the unit of compounding leverage in Claude Code. Every time you re-prompt the same convention (commit messages, PR descriptions, voice for stakeholder updates, how to write a release note), you're paying tax on a thing you could have written down once.
 
-### How they load
+Aman Khan puts it well: *"Skills are a peek into your mind as a builder. A well-written skill encodes how you think about a problem, what conventions you follow, what mistakes you've learned to avoid."*
 
-At session start, Claude reads only the `name` and `description` from every `SKILL.md` in `skills/`. The body is loaded only when the description matches what the user is doing. That means you can install fifty skills without bloating the context.
+Anthropic's docs are explicit: at startup only the `name` and `description` of each skill are loaded. The full `SKILL.md` only gets read when relevant. That means you can have 50 skills installed without bloating context.
+
+### How to do it
+
+<Step n={1}>
+The next time you re-prompt yourself, stop. Open Claude and say: *"Create a skill for [the task]. It should include [your requirements]. I want it to [your style]."*
+</Step>
+
+<Step n={2}>
+Save it to `~/.claude/skills/<skill-name>/SKILL.md` (global) or `<repo>/skills/<skill-name>/SKILL.md` (project-local).
+</Step>
+
+<Step n={3}>
+Write a **specific** description with trigger phrases — Anthropic recommends gerund form: `writing-release-notes`, `prioritizing-backlog`. Vague descriptions don't get auto-invoked.
+</Step>
+
+<Step n={4}>
+Test: ask Claude to do the task without the slash command. Did the skill load? If not, the description is too vague.
+</Step>
 
 ### The format that works
 
@@ -22,6 +40,35 @@ Every skill in this repo follows the same seven sections so PMs see one shape:
 - **Tiny worked example** — one paragraph of what good looks like.
 - **Final instructions** — the three things to do first.
 
-### Trigger phrases
+```yaml
+---
+name: writing-release-notes
+description: |
+  Write user-facing release notes in our voice from a list of merged PRs.
+  Use when the user mentions release notes, changelog entries, or "what
+  shipped this week".
+---
+```
 
-The `description` field is where you write trigger phrases — the literal sentences a user is likely to say. Without them, the skill won't auto-load. Look at any of the six in this repo for examples.
+### Where to start (curated)
+
+- **[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins/tree/main/product-management)** — official from Anthropic. Skills for Feature Specs & PRDs, Roadmap Planning, Stakeholder Updates, User Research Synthesis. **If you only install one thing, install this.**
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) — 100+ skills across discovery → strategy → execution.
+- [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills) — 49 skills + 6 command workflows.
+- [aakashg/pm-claude-code-setup](https://github.com/aakashg/pm-claude-code-setup) — Aakash Gupta's opinionated minimal starter.
+
+Full curated index on the [Skills page](/skills).
+
+<AntiPatterns>
+- A skill called `helper`. Anthropic's docs literally call this out.
+- Pasting an English description with no trigger phrases — Claude won't auto-invoke.
+- Skills over 500 lines (split into reference files via progressive disclosure).
+- Reserved words in the name (`anthropic`, `claude`). Validation will reject them.
+</AntiPatterns>
+
+### Sources
+
+- [Aman Khan — every PM should be building skills](https://amankhan1.substack.com/p/every-pm-should-be-building-skills)
+- [Anthropic — Skill best practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)
+- [Paweł Huryn — phuryn/pm-skills](https://github.com/phuryn/pm-skills)
+- [Dean Peters — deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills)

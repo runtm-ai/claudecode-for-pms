@@ -74,9 +74,9 @@ export const PRACTICES: Practice[] = [
   {
     slug: 'remotion',
     number: 9,
-    title: 'Generate product animations with Remotion',
+    title: 'Generate ad assets with Remotion',
     blurb:
-      'Programmatic video lets one PM ship feature demos and onboarding walkthroughs faster than waiting for the design team.',
+      'Programmatic video lets one PM ship variant ads in an afternoon instead of a sprint.',
     related: ['design-skills'],
   },
   {

@@ -4,24 +4,48 @@ number: 1
 blurb: A PRD answers the four things a chat prompt skips — problem, user, done, and out-of-scope.
 ---
 
-A prompt is a negotiation. A PRD is a brief.
+Before plan mode existed, the only way to get Claude Code to do real work was to hand it a spec. The pattern that emerged — write a PRD, generate tasks, process them one at a time — is still the highest-leverage thing a PM can do. Plan mode replaces some of it. It does not replace the PRD.
 
-When you start a feature with "build me a passwordless login", Claude has to fill in the gaps itself — and it picks reasonable defaults that turn into rework two days later. When you start with a PRD, Claude reads the answers to the questions it would have had to invent.
+A PRD answers four questions your prompt usually doesn't: what problem we're solving, who it's for, what "done" looks like, and what's out of scope. Hand Claude a prompt without those and it will pick its own answers. The prompt becomes a negotiation. The PRD makes it a brief.
 
-### What goes in the PRD
+### How to do it
 
-Four sections do most of the work:
+<Step n={1}>
+Copy `tasks/prd-example.md` into your repo and rename it `prd-<feature>.md`.
+</Step>
 
-1. **Problem & goal** — one paragraph. What hurts now, and what better looks like.
-2. **User stories** — three to seven, in `As a / I want / so that` form.
-3. **Functional requirements** — numbered "The system must…" lines a junior dev could implement.
-4. **Non-goals** — explicit out-of-scope. The single most-skipped section, and the one you'll wish you'd written.
+<Step n={2}>
+Open Claude Code, attach the file, and ask Claude to expand it using the `create-prd` rule at `pr_flow/create-prd.mdc`.
+</Step>
 
-### The agent's first session
+<Step n={3}>
+When the PRD is done, switch to plan mode (`Shift+Tab`) to break the work into steps. Then execute.
+</Step>
 
-Open Claude Code in the repo, point it at `tasks/prd-<feature>.md`, and ask it to follow `pr_flow/create-prd.mdc`. The clarifying questions come first; the file second. Two or three rounds and you have a doc both you and the agent can implement from.
+<Callout tone="info">
+The original Cursor-era pattern was PRD → `generate-tasks` → `process-task-list` (three files). Modern Claude Code with plan mode collapses steps 2 and 3 into plan mode itself. The PRD is still step 1.
+</Callout>
 
-### Pair this with
+### The 9-section template
 
-- The `writing-prds` skill in this repo auto-loads when you say "write a PRD".
-- `pr_flow/generate-tasks.mdc` turns the PRD into a task list once it's stable.
+- **Introduction / overview** — what we're building, why
+- **Goals** — measurable
+- **User stories** — narrative
+- **Functional requirements** — numbered
+- **Non-goals** — what we're not building
+- **Design considerations** — links to mockups, brand rules
+- **Technical considerations** — constraints, dependencies
+- **Success metrics** — how we'll know it worked
+- **Open questions** — what we haven't decided
+
+<AntiPatterns>
+- Prompting Claude to "build me a feature" without a PRD.
+- Writing the PRD inside the chat instead of a file Claude can re-read.
+- Skipping the non-goals section. You will regret this.
+- Calling something a PRD when it's really a one-line description.
+</AntiPatterns>
+
+### Sources
+
+- [Marcus Moretti — Claude Code for product managers (Every)](https://every.to/source-code/claude-code-for-product-managers)
+- [pr_flow templates in this repo](https://github.com/runtm-ai/claudecode-for-pms/tree/main/pr_flow)

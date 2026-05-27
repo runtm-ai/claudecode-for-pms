@@ -1,25 +1,28 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { SkillCard, type SkillCardData } from '@/components/ui/SkillCard';
 import { RepoCTA } from '@/components/ui/RepoCTA';
 import skillsData from '@/content/skills.json';
 
 const ALL = skillsData.skills as SkillCardData[];
-const CATEGORIES = ['all', ...Array.from(new Set(ALL.map((s) => s.category)))];
+const CATEGORIES = [
+  'all',
+  ...Array.from(new Set(ALL.map((s) => s.category))).sort(),
+];
+const SHIPPED_COUNT = ALL.filter((s) => s.shipped).length;
 
 export default function SkillsPage() {
   const [active, setActive] = useState<string>('all');
-  const [showShippedOnly, setShowShippedOnly] = useState(false);
+  const [oursOnly, setOursOnly] = useState(false);
 
   const filtered = useMemo(() => {
     return ALL.filter((s) => {
       if (active !== 'all' && s.category !== active) return false;
-      if (showShippedOnly && !s.shipped) return false;
+      if (oursOnly && !s.shipped) return false;
       return true;
     });
-  }, [active, showShippedOnly]);
+  }, [active, oursOnly]);
 
   return (
     <>
@@ -30,8 +33,10 @@ export default function SkillsPage() {
             {ALL.length} curated PM skills for Claude Code.
           </h1>
           <p className="text-base sm:text-lg text-text-muted mt-5 max-w-2xl leading-relaxed">
-            Six ship in the repo today. The rest are the next ones we&rsquo;ll add
-            &mdash; in priority order. Pull-request your own at any time.
+            {SHIPPED_COUNT} ship in this repo as our own. The rest we&rsquo;ve
+            vetted from elsewhere &mdash; each card has the exact{' '}
+            <code className="font-mono text-sm text-text">/plugin</code> command
+            you paste into Claude Code. Pull-request your own at any time.
           </p>
         </div>
       </section>
@@ -42,7 +47,7 @@ export default function SkillsPage() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`text-xs px-3 py-1.5 rounded-full border-2 transition-colors ${
+              className={`text-xs px-3 py-1.5 rounded-full border-2 transition-colors capitalize ${
                 active === cat
                   ? 'border-text bg-text text-white'
                   : 'border-border text-text-muted hover:border-text'
@@ -55,11 +60,11 @@ export default function SkillsPage() {
           <label className="inline-flex items-center gap-2 text-xs text-text-muted ml-1">
             <input
               type="checkbox"
-              checked={showShippedOnly}
-              onChange={(e) => setShowShippedOnly(e.target.checked)}
+              checked={oursOnly}
+              onChange={(e) => setOursOnly(e.target.checked)}
               className="accent-accent"
             />
-            Shipped only
+            In this repo only
           </label>
         </div>
       </section>
@@ -71,7 +76,9 @@ export default function SkillsPage() {
           ))}
         </div>
         {filtered.length === 0 && (
-          <p className="text-center text-text-soft py-12">No skills match this filter.</p>
+          <p className="text-center text-text-soft py-12">
+            No skills match this filter.
+          </p>
         )}
       </section>
 
