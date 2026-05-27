@@ -1,0 +1,43 @@
+title = "gitleaks config — claudecode-for-pms"
+
+# This config is in addition to gitleaks' built-in defaults.
+# Run locally:  gitleaks detect --source . --no-banner
+# Run staged:   gitleaks protect --staged --no-banner
+#
+# Wire into a pre-commit hook so a leaked key never lands in a commit.
+# See best-practice 07 (/best-practices/secrets) for the recovery playbook.
+
+[extend]
+# Pull in gitleaks' default rules.
+useDefault = true
+
+[[rules]]
+id = "supabase-access-token"
+description = "Supabase personal access token (sbp_...)"
+regex = '''sbp_[a-f0-9]{40,}'''
+tags = ["supabase", "secret"]
+
+[[rules]]
+id = "resend-api-key"
+description = "Resend API key (re_...)"
+regex = '''re_[A-Za-z0-9_]{20,}'''
+tags = ["resend", "secret"]
+
+[[rules]]
+id = "github-fine-grained-pat"
+description = "GitHub fine-grained PAT (github_pat_...)"
+regex = '''github_pat_[A-Za-z0-9_]{82}'''
+tags = ["github", "secret"]
+
+[allowlist]
+description = "Files where placeholder/example tokens are expected."
+paths = [
+  '''\.env\.example$''',
+  '''mcp\.json\.example$''',
+  '''\.gitleaks\.toml$''',
+  '''tasks/prd-.*\.md$''',
+  '''skills/.*/SKILL\.md$''',
+]
+regexes = [
+  '''\$\{[A-Z_]+\}''',  # any ${VAR} substitution placeholder
+]

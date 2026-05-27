@@ -6,6 +6,7 @@ import { readMDX } from '@/lib/content';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { PracticeCard } from '@/components/ui/PracticeCard';
 import { RepoCTA } from '@/components/ui/RepoCTA';
+import { mdxComponents } from '@/components/mdx/MdxComponents';
 
 export const dynamicParams = false;
 
@@ -59,7 +60,7 @@ export default async function PracticePage({ params }: PageProps) {
         </h1>
         <p className="text-lg text-text-muted mt-4 leading-relaxed">{practice.blurb}</p>
         <div className="prose-runtime mt-10">
-          <MDXRemote source={doc.body} />
+          <MDXRemote source={doc.body} components={mdxComponents} />
         </div>
       </article>
 
