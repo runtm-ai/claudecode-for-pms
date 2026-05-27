@@ -1,0 +1,43 @@
+---
+description: Task execution rule. Process one sub-task at a time.
+globs:
+alwaysApply: false
+---
+# Rule: Processing a Task List
+
+## Goal
+
+To guide an AI assistant through executing a task list (`/tasks/tasks-prd-[feature-name].md`) **one sub-task at a time**, with user approval between each.
+
+## Process
+
+1. **Find the next unchecked sub-task** (top-down, left-to-right).
+2. **Implement only that sub-task.** No scope creep. No "while I'm here".
+3. **Mark it complete:** change `[ ]` to `[x]` in the task list file.
+4. **Stop and report:**
+   - What you changed (file paths, one line each).
+   - What you tested (or what you couldn't test).
+   - What's next.
+5. **Wait for the user to say `next`** (or equivalent) before starting the next sub-task.
+
+## When a parent task's sub-tasks are all `[x]`
+
+- Mark the parent `[x]`.
+- Run any tests or linters relevant to the parent task.
+- Summarize what the parent delivered.
+- Pause for the user to review before moving on.
+
+## What not to do
+
+- Do NOT batch multiple sub-tasks in one response.
+- Do NOT proceed without explicit `next`.
+- Do NOT modify files outside the "Relevant Files" list without flagging it first.
+- Do NOT skip the test/lint step on parent-task completion.
+
+## When you get stuck
+
+If a sub-task can't be completed as written:
+
+1. Stop. Don't improvise.
+2. Tell the user: *"Sub-task X.Y is blocked by Z. Options: (a) skip and move to X.Y+1, (b) revise the task, (c) revise the PRD."*
+3. Wait for direction.

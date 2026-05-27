@@ -1,0 +1,29 @@
+---
+title: Onboard the agent like a teammate
+number: 10
+blurb: First-day reading list, code map, voice doc. Treat the agent like a new hire who reads fast.
+---
+
+The thing the best PMs do that the rest don't: they treat the agent like a new hire who can read a thousand pages an hour but knows nothing yet.
+
+### The first-day reading list
+
+Three files Claude reads before doing anything in your repo:
+
+1. `CLAUDE.md` — product, voice, agents, what not to do.
+2. `docs/architecture.md` — the code map. Where things live and why.
+3. `docs/voice.md` — the longer voice doc with banned words and shipped headlines.
+
+If those three are good, your agent's output is good. If those three are missing, you're going to spend the week correcting tone.
+
+### The second-day reading list
+
+Once a feature kicks off:
+
+- `tasks/prd-<feature>.md` — the spec.
+- `tasks/tasks-prd-<feature>.md` — the work plan.
+- The relevant `skills/*/SKILL.md` files for whatever the agent is doing.
+
+### Re-onboard on big changes
+
+Big architectural shifts (new framework, new design system, new permission model) deserve an update to `CLAUDE.md` the same day, not the same quarter. The drift between what the file says and what the repo does is the single biggest cause of off-pattern output.

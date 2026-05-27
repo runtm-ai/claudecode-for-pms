@@ -1,0 +1,23 @@
+---
+title: Ship a DESIGN.md with brand tokens
+number: 5
+blurb: Tokens at the source level so contributors can't reach default indigo by accident.
+---
+
+Without a brand spec, Claude defaults to Tailwind indigo, mesh gradients, and headlines that read like a Series B announcement.
+
+### What it contains
+
+A `DESIGN.md` at the repo root, plus a longer `skills/your-brand/SKILL.md` for the depth.
+
+The top-level file is the at-a-glance reference: color tokens, type scale, voice rules, logo do's and don'ts. One page, scannable. The skill file is the full system — surface treatments, banned words, pre-ship checklist.
+
+### Why both
+
+The skill is what auto-loads when Claude is generating a UI component or a release note. The `DESIGN.md` is what a human contributor reads first when they open the repo. Same content shape, different consumption pattern.
+
+### The non-negotiables
+
+- **No improvised hex codes.** If the palette doesn't fit, ask before adding.
+- **Voice is fixed.** Visual specs accommodate new surfaces; voice carries across all of them.
+- **Pre-ship checklist runs every time.** Six bullets, two minutes, catches 80% of the off-brand output.

@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  background: #fafafa;
+  color: #18181b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .card-content {
+    @apply bg-white border border-border rounded-2xl p-6 shadow-card;
+  }
+  .card-hero {
+    @apply bg-white border border-border rounded-2xl shadow-hero;
+  }
+  .card-anchor {
+    @apply bg-white border-2 border-text rounded-xl p-6 shadow-anchor transition-all;
+  }
+  .card-anchor:hover {
+    @apply shadow-anchor-hover translate-x-[2px] translate-y-[2px];
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-text text-white px-5 py-3 rounded-md font-medium border-2 border-text shadow-anchor transition-all min-h-[44px];
+  }
+  .btn-primary:hover {
+    @apply shadow-anchor-hover translate-x-[2px] translate-y-[2px];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-white text-text px-5 py-3 rounded-md font-medium border-2 border-text shadow-anchor transition-all min-h-[44px];
+  }
+  .btn-secondary:hover {
+    @apply shadow-anchor-hover translate-x-[2px] translate-y-[2px];
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 bg-accent text-white px-5 py-3 rounded-md font-semibold border border-accent-dark transition-all min-h-[44px];
+  }
+  .btn-accent:hover {
+    @apply bg-accent-dark;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-eyebrow text-accent;
+  }
+  .eyebrow-pill {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-eyebrow text-accent bg-accent-soft px-3 py-1.5 rounded-full;
+  }
+  .headline {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-text leading-[1.08] tracking-tight2;
+  }
+  .headline-xl {
+    @apply text-4xl sm:text-5xl md:text-6xl font-bold text-text leading-[1.05] tracking-tight2;
+  }
+
+  .brand-mesh {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(135deg, #f5f3ff 0%, #fafafa 45%, #fef3f2 100%);
+    overflow: hidden;
+  }
+  .brand-mesh::before,
+  .brand-mesh::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 9999px;
+    filter: blur(90px);
+    pointer-events: none;
+  }
+  .brand-mesh::before {
+    background: rgba(167, 139, 250, 0.35);
+    width: 55vw;
+    height: 55vw;
+    max-width: 700px;
+    max-height: 700px;
+    top: -15%;
+    right: -10%;
+  }
+  .brand-mesh::after {
+    background: rgba(251, 113, 133, 0.22);
+    width: 50vw;
+    height: 50vw;
+    max-width: 600px;
+    max-height: 600px;
+    bottom: -20%;
+    left: -10%;
+  }
+
+  .perspective-stack {
+    position: relative;
+    perspective: 1400px;
+  }
+  .perspective-card {
+    transform: rotate(-2deg);
+    transition: transform 300ms ease;
+  }
+  .perspective-card:hover {
+    transform: rotate(-1deg) translateY(-2px);
+  }
+  .perspective-card-back {
+    transform: rotate(4deg) translate(8%, -6%) scale(0.85);
+    opacity: 0.95;
+  }
+
+  .prose-runtime h1 { @apply text-3xl font-bold mt-8 mb-4 text-text tracking-tight2; }
+  .prose-runtime h2 { @apply text-2xl font-bold mt-8 mb-3 text-text tracking-tight2; }
+  .prose-runtime h3 { @apply text-xl font-semibold mt-6 mb-2 text-text; }
+  .prose-runtime p  { @apply text-text-muted leading-relaxed my-3; }
+  .prose-runtime ul { @apply list-disc list-outside ml-6 my-3 text-text-muted; }
+  .prose-runtime ol { @apply list-decimal list-outside ml-6 my-3 text-text-muted; }
+  .prose-runtime li { @apply my-1; }
+  .prose-runtime a  { @apply text-accent underline underline-offset-2; }
+  .prose-runtime code { @apply font-mono text-sm bg-bg-cream border border-border rounded px-1.5 py-0.5; }
+  .prose-runtime pre  { @apply font-mono text-sm bg-bg-cream border border-border rounded-md p-4 overflow-x-auto my-4; }
+  .prose-runtime pre code { @apply bg-transparent border-0 p-0; }
+  .prose-runtime blockquote { @apply border-l-4 border-accent pl-4 italic text-text-muted my-4; }
+  .prose-runtime strong { @apply text-text font-semibold; }
+}

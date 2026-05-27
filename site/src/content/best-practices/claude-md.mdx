@@ -1,0 +1,26 @@
+---
+title: Make CLAUDE.md the single source of truth
+number: 3
+blurb: Product, voice, architecture, and conventions live in one file Claude reads on every session.
+---
+
+`CLAUDE.md` is the file Claude reads automatically every time it opens your repo. If it isn't there, the model invents defaults. If it is there, the model behaves like a teammate who read the wiki.
+
+### What belongs in it
+
+Six sections cover most teams:
+
+- **Product.** What we sell, who buys, what we don't sell.
+- **Team.** Roles, who decides what.
+- **Stack.** Languages, frameworks, where to look first.
+- **Voice.** Banned words, period-end declarative, the headlines that sound like us.
+- **Agents and skills.** Pointers to the skills installed in `skills/`.
+- **What not to do.** The two or three patterns that have already burned you.
+
+### What does not belong in it
+
+Anything that changes weekly. Roadmap items, sprint goals, current OKRs — those go in `docs/product.md`. The `CLAUDE.md` file should be true in three months without edits.
+
+### Length
+
+Aim for one screen. If it's longer than 200 lines, you have a discoverability problem disguised as a documentation problem. Move the depth to `docs/` and reference it.

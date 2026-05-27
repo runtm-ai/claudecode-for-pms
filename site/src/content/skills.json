@@ -1,0 +1,254 @@
+{
+  "skills": [
+    {
+      "slug": "writing-prds",
+      "name": "writing-prds",
+      "title": "Writing PRDs",
+      "category": "writing",
+      "blurb": "Turn a one-line feature ask into a spec a junior dev can implement.",
+      "trigger": "\"write a PRD for X\", \"spec out Y\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "shipped": true
+    },
+    {
+      "slug": "writing-release-notes",
+      "name": "writing-release-notes",
+      "title": "Writing release notes",
+      "category": "writing",
+      "blurb": "Turn merged PRs into release notes a customer would actually read.",
+      "trigger": "\"release notes\", \"what shipped this week\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "shipped": true
+    },
+    {
+      "slug": "writing-stakeholder-updates",
+      "name": "writing-stakeholder-updates",
+      "title": "Writing stakeholder updates",
+      "category": "writing",
+      "blurb": "Per-audience weekly updates: eng leads, execs, customer success, cross-team.",
+      "trigger": "\"weekly update\", \"exec note\", \"Friday recap\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "shipped": true
+    },
+    {
+      "slug": "synthesizing-user-research",
+      "name": "synthesizing-user-research",
+      "title": "Synthesizing user research",
+      "category": "research",
+      "blurb": "Transcripts to themes, JTBD statements, and a recommended next step.",
+      "trigger": "\"synthesize this research\", \"pull out the themes\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "shipped": true
+    },
+    {
+      "slug": "prioritizing-features",
+      "name": "prioritizing-features",
+      "title": "Prioritizing features",
+      "category": "strategy",
+      "blurb": "Framework picker (RICE, MoSCoW, WSJF, Kano) plus a scored backlog.",
+      "trigger": "\"how should I prioritize\", \"score this backlog\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "shipped": true
+    },
+    {
+      "slug": "your-brand",
+      "name": "your-brand",
+      "title": "Your brand",
+      "category": "design",
+      "blurb": "Fill-in template for your team\u2019s color, type, voice, and surface system.",
+      "trigger": "\"generate a landing page\", \"draft a deck slide\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "shipped": true
+    },
+    {
+      "slug": "competitive-research",
+      "name": "competitive-research",
+      "title": "Competitive research",
+      "category": "research",
+      "blurb": "Structured comparison: feature parity, pricing, positioning, switching cost.",
+      "trigger": "\"compare us to X\", \"competitive landscape\"",
+      "source": "anthropics/knowledge-work-plugins",
+      "shipped": false
+    },
+    {
+      "slug": "writing-okrs",
+      "name": "writing-okrs",
+      "title": "Writing OKRs",
+      "category": "strategy",
+      "blurb": "Objective + 3 measurable KRs with leading-indicator check.",
+      "trigger": "\"OKRs for the quarter\", \"set objectives\"",
+      "source": "anthropics/knowledge-work-plugins",
+      "shipped": false
+    },
+    {
+      "slug": "running-experiments",
+      "name": "running-experiments",
+      "title": "Running experiments",
+      "category": "growth",
+      "blurb": "A/B brief with hypothesis, sample size, guardrail, stop conditions.",
+      "trigger": "\"A/B test brief\", \"experiment plan\"",
+      "source": "anthropics/knowledge-work-plugins",
+      "shipped": false
+    },
+    {
+      "slug": "writing-feedback",
+      "name": "writing-feedback",
+      "title": "Writing feedback",
+      "category": "writing",
+      "blurb": "Code-review or design-review comments with the why and the alternative.",
+      "trigger": "\"give feedback on this PR\", \"design review\"",
+      "source": "phuryn/pm-skills",
+      "shipped": false
+    },
+    {
+      "slug": "drafting-go-to-market",
+      "name": "drafting-go-to-market",
+      "title": "Drafting go-to-market",
+      "category": "growth",
+      "blurb": "Positioning, ICP, channels, launch sequencing in one doc.",
+      "trigger": "\"GTM plan\", \"launch plan for X\"",
+      "source": "phuryn/pm-skills",
+      "shipped": false
+    },
+    {
+      "slug": "writing-jira-tickets",
+      "name": "writing-jira-tickets",
+      "title": "Writing Jira tickets",
+      "category": "writing",
+      "blurb": "Title, context, acceptance criteria, links \u2014 the four-block ticket.",
+      "trigger": "\"write a ticket for\", \"Jira issue\"",
+      "source": "phuryn/pm-skills",
+      "shipped": false
+    },
+    {
+      "slug": "writing-press-releases",
+      "name": "writing-press-releases",
+      "title": "Writing press releases",
+      "category": "writing",
+      "blurb": "Working-backwards PR/FAQ \u2014 Amazon-style customer-first announce.",
+      "trigger": "\"PR/FAQ\", \"working backwards\", \"launch press release\"",
+      "source": "deanpeters/Product-Manager-Skills",
+      "shipped": false
+    },
+    {
+      "slug": "creating-personas",
+      "name": "creating-personas",
+      "title": "Creating personas",
+      "category": "research",
+      "blurb": "Behavioral personas tied to jobs \u2014 not demographics.",
+      "trigger": "\"personas for\", \"who is the user\"",
+      "source": "deanpeters/Product-Manager-Skills",
+      "shipped": false
+    },
+    {
+      "slug": "preparing-board-updates",
+      "name": "preparing-board-updates",
+      "title": "Preparing board updates",
+      "category": "writing",
+      "blurb": "Board-deck-style update: metrics, narrative, asks.",
+      "trigger": "\"board update\", \"investor memo\"",
+      "source": "anthropics/knowledge-work-plugins",
+      "shipped": false
+    },
+    {
+      "slug": "drafting-roadmaps",
+      "name": "drafting-roadmaps",
+      "title": "Drafting roadmaps",
+      "category": "strategy",
+      "blurb": "Now / next / later with bets and explicit non-goals per horizon.",
+      "trigger": "\"roadmap for the quarter\", \"now next later\"",
+      "source": "anthropics/knowledge-work-plugins",
+      "shipped": false
+    },
+    {
+      "slug": "writing-changelog",
+      "name": "writing-changelog",
+      "title": "Writing the changelog",
+      "category": "writing",
+      "blurb": "Internal changelog from git history \u2014 different from customer release notes.",
+      "trigger": "\"changelog entry\", \"git log to changelog\"",
+      "source": "phuryn/pm-skills",
+      "shipped": false
+    },
+    {
+      "slug": "drafting-pricing",
+      "name": "drafting-pricing",
+      "title": "Drafting pricing",
+      "category": "strategy",
+      "blurb": "Tiers, value metric, anchor logic, willingness-to-pay sanity check.",
+      "trigger": "\"pricing tiers\", \"value metric\"",
+      "source": "deanpeters/Product-Manager-Skills",
+      "shipped": false
+    },
+    {
+      "slug": "writing-onboarding-flows",
+      "name": "writing-onboarding-flows",
+      "title": "Writing onboarding flows",
+      "category": "growth",
+      "blurb": "First-run UX brief: aha moment, friction audit, drop-off hypotheses.",
+      "trigger": "\"onboarding flow\", \"first-run experience\"",
+      "source": "phuryn/pm-skills",
+      "shipped": false
+    },
+    {
+      "slug": "running-retros",
+      "name": "running-retros",
+      "title": "Running retros",
+      "category": "process",
+      "blurb": "Retro template: facts, feelings, actions \u2014 with named owners.",
+      "trigger": "\"sprint retro\", \"post-mortem\"",
+      "source": "phuryn/pm-skills",
+      "shipped": false
+    },
+    {
+      "slug": "drafting-product-strategy",
+      "name": "drafting-product-strategy",
+      "title": "Drafting product strategy",
+      "category": "strategy",
+      "blurb": "One-page strategy: diagnosis, guiding policy, coherent actions (Rumelt).",
+      "trigger": "\"product strategy\", \"strategy doc\"",
+      "source": "anthropics/knowledge-work-plugins",
+      "shipped": false
+    },
+    {
+      "slug": "writing-1on1-prep",
+      "name": "writing-1on1-prep",
+      "title": "Writing 1:1 prep",
+      "category": "process",
+      "blurb": "Surface blockers, growth topics, and feedback before the meeting.",
+      "trigger": "\"prep my 1:1\", \"agenda for one-on-one\"",
+      "source": "deanpeters/Product-Manager-Skills",
+      "shipped": false
+    },
+    {
+      "slug": "drafting-customer-emails",
+      "name": "drafting-customer-emails",
+      "title": "Drafting customer emails",
+      "category": "writing",
+      "blurb": "Outage, response, follow-up. Tone calibrated to the audience.",
+      "trigger": "\"customer email\", \"outage comms\"",
+      "source": "phuryn/pm-skills",
+      "shipped": false
+    },
+    {
+      "slug": "writing-design-briefs",
+      "name": "writing-design-briefs",
+      "title": "Writing design briefs",
+      "category": "design",
+      "blurb": "Brief for designers: jobs, constraints, references, anti-references.",
+      "trigger": "\"design brief\", \"brief for the designer\"",
+      "source": "anthropics/knowledge-work-plugins",
+      "shipped": false
+    },
+    {
+      "slug": "preparing-launch-checklist",
+      "name": "preparing-launch-checklist",
+      "title": "Preparing launch checklist",
+      "category": "process",
+      "blurb": "Pre-flight: docs, support, analytics, comms, rollback. Owners + dates.",
+      "trigger": "\"launch checklist\", \"go-live plan\"",
+      "source": "deanpeters/Product-Manager-Skills",
+      "shipped": false
+    }
+  ]
+}

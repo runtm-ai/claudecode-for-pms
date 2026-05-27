@@ -1,0 +1,24 @@
+---
+title: Wire up the right MCPs early
+number: 6
+blurb: GitHub, Linear, Notion, PostHog. The model can read real data, not your paraphrase of it.
+---
+
+Model Context Protocol (MCP) servers let Claude read real systems instead of guessing from the prompt. For a PM, four cover most of the day:
+
+- **GitHub** — read PRs, file issues, check CI state.
+- **Linear** — pull current tickets, status, owners.
+- **Notion** — pull the actual PRD or strategy doc, not a paraphrase.
+- **PostHog (or your analytics)** — pull funnel data into the conversation.
+
+### Setup
+
+`mcp.json.example` in the repo root is a template. Copy to `.mcp.json` (gitignored), set the env vars in your shell, and the servers come up when Claude Code starts.
+
+### The catch
+
+Every MCP you add costs context budget and slows session start. Add them when the cost of paraphrasing the data into chat is higher than the cost of the round-trip. For most PMs that's two or three, not ten.
+
+### The skip
+
+Don't add an MCP because the integration exists. Add it because there's a specific task you do weekly that needs that data. If you can't name the task, you don't need the MCP.

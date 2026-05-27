@@ -1,0 +1,38 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Next.js
+site/.next/
+site/out/
+site/build/
+site/dist/
+.next/
+out/
+
+# Logs
+*.log
+logs/
+
+# Misc
+.cache/
+.parcel-cache/
+.turbo/

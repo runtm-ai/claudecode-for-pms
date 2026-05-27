@@ -1,0 +1,27 @@
+---
+title: Write the PRD before the prompt
+number: 1
+blurb: A PRD answers the four things a chat prompt skips — problem, user, done, and out-of-scope.
+---
+
+A prompt is a negotiation. A PRD is a brief.
+
+When you start a feature with "build me a passwordless login", Claude has to fill in the gaps itself — and it picks reasonable defaults that turn into rework two days later. When you start with a PRD, Claude reads the answers to the questions it would have had to invent.
+
+### What goes in the PRD
+
+Four sections do most of the work:
+
+1. **Problem & goal** — one paragraph. What hurts now, and what better looks like.
+2. **User stories** — three to seven, in `As a / I want / so that` form.
+3. **Functional requirements** — numbered "The system must…" lines a junior dev could implement.
+4. **Non-goals** — explicit out-of-scope. The single most-skipped section, and the one you'll wish you'd written.
+
+### The agent's first session
+
+Open Claude Code in the repo, point it at `tasks/prd-<feature>.md`, and ask it to follow `pr_flow/create-prd.mdc`. The clarifying questions come first; the file second. Two or three rounds and you have a doc both you and the agent can implement from.
+
+### Pair this with
+
+- The `writing-prds` skill in this repo auto-loads when you say "write a PRD".
+- `pr_flow/generate-tasks.mdc` turns the PRD into a task list once it's stable.

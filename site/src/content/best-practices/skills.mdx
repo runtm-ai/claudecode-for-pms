@@ -1,0 +1,27 @@
+---
+title: Author skills, not prompts
+number: 4
+blurb: Skills auto-load by trigger phrase. Stop re-typing the same instructions in chat.
+---
+
+A prompt is a one-time ask. A skill is a teammate that shows up every time the situation calls for them.
+
+### How they load
+
+At session start, Claude reads only the `name` and `description` from every `SKILL.md` in `skills/`. The body is loaded only when the description matches what the user is doing. That means you can install fifty skills without bloating the context.
+
+### The format that works
+
+Every skill in this repo follows the same seven sections so PMs see one shape:
+
+- **Goal** — what this skill produces, and why a normal prompt can't get there.
+- **Process** — numbered. The order matters.
+- **Clarifying questions** — letter/number options so the user picks instead of writes.
+- **Output structure** — the document the skill produces.
+- **Target audience** — calibrates voice and depth.
+- **Tiny worked example** — one paragraph of what good looks like.
+- **Final instructions** — the three things to do first.
+
+### Trigger phrases
+
+The `description` field is where you write trigger phrases — the literal sentences a user is likely to say. Without them, the skill won't auto-load. Look at any of the six in this repo for examples.

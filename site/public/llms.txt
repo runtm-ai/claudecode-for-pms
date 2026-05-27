@@ -1,0 +1,27 @@
+# Claude Code for PMs
+
+Open-source templates, skills, and best practices for product managers using Claude Code.
+
+## Repo
+- Clone: git clone https://github.com/runtm-ai/claudecode-for-pms.git
+- License: MIT
+
+## Pages
+- /                  Home
+- /best-practices/   10 best-practice articles
+- /skills/           25 curated PM skills (6 shipped)
+- /templates/        Files Claude reads on session start
+- /resources/        Reading list and source repos
+- /contribute/       How to PR
+- /changelog/        Release notes
+
+## Shipped skills (in skills/)
+- writing-prds              Turn a one-line ask into a junior-dev-clear PRD
+- writing-release-notes     Merged PRs to customer-facing notes
+- writing-stakeholder-updates  Per-audience weekly updates
+- synthesizing-user-research   Transcripts to themes + JTBD + next step
+- prioritizing-features        Framework picker (RICE / MoSCoW / WSJF / Kano)
+- your-brand                Brand-as-skill template (fill in)
+
+## See also
+- /llms-full.txt for the full content dump

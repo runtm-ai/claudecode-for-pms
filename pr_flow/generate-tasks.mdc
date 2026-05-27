@@ -1,0 +1,50 @@
+---
+description: Task-list generation rule. Invoke after a PRD exists.
+globs:
+alwaysApply: false
+---
+# Rule: Generating a Task List from a PRD
+
+## Goal
+
+To guide an AI assistant in turning a PRD (in `/tasks/prd-[feature-name].md`) into a detailed, step-by-step task list a junior developer can execute one item at a time.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `/tasks/`
+- **Filename:** `tasks-prd-[feature-name].md` (matching the PRD filename it came from)
+
+## Process
+
+1. **Read the PRD:** Open the referenced PRD in full.
+2. **Generate Parent Tasks (Phase 1):** Produce 4–7 high-level parent tasks that, together, deliver the PRD. Stop and ask: **"Ready to generate sub-tasks? Respond 'go' to continue."**
+3. **Wait for confirmation:** Do not proceed until the user replies `go`.
+4. **Generate Sub-tasks (Phase 2):** Break each parent task into 2–6 ordered sub-tasks. Each sub-task is small enough to complete in one editing session.
+5. **Identify Relevant Files:** List the files the implementer will create or change, with a one-line description each.
+6. **Save** the file to `/tasks/tasks-prd-[feature-name].md` in the structure below.
+
+## Output Structure
+
+```markdown
+# Tasks: [feature name]
+
+## Relevant Files
+
+- `path/to/file.ts` — what changes here
+- `path/to/test.spec.ts` — tests for the above
+
+## Parent Tasks
+
+- [ ] 1.0 Parent task title
+  - [ ] 1.1 Sub-task
+  - [ ] 1.2 Sub-task
+- [ ] 2.0 Parent task title
+  - [ ] 2.1 Sub-task
+```
+
+## Final instructions
+
+1. Do NOT start implementing.
+2. Pause for `go` between Phase 1 and Phase 2.
+3. Each sub-task should be small enough that processing it via `process-task-list.mdc` won't sprawl into multiple files unexpectedly.
