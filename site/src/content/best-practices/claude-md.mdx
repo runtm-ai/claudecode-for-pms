@@ -4,23 +4,51 @@ number: 3
 blurb: Product, voice, architecture, and conventions live in one file Claude reads on every session.
 ---
 
-`CLAUDE.md` is the file Claude reads automatically every time it opens your repo. If it isn't there, the model invents defaults. If it is there, the model behaves like a teammate who read the wiki.
+`CLAUDE.md` is the file Claude Code reads on every session start. It's where your project's rules, voice, architecture decisions, and agent strategy live. If you find yourself re-explaining the same constraints in every chat, the constraints belong here.
 
-### What belongs in it
+Aakash Gupta's framing: *"This is where you place rules, behaviours, architecture and agent strategy."* Anthropic's official guidance is just as direct: it shares the context window with everything else, so **be concise**. Every token costs.
 
-Six sections cover most teams:
+### How to do it
 
-- **Product.** What we sell, who buys, what we don't sell.
-- **Team.** Roles, who decides what.
-- **Stack.** Languages, frameworks, where to look first.
-- **Voice.** Banned words, period-end declarative, the headlines that sound like us.
-- **Agents and skills.** Pointers to the skills installed in `skills/`.
-- **What not to do.** The two or three patterns that have already burned you.
+<Step n={1}>
+Copy `CLAUDE.md` from this repo into the root of your project.
+</Step>
+
+<Step n={2}>
+Fill in: product, team, stack, voice, agents, and what Claude should never do.
+</Step>
+
+<Step n={3}>
+Keep it under 500 lines. If a section grows past that, split it into a file in `docs/` and reference it from CLAUDE.md.
+</Step>
+
+<Step n={4}>
+Re-read it monthly. Cut what's stale.
+</Step>
+
+### What goes in it
+
+- **Product** — what we sell, who buys, what we don't sell.
+- **Team** — roles, who decides what; tag-mention conventions.
+- **Stack** — what's installed, what's banned (e.g. *"do not introduce a new state-management library"*).
+- **Voice** — how we write (tone, banned words, sentence patterns).
+- **Agents and skills** — pointers to the skills installed in `skills/`.
+- **Architecture decisions** — short rationale for each big choice.
+- **What Claude should never do** — destructive commands, schema changes, customer-facing copy without review.
 
 ### What does not belong in it
 
 Anything that changes weekly. Roadmap items, sprint goals, current OKRs — those go in `docs/product.md`. The `CLAUDE.md` file should be true in three months without edits.
 
-### Length
+<AntiPatterns>
+- A `CLAUDE.md` over 1,000 lines. It's a system prompt budget, not a wiki.
+- Restating things Claude already knows ("React is a JavaScript library…"). Anthropic's docs are explicit about this.
+- No "what not to do" section. You will regret this on day 14.
+- Pasting a brain dump and never re-reading. Treat it like an onboarding doc.
+</AntiPatterns>
 
-Aim for one screen. If it's longer than 200 lines, you have a discoverability problem disguised as a documentation problem. Move the depth to `docs/` and reference it.
+### Sources
+
+- [Aakash Gupta — Albuquerque podcast](https://www.aakashg.com/albuquerque-podcast/)
+- [Aman Khan — every PM should be building skills](https://amankhan1.substack.com/p/every-pm-should-be-building-skills)
+- [Anthropic — Skill best practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)

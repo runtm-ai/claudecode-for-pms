@@ -4,7 +4,7 @@ number: 9
 blurb: Programmatic video lets one PM ship variant ads in an afternoon instead of a sprint.
 ---
 
-Remotion renders React components to video. For a PM that means you can describe an ad variant in code, render twelve versions of it overnight, and ship them to creative testing without going through a design queue.
+Most PMs skip producing video/animation artifacts because the tooling is too heavy. [Remotion](https://www.remotion.dev) lets Claude generate animations in React code — meaning a PM can ask Claude to produce a 15-second product walkthrough GIF for the next all-hands without opening After Effects.
 
 ### When this pays off
 
@@ -12,10 +12,43 @@ Remotion renders React components to video. For a PM that means you can describe
 - A product launch that needs the same announce in fifteen-second, thirty-second, and sixty-second cuts.
 - An onboarding video that has to be re-rendered every time the UI changes.
 
-### The PM job
+### How to do it
 
-You're not writing the Remotion code, mostly. You're writing the brief and the variant matrix. The brief lives next to the rest of your PRDs. The variant matrix is a CSV the renderer reads.
+<Step n={1}>
+Install Remotion in your project: `npx create-video@latest`.
+</Step>
+
+<Step n={2}>
+Add a brand skill (see [practice 05](/best-practices/design-md)) so animations match your product.
+</Step>
+
+<Step n={3}>
+Ask Claude: *"Build a 15-second Remotion composition that demos [feature]. Use our brand colors. Export as a GIF."*
+</Step>
+
+### Other prebuilt packages worth knowing
+
+| Package | Use it for |
+|---|---|
+| **[Remotion](https://www.remotion.dev)** | Animations from React code |
+| **[react-pdf](https://react-pdf.org)** | Generate PDFs (release notes, one-pagers) programmatically |
+| **[SheetJS / xlsx](https://sheetjs.com)** | Spreadsheet generation for ops handoffs |
+| **[shadcn/ui](https://ui.shadcn.com)** | Copy-paste components when you don't want a design-system fight |
+| **[Recharts](https://recharts.org)** | Quick data viz without a charting library learning curve |
+
+The principle: **don't build a thing if a package already does it.** Claude is much better at gluing well-known packages together than at writing novel implementations.
 
 ### What this is not
 
-It's not "AI video generation". The output is deterministic: same code, same render. The variation comes from data you supply, not from a model improvising. That's what makes it usable for paid media — you can audit every frame.
+It's not "AI video generation." The output is deterministic: same code, same render. The variation comes from data you supply, not from a model improvising. That's what makes it usable for paid media — you can audit every frame.
+
+<AntiPatterns>
+- Building a custom animation framework when Remotion exists.
+- Asking Claude to "generate a video" without specifying the package.
+- Generating a PDF with manual layout calculations when react-pdf handles it.
+- Ignoring prebuilt packages because "we want to own the implementation." You don't.
+</AntiPatterns>
+
+### Sources
+
+- [Remotion docs — the fundamentals](https://www.remotion.dev/docs/the-fundamentals)

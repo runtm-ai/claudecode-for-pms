@@ -4,20 +4,51 @@ number: 5
 blurb: Tokens at the source level so contributors can't reach default indigo by accident.
 ---
 
-Without a brand spec, Claude defaults to Tailwind indigo, mesh gradients, and headlines that read like a Series B announcement.
+Without a brand spec in the repo, every artifact Claude generates will look like ChatGPT made it. Mesh gradients, default Tailwind blues, soft shadows where you wanted hard ones. With a brand spec in the repo — encoded as a skill — every artifact comes out looking like the same studio shipped it.
 
-### What it contains
+Owen Williams (Design Manager at Stripe, on Claire Vo's *How I AI*) calls the alternative *"the Tailwind Indigo blur slop."* Designers and PMs at Stripe were generating prototypes that looked nothing like the actual product, until they wired the company's design system into Claude as an MCP + a bundle of rules.
 
-A `DESIGN.md` at the repo root, plus a longer `skills/your-brand/SKILL.md` for the depth.
+**The lesson generalizes:** give the agent your design system, or accept that everything will look like the agent's default.
 
-The top-level file is the at-a-glance reference: color tokens, type scale, voice rules, logo do's and don'ts. One page, scannable. The skill file is the full system — surface treatments, banned words, pre-ship checklist.
+### How to do it
 
-### Why both
+<Step n={1}>
+Start with the [Notion Brand Design Template](https://www.notion.so/Brand-Design-Template-29af2126a3a28019ba24fcd5fa6b6fc2) — fill in your colors, fonts, voice rules.
+</Step>
 
-The skill is what auto-loads when Claude is generating a UI component or a release note. The `DESIGN.md` is what a human contributor reads first when they open the repo. Same content shape, different consumption pattern.
+<Step n={2}>
+Convert it to a `SKILL.md` in `<repo>/skills/<your-brand>/SKILL.md`. The skill format is the same as any other skill — name, description with trigger terms, body.
+</Step>
 
-### The non-negotiables
+<Step n={3}>
+Reference your `DESIGN.md` (or the brand skill) from `CLAUDE.md` so every session loads it automatically.
+</Step>
 
-- **No improvised hex codes.** If the palette doesn't fit, ask before adding.
-- **Voice is fixed.** Visual specs accommodate new surfaces; voice carries across all of them.
-- **Pre-ship checklist runs every time.** Six bullets, two minutes, catches 80% of the off-brand output.
+<Step n={4}>
+Add a "what not to do" section. This is where the brand spec earns its keep.
+</Step>
+
+### What goes in it
+
+- **Color tokens** — hex values, not "purple."
+- **Type scale** — sizes, weights, line-heights. Specific.
+- **Logo rules** — when to use which variant, clear space, what not to do.
+- **Voice** — sentence patterns, banned words.
+- **Cards / surfaces** — shadow signatures, border radii.
+- **Iconography** — priority order of icon sources.
+- **What not to do** — the most important section.
+
+### Why both a DESIGN.md and a skill
+
+The skill is what auto-loads when Claude is generating a UI component or a release note. The `DESIGN.md` is what a human contributor reads first when they open the repo. Same content, different consumption pattern.
+
+<AntiPatterns>
+- A DESIGN.md that's just a Figma link. Claude can't open Figma. Put the rules in markdown.
+- One color in the file when you actually use four.
+- No "what not to do" section.
+- A brand spec without trigger phrases in the description — it won't auto-load.
+</AntiPatterns>
+
+### Sources
+
+- [Owen Williams (Stripe) on How I AI](https://youtu.be/hQFEAZK__q0)
