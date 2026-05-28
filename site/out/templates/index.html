@@ -1,0 +1,1090 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/logos/runtime-wordmark.png"/><link rel="stylesheet" href="/_next/static/css/6d9cff5816cb3bda.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-9edee2920554d0a5.js"/><script src="/_next/static/chunks/4bd1b696-cd5e5c42aba4bae3.js" async=""></script><script src="/_next/static/chunks/517-c5abde73499db2f8.js" async=""></script><script src="/_next/static/chunks/main-app-3214c6564dfcf4a7.js" async=""></script><script src="/_next/static/chunks/173-cd9cc5704c225cf9.js" async=""></script><script src="/_next/static/chunks/439-24d781ac7b95afe8.js" async=""></script><script src="/_next/static/chunks/app/layout-af4cadc2a563ab05.js" async=""></script><script src="/_next/static/chunks/app/page-de4ad0099b07db8f.js" async=""></script><script src="/_next/static/chunks/app/templates/page-49c76e361384115c.js" async=""></script><title>Templates — Claude Code for PMs</title><meta name="description" content="The CLAUDE.md, DESIGN.md, pr_flow rules, and skill files in the cloneable repo. Copy any of them into your project."/><link rel="canonical" href="https://claudecodeforpms.com/"/><meta property="og:title" content="Claude Code for PMs"/><meta property="og:description" content="Open-source templates, skills, and best practices for product managers using Claude Code."/><meta property="og:url" content="https://claudecodeforpms.com/"/><meta property="og:site_name" content="Claude Code for PMs"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Claude Code for PMs"/><meta name="twitter:description" content="Open-source templates, skills, and best practices for product managers using Claude Code."/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="min-h-screen flex flex-col"><header class="sticky top-0 z-40 backdrop-blur transition-all bg-white/60 border-b border-transparent"><div class="max-w-6xl mx-auto px-4 sm:px-5 h-16 flex items-center justify-between gap-3"><a href="https://runtm.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 group " aria-label="Built and maintained by Runtime"><span class="text-[10px] sm:text-xs font-medium uppercase tracking-eyebrow text-text-soft group-hover:text-text-muted leading-tight">Built &amp; maintained by</span><img alt="Runtime" width="160" height="40" decoding="async" data-nimg="1" class="h-8 sm:h-9 w-auto" style="color:transparent" src="/logos/runtime-wordmark.png"/></a><nav class="hidden lg:flex items-center gap-6"><a class="text-sm text-text-muted hover:text-text" href="/best-practices/">Best practices</a><a class="text-sm text-text-muted hover:text-text" href="/skills/">Skills</a><a class="text-sm text-text-muted hover:text-text" href="/templates/">Templates</a><a class="text-sm text-text-muted hover:text-text" href="/resources/">Resources</a><a class="text-sm text-text-muted hover:text-text" href="/changelog/">Changelog</a><a href="https://github.com/runtm-ai/claudecode-for-pms" class="btn-primary text-sm py-2 min-h-0">Get the repo</a></nav><button aria-label="Open menu" aria-expanded="false" class="lg:hidden p-2 border-2 border-text rounded-md min-w-[44px] min-h-[44px] flex flex-col items-center justify-center gap-1"><span class="block w-5 h-0.5 bg-text"></span><span class="block w-5 h-0.5 bg-text"></span><span class="block w-5 h-0.5 bg-text"></span></button></div></header><main class="flex-1"><section class="brand-mesh"><div class="max-w-6xl mx-auto px-5 pt-14 pb-12 sm:pt-16 sm:pb-16"><p class="eyebrow-pill">Templates</p><h1 class="headline-xl mt-5 max-w-3xl">Every template Claude reads on session start.</h1><p class="text-base sm:text-lg text-text-muted mt-5 max-w-2xl leading-relaxed">Files in the cloneable repo. Read end-to-end, copy what helps, swap your defaults in.</p></div></section><section class="max-w-6xl mx-auto px-5 pb-10"><aside class="card-content mb-8"><h2 class="text-sm font-semibold uppercase tracking-wider text-text mb-3">Quick jump</h2><ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm"><li><a href="#CLAUDE-md" class="font-mono text-text-muted hover:text-text">CLAUDE.md</a><span class="text-text-soft"> — <!-- -->PM defaults Claude loads every session</span></li><li><a href="#DESIGN-md" class="font-mono text-text-muted hover:text-text">DESIGN.md</a><span class="text-text-soft"> — <!-- -->Brand tokens, voice, surface rules</span></li><li><a href="#pr_flow-create-prd-mdc" class="font-mono text-text-muted hover:text-text">pr_flow/create-prd.mdc</a><span class="text-text-soft"> — <!-- -->The PRD authoring rule</span></li><li><a href="#pr_flow-generate-tasks-mdc" class="font-mono text-text-muted hover:text-text">pr_flow/generate-tasks.mdc</a><span class="text-text-soft"> — <!-- -->Turn a PRD into a task list</span></li><li><a href="#pr_flow-process-task-list-mdc" class="font-mono text-text-muted hover:text-text">pr_flow/process-task-list.mdc</a><span class="text-text-soft"> — <!-- -->Work the list one sub-task at a time</span></li><li><a href="#skills-your-brand-SKILL-md" class="font-mono text-text-muted hover:text-text">skills/your-brand/SKILL.md</a><span class="text-text-soft"> — <!-- -->Your team’s brand-as-skill template</span></li><li><a href="#skills-writing-prds-SKILL-md" class="font-mono text-text-muted hover:text-text">skills/writing-prds/SKILL.md</a><span class="text-text-soft"> — <!-- -->PRD authoring skill</span></li><li><a href="#skills-writing-release-notes-SKILL-md" class="font-mono text-text-muted hover:text-text">skills/writing-release-notes/SKILL.md</a><span class="text-text-soft"> — <!-- -->Release notes skill</span></li><li><a href="#skills-writing-stakeholder-updates-SKILL-md" class="font-mono text-text-muted hover:text-text">skills/writing-stakeholder-updates/SKILL.md</a><span class="text-text-soft"> — <!-- -->Weekly update skill</span></li><li><a href="#skills-prioritizing-features-SKILL-md" class="font-mono text-text-muted hover:text-text">skills/prioritizing-features/SKILL.md</a><span class="text-text-soft"> — <!-- -->Prioritization framework picker</span></li></ul></aside><div class="space-y-8"><div id="CLAUDE-md"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">CLAUDE.md</h2><p class="text-sm text-text-soft">PM defaults Claude loads every session</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">CLAUDE.md</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/CLAUDE.md" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code># CLAUDE.md
+
+&gt; Memory file. Claude reads this on every session start. Keep it under 500 lines.
+&gt; Replace the bracketed TODOs with details about your team and product.
+
+## Product
+
+[TODO] One paragraph: what you&#x27;re building and who it&#x27;s for.
+
+Example: *We build a payments API for marketplaces with 1–50 sellers. Our buyer is the marketplace&#x27;s founding engineer. Our anti-buyer is enterprise procurement.*
+
+## Team
+
+- **PM:** [TODO — your name + handle]
+- **Eng lead:** [TODO]
+- **Design:** [TODO]
+- **Anyone else with commit access:** [TODO]
+
+## Stack
+
+- [TODO] Frontend
+- [TODO] Backend
+- [TODO] Database
+- [TODO] Hosting
+- [TODO] Auth
+- [TODO] Analytics
+
+## Voice
+
+How we write — for docs, release notes, support replies, and anything else that goes out.
+
+- Period-end declarative sentences. No questions in marketing copy.
+- Specific nouns over abstract claims. &quot;Datadog, Salesforce, Stripe&quot; beats &quot;every major tool&quot;.
+- Active verbs. &quot;Ships the fix&quot; beats &quot;facilitates resolution&quot;.
+- Trust the reader. Don&#x27;t over-explain.
+- Plain words. &quot;Tag&quot; not &quot;invoke&quot;. &quot;Run&quot; not &quot;execute&quot;.
+
+**Words we don&#x27;t use:** unlock, empower, leverage, seamless, frictionless, revolutionary, next-generation, AI-powered, ecosystem, cutting-edge, robust, scalable, enterprise-grade.
+
+## Agents and skills
+
+Skills live in `skills/`. The ones shipped with this repo:
+
+- `your-brand/` — our design system as a skill
+- `writing-prds/` — paired with `pr_flow/create-prd.mdc`
+- `writing-release-notes/` — user-facing notes from merged PRs
+- `writing-stakeholder-updates/` — weekly updates by audience
+- `synthesizing-user-research/` — interview → themes + JTBD
+- `prioritizing-features/` — framework picker + scoring
+
+When you write the same kind of artifact twice, build a skill the third time. Gerund form (`writing-foo`, `prioritizing-bar`) so Claude auto-invokes.
+
+## Workflow
+
+For any non-trivial feature:
+
+1. Drop a PRD into `tasks/prd-&lt;feature&gt;.md` using `pr_flow/create-prd.mdc`.
+2. Generate the task list with `pr_flow/generate-tasks.mdc`.
+3. Process tasks one at a time with `pr_flow/process-task-list.mdc`.
+4. Use plan mode (`Shift+Tab` in the CLI) before any file changes.
+
+## What not to do
+
+- Don&#x27;t commit `.env`, API keys, or anything in `.gitignore`&#x27;d paths.
+- Don&#x27;t paste secrets into chat. They live in the context forever.
+- Don&#x27;t skip the PRD on features the eng team will spend more than a day on.
+- Don&#x27;t approve a plan you didn&#x27;t read.
+- Don&#x27;t write a skill named `helper`, `utils`, or anything vague.
+- Don&#x27;t stay in a session past the point Claude has lost the plot — open a new chat.
+- **Don&#x27;t force-push or reset shared branches.** Never run `git reset --hard`, `git push --force`, or `git rebase -i` against `main` or any branch others use without explicit written approval. Even retroactively &quot;fixing&quot; commit history rewrites what others have cloned and causes merge conflicts.
+
+## References
+
+Long-form context Claude can pull in when relevant:
+
+- `docs/product.md` — what we&#x27;re building, in depth
+- `docs/architecture.md` — stack, dependencies, decisions
+- `docs/voice.md` — voice rules with examples
+- `DESIGN.md` — brand spec (colors, type, components)
+- `pr_flow/*.mdc` — the PRD → tasks → execute rules
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="DESIGN-md"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">DESIGN.md</h2><p class="text-sm text-text-soft">Brand tokens, voice, surface rules</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">DESIGN.md</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/DESIGN.md" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code># DESIGN.md
+
+&gt; Brand spec template. Fill in your brand values and Claude reads them every session.
+&gt; Reference this file from `CLAUDE.md` so the design system is always in context.
+&gt;
+&gt; For the deeper version (used by Claude when generating artifacts), see `skills/your-brand/SKILL.md`.
+
+## At a glance
+
+| Element | Spec |
+|---|---|
+| Primary color | [TODO `#xxxxxx`] |
+| Logo | [TODO file path + dark/light variants] |
+| Headline type | [TODO size/weight/letter-spacing/color] |
+| Body type | [TODO size/line-height/color] |
+| Voice | [TODO one sentence — e.g. &quot;Short, declarative, period-ending. One idea per sentence.&quot;] |
+
+## Colors
+
+- `primary` `[TODO]` — brand color, used sparingly
+- `text` `[TODO]` — body and headlines
+- `textMuted` `[TODO]` — supporting copy
+- `border` `[TODO]` — card borders, dividers
+- `bg` `[TODO]` — default background
+
+Status colors (use only for meaning, not branding):
+
+- `success` `[TODO]`
+- `info` `[TODO]`
+- `warning` `[TODO]`
+- `error` `[TODO]`
+
+## Typography
+
+System stacks recommended (no webfont latency, consistent everywhere):
+
+- Sans: `-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, sans-serif`
+- Mono: `&quot;SF Mono&quot;, &quot;JetBrains Mono&quot;, Menlo, monospace`
+
+Type scale:
+
+| Role | Size | Weight | Color |
+|---|---|---|---|
+| Hero headline | [TODO] | [TODO] | text |
+| Page H1 | [TODO] | [TODO] | text |
+| Section H2 | [TODO] | [TODO] | text |
+| Body | [TODO] | [TODO] | textMuted |
+| Code | [TODO] | [TODO] | text (mono) |
+
+## Voice
+
+[TODO three paragraphs on how your brand sounds. Include 3–5 example sentences in your voice and 3–5 words you never use.]
+
+### Words we don&#x27;t use
+
+[TODO list]
+
+## Logo
+
+- Where to find it: [TODO file path]
+- When to invert: [TODO]
+- Minimum clear space: [TODO]
+- What never to do: [TODO]
+
+## Cards &amp; surfaces
+
+[TODO describe how cards look — border, radius, shadow, padding]
+
+## Checklist before shipping anything branded
+
+- [ ] Color is from the palette above (no improvised hex codes)
+- [ ] Headline reads like one of our example sentences
+- [ ] No words from the &quot;don&#x27;t use&quot; list
+- [ ] Logo respects clear space and color rules
+- [ ] If it lives next to other brand artifacts, they look like siblings
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="pr_flow-create-prd-mdc"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">pr_flow/create-prd.mdc</h2><p class="text-sm text-text-soft">The PRD authoring rule</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">pr_flow/create-prd.mdc</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/pr_flow/create-prd.mdc" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+description: PRD authoring rule. Invoke when the user wants a new feature spec.
+globs:
+alwaysApply: false
+---
+# Rule: Generating a Product Requirements Document (PRD)
+
+## Goal
+
+To guide an AI assistant in creating a detailed Product Requirements Document (PRD) in Markdown format, based on an initial user prompt. The PRD should be clear, actionable, and suitable for a junior developer to understand and implement the feature.
+
+## Process
+
+1. **Receive Initial Prompt:** The user provides a brief description or request for a new feature or functionality.
+2. **Ask Clarifying Questions:** Before writing the PRD, the AI *must* ask clarifying questions to gather sufficient detail. The goal is to understand the &quot;what&quot; and &quot;why&quot; of the feature, not necessarily the &quot;how&quot; (which the developer will figure out). Make sure to provide options in letter/number lists so the user can respond easily with selections.
+3. **Generate PRD:** Based on the initial prompt and the user&#x27;s answers, generate a PRD using the structure outlined below.
+4. **Save PRD:** Save the generated document as `prd-[feature-name].md` inside the `/tasks` directory.
+
+## Clarifying Questions (Examples)
+
+Adapt the questions based on the prompt, but cover these areas:
+
+- **Problem/Goal:** &quot;What problem does this feature solve for the user?&quot; or &quot;What is the main goal we want to achieve?&quot;
+- **Target User:** &quot;Who is the primary user of this feature?&quot;
+- **Core Functionality:** &quot;Can you describe the key actions a user should be able to perform?&quot;
+- **User Stories:** &quot;Could you provide a few user stories? (As a [type of user], I want to [perform an action] so that [benefit].)&quot;
+- **Acceptance Criteria:** &quot;How will we know when this feature is successfully implemented?&quot;
+- **Scope/Boundaries:** &quot;Are there any specific things this feature *should not* do (non-goals)?&quot;
+- **Data Requirements:** &quot;What kind of data does this feature need to display or manipulate?&quot;
+- **Design/UI:** &quot;Are there existing design mockups or UI guidelines to follow?&quot;
+- **Edge Cases:** &quot;Are there any potential edge cases or error conditions to consider?&quot;
+
+## PRD Structure
+
+1. **Introduction/Overview:** Briefly describe the feature and the problem it solves. State the goal.
+2. **Goals:** List the specific, measurable objectives for this feature.
+3. **User Stories:** Detail the user narratives describing feature usage and benefits.
+4. **Functional Requirements:** List the specific functionalities the feature must have. Number them. Use clear, concise language.
+5. **Non-Goals (Out of Scope):** Clearly state what this feature will *not* include to manage scope.
+6. **Design Considerations (Optional):** Link to mockups, describe UI/UX requirements, or mention relevant components/styles.
+7. **Technical Considerations (Optional):** Mention known technical constraints, dependencies, or suggestions.
+8. **Success Metrics:** How will the success of this feature be measured?
+9. **Open Questions:** List any remaining questions or areas needing further clarification.
+
+## Target Audience
+
+Assume the primary reader of the PRD is a **junior developer**. Requirements must be explicit, unambiguous, and avoid jargon where possible. Provide enough detail for them to understand the feature&#x27;s purpose and core logic.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `/tasks/`
+- **Filename:** `prd-[feature-name].md`
+
+## Final instructions
+
+1. Do NOT start implementing the PRD.
+2. Make sure to ask the user clarifying questions.
+3. Take the user&#x27;s answers and improve the PRD before saving.
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="pr_flow-generate-tasks-mdc"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">pr_flow/generate-tasks.mdc</h2><p class="text-sm text-text-soft">Turn a PRD into a task list</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">pr_flow/generate-tasks.mdc</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/pr_flow/generate-tasks.mdc" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+description: Task-list generation rule. Invoke after a PRD exists.
+globs:
+alwaysApply: false
+---
+# Rule: Generating a Task List from a PRD
+
+## Goal
+
+To guide an AI assistant in turning a PRD (in `/tasks/prd-[feature-name].md`) into a detailed, step-by-step task list a junior developer can execute one item at a time.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `/tasks/`
+- **Filename:** `tasks-prd-[feature-name].md` (matching the PRD filename it came from)
+
+## Process
+
+1. **Read the PRD:** Open the referenced PRD in full.
+2. **Generate Parent Tasks (Phase 1):** Produce 4–7 high-level parent tasks that, together, deliver the PRD. Stop and ask: **&quot;Ready to generate sub-tasks? Respond &#x27;go&#x27; to continue.&quot;**
+3. **Wait for confirmation:** Do not proceed until the user replies `go`.
+4. **Generate Sub-tasks (Phase 2):** Break each parent task into 2–6 ordered sub-tasks. Each sub-task is small enough to complete in one editing session.
+5. **Identify Relevant Files:** List the files the implementer will create or change, with a one-line description each.
+6. **Save** the file to `/tasks/tasks-prd-[feature-name].md` in the structure below.
+
+## Output Structure
+
+```markdown
+# Tasks: [feature name]
+
+## Relevant Files
+
+- `path/to/file.ts` — what changes here
+- `path/to/test.spec.ts` — tests for the above
+
+## Parent Tasks
+
+- [ ] 1.0 Parent task title
+  - [ ] 1.1 Sub-task
+  - [ ] 1.2 Sub-task
+- [ ] 2.0 Parent task title
+  - [ ] 2.1 Sub-task
+```
+
+## Final instructions
+
+1. Do NOT start implementing.
+2. Pause for `go` between Phase 1 and Phase 2.
+3. Each sub-task should be small enough that processing it via `process-task-list.mdc` won&#x27;t sprawl into multiple files unexpectedly.
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="pr_flow-process-task-list-mdc"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">pr_flow/process-task-list.mdc</h2><p class="text-sm text-text-soft">Work the list one sub-task at a time</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">pr_flow/process-task-list.mdc</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/pr_flow/process-task-list.mdc" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+description: Task execution rule. Process one sub-task at a time.
+globs:
+alwaysApply: false
+---
+# Rule: Processing a Task List
+
+## Goal
+
+To guide an AI assistant through executing a task list (`/tasks/tasks-prd-[feature-name].md`) **one sub-task at a time**, with user approval between each.
+
+## Process
+
+1. **Find the next unchecked sub-task** (top-down, left-to-right).
+2. **Implement only that sub-task.** No scope creep. No &quot;while I&#x27;m here&quot;.
+3. **Mark it complete:** change `[ ]` to `[x]` in the task list file.
+4. **Stop and report:**
+   - What you changed (file paths, one line each).
+   - What you tested (or what you couldn&#x27;t test).
+   - What&#x27;s next.
+5. **Wait for the user to say `next`** (or equivalent) before starting the next sub-task.
+
+## When a parent task&#x27;s sub-tasks are all `[x]`
+
+- Mark the parent `[x]`.
+- Run any tests or linters relevant to the parent task.
+- Summarize what the parent delivered.
+- Pause for the user to review before moving on.
+
+## What not to do
+
+- Do NOT batch multiple sub-tasks in one response.
+- Do NOT proceed without explicit `next`.
+- Do NOT modify files outside the &quot;Relevant Files&quot; list without flagging it first.
+- Do NOT skip the test/lint step on parent-task completion.
+
+## When you get stuck
+
+If a sub-task can&#x27;t be completed as written:
+
+1. Stop. Don&#x27;t improvise.
+2. Tell the user: *&quot;Sub-task X.Y is blocked by Z. Options: (a) skip and move to X.Y+1, (b) revise the task, (c) revise the PRD.&quot;*
+3. Wait for direction.
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="skills-your-brand-SKILL-md"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">skills/your-brand/SKILL.md</h2><p class="text-sm text-text-soft">Your team’s brand-as-skill template</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">skills/your-brand/SKILL.md</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/your-brand/SKILL.md" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+name: your-brand
+description: |
+  Your team&#x27;s brand system — colors, typography, voice, logo rules, and the
+  surface treatments that make every artifact look like the same studio shipped
+  it. Use whenever generating UI, landing pages, ads, decks, emails, animations,
+  release notes, or any artifact that will be seen by a customer or stakeholder.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+---
+
+# Rule: &lt;Your brand&gt; visual + voice system
+
+&gt; This file is a **template**. Fill in every `[TODO]`. Delete this notice when done.
+&gt; Reference this skill from `CLAUDE.md` so Claude loads it on every session.
+
+## Goal
+
+To give Claude one source of truth for how your brand looks and sounds, so every artifact it produces — a release note, a landing page, a slide, a tweet — comes out looking like the same studio shipped it. Without this skill, Claude defaults to mesh gradients and Tailwind indigo. With it, your design system wins.
+
+## At a glance
+
+| Element | Spec |
+|---|---|
+| Primary color | `[TODO #xxxxxx]` |
+| Secondary / accent | `[TODO]` |
+| Logo | `[TODO file path]` — `[TODO when to invert]` |
+| Headline type | `[TODO size / weight / letter-spacing / color]` |
+| Body type | `[TODO size / line-height / color]` |
+| Voice | `[TODO one sentence — e.g. &quot;Short, declarative, period-ending.&quot;]` |
+
+## Color system
+
+### Primary
+- `primary` `[TODO]` — the brand color. Use sparingly.
+- `primarySoft` `[TODO]` — tinted backgrounds, focus rings.
+
+### Neutrals
+- `text` `[TODO]` — body, headlines.
+- `textMuted` `[TODO]` — supporting copy.
+- `textSoft` `[TODO]` — captions, metadata.
+- `border` `[TODO]` — dividers, card borders.
+
+### Status (use only for meaning, not branding)
+- `success` `[TODO]` · `info` `[TODO]` · `warning` `[TODO]` · `error` `[TODO]`
+
+### Rules
+- Don&#x27;t introduce a new shade of the primary. If the existing tone doesn&#x27;t work, change the surface around it.
+- Don&#x27;t use status colors for branding.
+- Don&#x27;t use true black. Use `text` (a near-black like `#18181b`).
+
+## Typography
+
+System stacks unless you have a tested webfont reason otherwise.
+
+- Sans: `-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, sans-serif`
+- Mono: `&quot;SF Mono&quot;, &quot;JetBrains Mono&quot;, Menlo, monospace`
+
+### Type scale
+
+| Role | Size | Weight | Letter-spacing | Line-height | Color |
+|---|---|---|---|---|---|
+| Hero headline | `[TODO]` | `[TODO]` | `[TODO]` | `[TODO]` | text |
+| Page H1 | `[TODO]` | `[TODO]` | normal | `[TODO]` | text |
+| Section H2 | `[TODO]` | `[TODO]` | normal | `[TODO]` | text |
+| Body | `[TODO]` | `[TODO]` | normal | `[TODO]` | textMuted |
+| Eyebrow | `[TODO]` ALL CAPS | `[TODO]` | `[TODO]` | 1 | primary |
+| Code | `[TODO]` | `[TODO]` | normal | inherit | text (mono) |
+
+### Mono use
+Only for: code blocks, terminal output, IDs, URLs, agent handles, file paths.
+
+## Logo
+
+- Source asset: `[TODO file path]`
+- On dark surfaces: `[TODO invert / use alt asset / never on dark]`
+- Minimum clear space: `[TODO]`
+- What never to do: `[TODO — e.g. recolor, stretch, combine with wordmark]`
+
+## Voice
+
+### In one sentence
+`[TODO — e.g. &quot;Plainspoken and concrete. Like an engineer confident in what they built, not a marketer trying to convince you.&quot;]`
+
+### Principles
+- **Specific nouns** over abstract claims. List the three things, not &quot;every feature&quot;.
+- **Active verbs.** &quot;Ships&quot; beats &quot;facilitates&quot;.
+- **Period-end declarative sentences.** No questions in marketing.
+- **Plain words.** Choose the word a colleague would use in a demo.
+
+### Real example headlines (your voice)
+`[TODO — paste 5 real headlines from shipped work. These are the reference.]`
+
+### Words to avoid
+| Don&#x27;t say | Say instead |
+|---|---|
+| Unlock, empower, leverage | Use, give, let |
+| Seamless, frictionless | (describe what happens) |
+| Revolutionary, next-generation | (cut) |
+| Ecosystem, platform, solution | The actual product noun |
+| Robust, scalable, enterprise-grade | (specific capability) |
+
+## Cards &amp; surfaces
+
+`[TODO — describe how your cards look: border, radius, shadow, padding. Include one block of CSS or a tiny tsx snippet.]`
+
+## Iconography
+
+`[TODO — emoji policy, SVG line weight, when to use the brand logo as an icon.]`
+
+## Process
+
+1. Receive the request (a piece of UI, a release note, a deck slide, etc.).
+2. Ask which surface this lives on (`marketing site`, `in-app`, `email`, `social`, `internal doc`).
+3. Apply the rules above. When in doubt, fewer colors, smaller shadows, plainer copy.
+4. Before delivering, run the checklist below.
+
+## Checklist before shipping
+
+- [ ] Color is from the palette above (no improvised hex codes).
+- [ ] Headline reads like one of the example headlines.
+- [ ] Body uses no banned words.
+- [ ] Logo respects clear space and color rules.
+- [ ] Mono font only for code, IDs, URLs.
+- [ ] If it lives next to other brand artifacts, they look like siblings.
+
+## Final instructions
+
+1. Never improvise on color, type, or voice. If a request can&#x27;t fit the spec, ask the user before extending.
+2. The voice section is non-negotiable. The visual spec accommodates new surfaces; the voice carries across all of them.
+3. When the user pushes back on output, note the rule that was missing. Add it to this skill the same day.
+
+## Attribution
+
+Inspired by Runtime&#x27;s brand skill ([source](https://github.com/runtm-ai/claudecode-for-pms)) and the Notion [Brand Design Template](https://www.notion.so/Brand-Design-Template-29af2126a3a28019ba24fcd5fa6b6fc2). Approach to design-system-as-skill from Owen Williams (Stripe) on *How I AI*.
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="skills-writing-prds-SKILL-md"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">skills/writing-prds/SKILL.md</h2><p class="text-sm text-text-soft">PRD authoring skill</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">skills/writing-prds/SKILL.md</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-prds/SKILL.md" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+name: writing-prds
+description: |
+  Authoring a Product Requirements Document — the spec a junior dev can build
+  from. Use when the user says &quot;write a PRD&quot;, &quot;spec out a feature&quot;, &quot;what are
+  the requirements for X&quot;, &quot;draft a feature brief&quot;, or mentions a feature they
+  want to scope. Pairs with `pr_flow/create-prd.mdc` for the full workflow.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+---
+
+# Rule: Writing a PRD
+
+## Goal
+
+Turn a one-line feature ask into a Product Requirements Document a junior developer can implement without having to come back with twenty questions. A PRD answers four things a prompt usually doesn&#x27;t: **what problem we&#x27;re solving, who it&#x27;s for, what &quot;done&quot; looks like, and what&#x27;s out of scope.** Hand Claude a prompt without those and it picks its own answers — the prompt becomes a negotiation. A PRD makes it a brief.
+
+## Process
+
+1. **Receive the feature request.** One sentence is fine.
+2. **Ask clarifying questions** (see below) — letter/number options so the user replies with selections, not paragraphs. Never skip this step, even if the request seems clear.
+3. **Draft the PRD** using the structure below.
+4. **Show it to the user, ask for corrections, refine.**
+5. **Save** as `tasks/prd-&lt;feature-name&gt;.md`.
+
+## Clarifying Questions
+
+Pick from these categories. Ask 4–7 questions, not all of them. Format each as a numbered or lettered list so the user can reply &quot;1, B, 2, A&quot;.
+
+**Problem &amp; Goal**
+- What problem does this solve?
+- Why now? What changes if we don&#x27;t ship this?
+- A. New behavior. B. Speeds up an existing behavior. C. Fixes a broken behavior.
+
+**Users**
+- Who&#x27;s the primary user? Pick one: A. New visitor. B. Existing customer. C. Internal team. D. Partner / API consumer.
+- Roughly how many of them, and how often will they hit this?
+
+**Core functionality**
+- What&#x27;s the smallest version that delivers the value? List the top 3 actions in order of importance.
+
+**Acceptance criteria**
+- How will we know it&#x27;s working? Name one metric and one observable behavior.
+
+**Scope**
+- What&#x27;s explicitly *out* of scope for this version? List 2–3 things this feature will NOT do.
+
+**Data**
+- What does the feature read, write, or transform? Is any of it sensitive?
+
+**Design**
+- Is there a mockup, a Figma link, an existing pattern to match, or do you want Claude to propose UI?
+
+**Edge cases**
+- What happens on: empty state, error state, rate-limit, offline, slow network?
+
+## PRD Structure
+
+The output is one Markdown file with these sections, in this order.
+
+1. **Introduction / Overview** — one paragraph. The feature in plain words and the problem it solves.
+2. **Goals** — numbered list. Each goal is specific and measurable.
+3. **User Stories** — `As a [user], I want to [action] so that [benefit].` Three to seven.
+4. **Functional Requirements** — numbered. Each starts with &quot;The system must…&quot;. Junior-dev-clear.
+5. **Non-Goals (Out of Scope)** — bullet list. Each line starts with &quot;We are NOT…&quot;.
+6. **Design Considerations** — links to mockups, references to existing components, brand notes.
+7. **Technical Considerations** — known constraints, dependencies, &quot;should integrate with X&quot;.
+8. **Success Metrics** — primary, guardrail, secondary. Number the threshold if you can.
+9. **Open Questions** — list what you couldn&#x27;t pin down. Don&#x27;t pretend the doc is final when it isn&#x27;t.
+
+## Target Audience
+
+Assume the reader is a **junior developer**. Requirements must be explicit and unambiguous. Avoid jargon when a plain word works. If the team has a `docs/architecture.md` or `CLAUDE.md`, reference it instead of restating it.
+
+## Tiny worked example
+
+&gt; *Feature: &quot;passwordless login&quot;*
+&gt;
+&gt; **Functional Requirements (excerpt):**
+&gt; 1. The login screen shall display an email field and a single &quot;Email me a sign-in link&quot; button.
+&gt; 2. The system shall send a one-time link valid for 15 minutes.
+&gt; 3. Clicking the link shall sign the user in and redirect them to `/dashboard`.
+&gt; 4. If the link is expired or already used, the system shall display &quot;Link expired. Request a new one.&quot; with the email pre-filled.
+&gt; 5. The system shall rate-limit magic-link requests to 3 per email per hour.
+
+Numbered, &quot;system shall&quot; form, one behavior per line. No &quot;robust authentication flow&quot;. A junior dev reads this and writes it.
+
+## Anti-patterns
+
+- A PRD without a Non-Goals section. You will regret this within a week.
+- &quot;Build a feature&quot; written in chat instead of a file Claude can re-read.
+- Acceptance criteria that are vibes (&quot;works well&quot;, &quot;feels fast&quot;). Pick a number.
+- Functional requirements written like marketing copy. Boring is correct.
+- Skipping the clarifying questions to &quot;save time&quot;. This costs time downstream.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `tasks/`
+- **Filename:** `prd-&lt;feature-name&gt;.md` (kebab-case)
+
+## Final instructions
+
+1. Do NOT start implementing the feature from the PRD. The PRD&#x27;s job is the spec.
+2. Always ask the clarifying questions before writing. If the user pushes to skip them, write the PRD with explicit `[TBD]` markers for the answers you skipped.
+3. After delivering the draft, ask one question: *&quot;What&#x27;s wrong with it?&quot;* Then revise.
+
+## Attribution
+
+Synthesized from: `anthropics/knowledge-work-plugins · feature-spec` (Apache 2.0); the create-prd.mdc rule popularized in the Cursor community and updated for Claude Code; Andre Albuquerque on Aakash Gupta&#x27;s [Product Growth podcast](https://www.aakashg.com/albuquerque-podcast/) (the 4-level Lovable→CC→Cursor→Agents framing); Cat Wu / Anthropic team on Lenny&#x27;s Newsletter; Marcus Moretti / [Every](https://every.to/source-code/claude-code-for-product-managers) on roadmap-then-PRD; Ryan Nystrom (Notion) on [chatprd.ai](https://www.chatprd.ai/how-i-ai/ryan-nystrom-notion-workflows-for-engineering-velocity) for the spec-first dev pattern.
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="skills-writing-release-notes-SKILL-md"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">skills/writing-release-notes/SKILL.md</h2><p class="text-sm text-text-soft">Release notes skill</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">skills/writing-release-notes/SKILL.md</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-release-notes/SKILL.md" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+name: writing-release-notes
+description: |
+  Drafting user-facing release notes from a list of merged PRs, a git log range,
+  or a changelog. Use when the user says &quot;release notes&quot;, &quot;what shipped this
+  week&quot;, &quot;changelog entry&quot;, &quot;write the announcement for X&quot;, or shares a PR list.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+---
+
+# Rule: Writing release notes
+
+## Goal
+
+Turn a list of merged PRs into release notes a customer would actually read. The PRs say what work happened; the release notes say what changed for the user. Most release notes fail by listing the work (&quot;Refactored billing service&quot;) instead of the change (&quot;You can now switch plans mid-cycle without losing prorated credit&quot;). Fix that.
+
+## Process
+
+1. **Receive input** — a list of merged PRs (titles + descriptions), a git log range, a draft changelog, or a Linear / Jira label.
+2. **Ask clarifying questions** to set audience, tone, and grouping.
+3. **Triage** — separate user-visible changes from internal work. Internal work goes in &quot;Under the hood&quot; or gets cut.
+4. **Draft** in the structure below.
+5. **Review with the user.** Revise. The first draft is usually too long.
+
+## Clarifying Questions
+
+Pick from these. Ask 3–4 max.
+
+**Audience** — who reads this?
+- A. End users (the people who use the product)
+- B. Customers (the people who pay)
+- C. Internal stakeholders
+- D. Cross-team eng (other teams in the company)
+
+**Tone** — match it to the audience and the product&#x27;s voice.
+- A. Plainspoken, period-ending. Like a colleague&#x27;s email.
+- B. Excited (real launches, big features). Use sparingly.
+- C. Operational (status / fixes / maintenance).
+
+**Length**
+- 1. Headline-only (one paragraph for the changelog page)
+- 2. Per-feature paragraphs (a digest email)
+- 3. Full announcement (one section per feature with detail)
+
+**Grouping**
+- A. By area / surface (Billing, Dashboard, API)
+- B. By impact (New, Improved, Fixed)
+- C. By the named release / version
+
+## Output Structure
+
+```markdown
+# &lt;Release name or date&gt;
+
+&lt;TL;DR — one sentence, three things max.&gt;
+
+## Highlights
+
+- &lt;Bullet — the change in one line, user-facing.&gt;
+- &lt;Bullet&gt;
+- &lt;Bullet&gt;
+
+## What&#x27;s new
+
+### &lt;Feature name&gt;
+&lt;One paragraph in the brand voice. Specific nouns, active verbs, what the user can now do.&gt;
+
+### &lt;Next feature&gt;
+…
+
+## Improvements
+
+- &lt;One-liner each, ordered by user impact.&gt;
+
+## Fixed
+
+- &lt;One-liner each. Be specific — &quot;Fixed crash on Safari 17 when editing project name&quot; beats &quot;Fixed a bug&quot;.&gt;
+
+## Under the hood
+
+- &lt;Internal changes the user doesn&#x27;t feel but might want to know about. Cut this section if there isn&#x27;t anything.&gt;
+
+## Known issues
+
+- &lt;Things shipping with known limitations. Be honest.&gt;
+```
+
+## Voice rules
+
+- **List the feature, not the work.** &quot;You can now switch plans mid-cycle&quot; beats &quot;Refactored the billing service&quot;.
+- **Specific nouns.** &quot;Stripe, Adyen, Braintree&quot; beats &quot;all major payment providers&quot;.
+- **Active verbs.** &quot;Adds&quot;, &quot;ships&quot;, &quot;fixes&quot; — not &quot;facilitates&quot;, &quot;enables&quot;, &quot;unlocks&quot;.
+- **No marketing buzzwords.** No &quot;unlock&quot;, &quot;empower&quot;, &quot;leverage&quot;, &quot;seamless&quot;, &quot;next-generation&quot;, &quot;AI-powered&quot;.
+- **Numbers when you have them.** &quot;30% faster&quot; beats &quot;much faster&quot;.
+- **One emoji per row max** if your brand allows them at all. None in headlines.
+- **Period-end declarative.** No question headlines. No exclamation drama.
+
+## Target Audience
+
+Whoever you picked in Q1. If end users, write like a colleague explaining a change. If customers (paying), include the &quot;why this matters for your team&quot; thread. If internal, use the team&#x27;s jargon — and skip what they already know.
+
+## Tiny worked example
+
+**PR list (input):**
+- #842 &quot;Refactor billing service to support mid-cycle plan changes&quot;
+- #847 &quot;Add prorated credit calculation&quot;
+- #851 &quot;Fix Safari 17 crash on /projects/edit&quot;
+- #855 &quot;Bump Stripe SDK to v17&quot;
+
+**Output (excerpt):**
+&gt; ### Switch plans mid-cycle without losing credit
+&gt; You can now upgrade or downgrade your plan in the middle of a billing period. Any unused time on your old plan is converted to prorated credit and applied to the new one — no support ticket needed.
+&gt;
+&gt; ## Fixed
+&gt; - Editing a project name no longer crashes Safari 17.
+
+Note what disappears: the SDK bump (irrelevant to the user) and the &quot;refactor&quot; framing (internal). What survives is the user-visible change with a specific verb.
+
+## Anti-patterns
+
+- One bullet per PR, copy-pasted from the title. PRs aren&#x27;t release notes.
+- &quot;We&#x27;re excited to announce…&quot; The reader doesn&#x27;t care that you&#x27;re excited.
+- &quot;Multiple bug fixes and improvements&quot;. Name three of them, by impact.
+- Hiding a breaking change in &quot;Under the hood&quot;. Breaking changes get their own callout at the top.
+- Release notes longer than the feature they describe. Cut by half.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `tasks/release-notes/` or wherever your team keeps them.
+- **Filename:** `&lt;YYYY-MM-DD&gt;-&lt;release-name&gt;.md`
+
+## Final instructions
+
+1. Always ask the clarifying questions first. The same PR list produces different notes for end users vs. exec audiences.
+2. Read your draft aloud. If a sentence sounds like a press release, rewrite it.
+3. Cut at least 30% on the second pass. Most first drafts are too long.
+
+## Attribution
+
+Synthesized from: `phuryn/pm-skills · release-notes` (11.6k★, MIT); voice principles from the Runtime brand skill; Aman Khan&#x27;s framing of &quot;skills encode judgment&quot; from his Substack on [Every PM should be building skills](https://amankhan1.substack.com/p/every-pm-should-be-building-skills).
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="skills-writing-stakeholder-updates-SKILL-md"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">skills/writing-stakeholder-updates/SKILL.md</h2><p class="text-sm text-text-soft">Weekly update skill</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">skills/writing-stakeholder-updates/SKILL.md</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-stakeholder-updates/SKILL.md" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+name: writing-stakeholder-updates
+description: |
+  Drafting weekly or per-meeting updates for different audiences — eng leads,
+  executives, customer success, cross-team partners. Use when the user mentions
+  &quot;weekly update&quot;, &quot;exec note&quot;, &quot;team update&quot;, &quot;Friday recap&quot;, &quot;stakeholder
+  email&quot;, &quot;status report&quot;, or asks for &quot;something to send the team&quot;.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+---
+
+# Rule: Writing stakeholder updates
+
+## Goal
+
+A good stakeholder update answers three things in the first 30 seconds: **what shipped, what&#x27;s blocked, what I need from you.** Anything else is supporting material. The mistake most PMs make is writing the same update for every audience — exec versions read like sprint reports, eng versions read like marketing. This skill picks the right shape for the audience and resists the temptation to over-explain.
+
+## Process
+
+1. **Receive input** — a sprint report, a list of PRs, the team&#x27;s Linear board, a transcript, or just &quot;draft an update&quot;.
+2. **Ask the audience and the time horizon.** Without those two, every other choice is wrong.
+3. **Pull the three threads** — shipped, in-flight, blocked. Add risks + decisions needed.
+4. **Draft** in the structure for the chosen audience.
+5. **Cut by a third.** First drafts are too long.
+
+## Clarifying Questions
+
+**Audience** — who reads this? Pick one:
+- 1. Eng leads + tech leads
+- 2. Executives (VPs, founders, C-suite)
+- 3. Customer success / support
+- 4. Cross-team partners (other PMs, design, data)
+- 5. The whole company
+
+**Time horizon**
+- A. Last week
+- B. Last 2 weeks (a sprint)
+- C. Last month
+- D. The quarter so far
+
+**Signal** — what&#x27;s the headline?
+- 1. Shipped something
+- 2. Stuck and need help
+- 3. Risk surfacing
+- 4. Decision needed
+- 5. Steady progress, no drama
+
+**Tone**
+- A. Plainspoken, period-ending (default)
+- B. Formal (board-style)
+- C. Conversational (slack-style)
+
+## Output Structure — per audience
+
+### A. Eng leads + tech leads
+
+```markdown
+**&lt;Team / project name&gt; — week of &lt;date&gt;**
+
+**Shipped**
+- &lt;One line each. Link to PRs.&gt;
+
+**In flight**
+- &lt;One line. ETA if you have one.&gt;
+
+**Blocked / risk**
+- &lt;Specific blocker. Who can unblock and by when.&gt;
+
+**Decisions needed**
+- &lt;One per line, format: &quot;Decision needed by [date]: [the question]&quot;. Tag the decider.&gt;
+
+**Heads up**
+- &lt;Anything else they should know but no action required.&gt;
+```
+
+### B. Executives
+
+```markdown
+**&lt;Team / project&gt; — &lt;period&gt;**
+
+**TL;DR.** One sentence. The thing that matters.
+
+**Metrics**
+- &lt;Primary metric&gt;: &lt;current vs. target&gt;
+- &lt;Guardrail metric&gt;: &lt;state&gt;
+
+**What moved this week**
+- &lt;2–4 bullets, each tied to a metric or a goal.&gt;
+
+**Risks**
+- &lt;One line per risk. Format: &quot;Risk + mitigation + when we&#x27;ll know if it&#x27;s working&quot;.&gt;
+
+**Asks**
+- &lt;Specific. &quot;Need &lt;name&gt; to approve &lt;thing&gt; by &lt;date&gt;&quot; — not &quot;would appreciate input&quot;.&gt;
+```
+
+### C. Customer success / support
+
+```markdown
+**What&#x27;s new for customers — &lt;date&gt;**
+
+**Shipped this week**
+- &lt;Customer-visible change in one line.&gt;
+
+**Known issues**
+- &lt;Issue + workaround + ETA.&gt;
+
+**Customer-requested items**
+- &lt;Top 3 from feedback this period. Status: shipped / in flight / not on roadmap.&gt;
+
+**FYI**
+- &lt;Things to be aware of in customer conversations.&gt;
+```
+
+### D. Cross-team partners
+
+```markdown
+**&lt;Team&gt; sync — &lt;date&gt;**
+
+**What we shipped that you might care about**
+- &lt;Things with cross-team impact. Be specific about the impact.&gt;
+
+**What we&#x27;re starting that touches your area**
+- &lt;Heads-up items. Who to talk to on our side.&gt;
+
+**What we need from you**
+- &lt;Direct asks. Person + thing + date.&gt;
+```
+
+### E. Whole company
+
+Short. Format like option B (Exec) but lighter — TL;DR + 3 bullets + asks. Slack-friendly.
+
+## Voice rules
+
+- **Period-end declarative.** No questions. No &quot;thoughts?&quot; at the end.
+- **Specific names and dates.** &quot;Need Priya&#x27;s approval by Thursday&quot; beats &quot;need input soon&quot;.
+- **Numbers over adjectives.** &quot;Down 12% this week&quot; beats &quot;down significantly&quot;.
+- **Active verbs.** &quot;Shipped&quot;, &quot;Blocked on&quot;, &quot;Decided to&quot; — not &quot;facilitated&quot;, &quot;explored&quot;.
+- **Bullets are sentences, not phrases.** Two-word bullets are a coward&#x27;s update.
+- **No buzzwords.** No &quot;alignment&quot;, &quot;synergy&quot;, &quot;leverage&quot;, &quot;seamless&quot;.
+
+## Risk communication
+
+Every risk gets three lines:
+
+1. **The risk.** &quot;If A doesn&#x27;t happen, B fails.&quot;
+2. **The mitigation.** &quot;We&#x27;re doing C to reduce the chance.&quot;
+3. **The trip-wire.** &quot;We&#x27;ll know if it&#x27;s working by [date / signal].&quot;
+
+Without all three, it&#x27;s not a risk — it&#x27;s a worry, and exec readers will treat it as one.
+
+## Target Audience
+
+You picked it in Q1. Now write *only* what that audience needs. The PM error pattern is to copy-paste sections &quot;in case it&#x27;s useful&quot;. It isn&#x27;t. Different audience = different doc.
+
+## Tiny worked example
+
+**Audience: Exec, weekly**
+
+&gt; **Checkout flow — week of Mar 24**
+&gt;
+&gt; **TL;DR.** Mobile checkout conversion ticked up 1.8 points after we shipped the simplified shipping selector. We&#x27;re prepping a similar pass on the payment screen next week.
+&gt;
+&gt; **Metrics**
+&gt; - Mobile checkout conversion: **22.4%** (up from 20.6%, target 25% by EOQ).
+&gt; - Refund rate (guardrail): 1.1%, no change.
+&gt;
+&gt; **What moved**
+&gt; - Shipped simplified shipping selector on Tuesday (cut 3 fields to 1).
+&gt; - Cleaned up 2 prod errors on Safari that were silently failing checkout.
+&gt;
+&gt; **Risks**
+&gt; - Risk: payment-screen experiment may not show signal in 1 week if traffic dips for spring break. Mitigation: extended runway 7 days. Trip-wire: 50k sessions by Apr 7.
+&gt;
+&gt; **Asks**
+&gt; - Need legal sign-off on the 3DS copy by Friday — sent the draft to Priya yesterday.
+
+## Anti-patterns
+
+- The same update sent to three audiences. Pick one, write for them, send a different shape to others.
+- &quot;Things are going well&quot; with no numbers. Pick a metric.
+- A blocked-items list without dates or decision owners.
+- Risks without trip-wires. They read as worry.
+- Updates longer than 250 words for exec audiences. Cut.
+
+## Output
+
+- **Format:** Markdown (`.md`) or paste directly into Slack / email.
+- **Location:** `tasks/updates/` if archived.
+- **Filename:** `&lt;YYYY-MM-DD&gt;-&lt;audience&gt;.md`
+
+## Final instructions
+
+1. Always confirm audience and time horizon before drafting. Don&#x27;t guess.
+2. After drafting, count the asks. If there isn&#x27;t a specific named ask, the update is a status report, not a stakeholder update.
+3. Read aloud. If you wouldn&#x27;t say it in a hallway conversation, rewrite it.
+
+## Attribution
+
+Synthesized from: `anthropics/knowledge-work-plugins · stakeholder-comms` (Apache 2.0); Ryan Nystrom (Notion EM) on async work patterns from [chatprd.ai](https://www.chatprd.ai/how-i-ai/ryan-nystrom-notion-workflows-for-engineering-velocity); Cat Wu / Anthropic team&#x27;s update cadence via Lenny&#x27;s; voice rules from the Runtime brand skill.
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div><div id="skills-prioritizing-features-SKILL-md"><div class="flex items-baseline gap-3 mb-3"><h2 class="font-mono text-lg text-text">skills/prioritizing-features/SKILL.md</h2><p class="text-sm text-text-soft">Prioritization framework picker</p></div><div class="card-content"><div class="flex items-center justify-between gap-3 mb-3"><code class="font-mono text-sm text-text">skills/prioritizing-features/SKILL.md</code><a href="https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/prioritizing-features/SKILL.md" class="text-xs text-text-soft hover:text-text underline underline-offset-2">View on GitHub</a></div><div class="my-4"><div class="relative group"><pre class="font-mono text-sm bg-bg-cream border border-border rounded-md p-4 pr-16 overflow-x-auto"><code>---
+name: prioritizing-features
+description: |
+  Picking the right prioritization framework (RICE, MoSCoW, WSJF, Kano) and
+  applying it to a backlog. Use when the user says &quot;how should I prioritize&quot;,
+  &quot;score this backlog&quot;, &quot;which framework&quot;, &quot;what should we cut&quot;, &quot;roadmap
+  prioritization&quot;, or &quot;RICE / MoSCoW / WSJF / Kano&quot;.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+---
+
+# Rule: Prioritizing features
+
+## Goal
+
+Most prioritization fails one of two ways: someone picks RICE because it&#x27;s the framework they know, then spends an afternoon multiplying made-up numbers — or no framework is used and the loudest stakeholder wins. The job of this skill is to **pick the framework that fits the question being asked**, score honestly (showing the math), and recommend what to cut. The output is a defensible ordering, not a precise number.
+
+## Process
+
+1. **Receive input** — a backlog (any format), a strategic ask (&quot;what do we ship next quarter?&quot;), or a &quot;help me decide between A and B&quot;.
+2. **Ask the clarifying questions** below. The stage of work determines the framework.
+3. **Recommend a framework first**, with a one-sentence why. Don&#x27;t default.
+4. **Score the items** transparently. Every score has an assumption next to it.
+5. **Surface the sensitivity.** &quot;If reach is off by 2x, item #4 jumps to #2.&quot; This is the most useful line in the doc.
+6. **Recommend the cut.** What you&#x27;d drop, not just what you&#x27;d keep.
+
+## Clarifying Questions
+
+**Stage of work**
+- 1. Early discovery (we don&#x27;t know what to build yet)
+- 2. Roadmap planning (next quarter)
+- 3. Sprint backlog (next 2 weeks)
+- 4. Cut list (we have too much; what goes?)
+
+**Primary constraint**
+- A. Time (a deadline is non-negotiable)
+- B. Engineering capacity (people-weeks)
+- C. Strategic bet (must move metric X)
+- D. Customer commitment (specific accounts asked)
+
+**How many items**
+- Under 10 / 10–30 / 30+
+
+**Confidence in the inputs**
+- A. Solid (we&#x27;ve measured reach / effort recently)
+- B. Mixed (some real numbers, some guesses)
+- C. Vibes (we&#x27;re guessing on all of it — say so)
+
+## Framework picker
+
+Use this as the recommendation table. The skill should *open* with a framework call, not assume one.
+
+| If the question is… | Framework | Why |
+|---|---|---|
+| &quot;What should we ship next quarter from this big list?&quot; | **RICE** | Forces reach + impact + confidence onto a comparable scale. Best when items vary a lot in size. |
+| &quot;What&#x27;s in scope for this release?&quot; | **MoSCoW** | Categorical (Must / Should / Could / Won&#x27;t) — fast, no false precision. |
+| &quot;Which of these will pay off soonest given fixed engineering capacity?&quot; | **WSJF** | Cost-of-delay ÷ job size. Built for capacity-constrained roadmaps. |
+| &quot;Are we missing the basics that make customers love this?&quot; | **Kano** | Separates table-stakes from delighters from must-haves. Use after research, not in a vacuum. |
+| &quot;Should we do A or B?&quot; | **None — just decide.** | Two items don&#x27;t need a framework. Pick the one with the bigger consequence-of-being-wrong and ship. |
+
+## Output Structure
+
+```markdown
+# &lt;Project / quarter&gt; — prioritization
+
+**Recommended framework: &lt;name&gt;.** &lt;One sentence why this fits the question.&gt;
+**What changes if we change framework:** &lt;One sentence — show you considered alternatives.&gt;
+
+## Inputs
+
+- Items considered: &lt;N&gt;
+- Source: &lt;where they came from&gt;
+- Confidence: &lt;A / B / C from above&gt;
+
+## Scored list
+
+| # | Item | &lt;Score components shown&gt; | Score | Notes |
+|---|---|---|---|---|
+| 1 | &lt;Item&gt; | R 8000 · I 3 · C 0.8 · E 4 | **4800** | &lt;One line: the key assumption.&gt; |
+| 2 | &lt;Item&gt; | … | … | … |
+
+(For RICE, columns are R / I / C / E and the score = R × I × C / E. Show the math, not just the result.)
+(For MoSCoW, columns are category + rationale.)
+(For WSJF, columns are User-business value / Time criticality / Risk-opportunity / Job size, score = (sum of first three) / job size.)
+
+## What I would cut
+
+- &lt;2–4 items from the bottom, named, with a one-line reason.&gt; &quot;&lt;Item&gt;: lowest reach, requires a new vendor relationship. Park until Q3.&quot;
+
+## Sensitivity check
+
+- &lt;&quot;If reach on item #4 is half what we estimated, it drops below the line.&quot;&gt;
+- &lt;&quot;If the legal review on item #2 takes 6 weeks not 2, it should slip to next quarter.&quot;&gt;
+
+## Recommended next step
+
+&lt;One paragraph. The first three items in priority order, who&#x27;s the owner, when each kicks off. Specific.&gt;
+
+## What I&#x27;m not sure about
+
+- &lt;Honest list of guesses. Confidence calibration matters more than precision.&gt;
+```
+
+## RICE quick reference
+
+For when RICE is the chosen framework. Score each on these scales — don&#x27;t invent new ones.
+
+- **Reach (R):** Number of users / events the change touches in a chosen period (e.g. per quarter). Use a real number.
+- **Impact (I):** 0.25 (minimal) · 0.5 (low) · 1 (medium) · 2 (high) · 3 (massive). Anchored — don&#x27;t invent intermediate values.
+- **Confidence (C):** 0.5 (low) · 0.8 (medium) · 1.0 (high). If lower than 0.5, do more research before scoring.
+- **Effort (E):** Person-months (or weeks — pick one and stay consistent).
+- **Score:** R × I × C / E.
+
+The point of RICE isn&#x27;t the number. It&#x27;s that two PMs scoring the same item in a room together usually agree within 2x — which is good enough to order a backlog.
+
+## WSJF quick reference
+
+When capacity is the binding constraint:
+
+- **Cost of Delay (CoD)** = User-business value + Time criticality + Risk reduction / Opportunity enablement.
+- **WSJF score** = CoD / Job size.
+- Score each component on a 1 / 2 / 3 / 5 / 8 / 13 / 20 Fibonacci scale. Higher = more.
+
+## MoSCoW quick reference
+
+- **Must:** the release fails without it.
+- **Should:** important, but the release survives without it (with workarounds).
+- **Could:** nice to have if there&#x27;s time.
+- **Won&#x27;t:** explicitly out of this release. Document so it doesn&#x27;t re-litigate.
+
+Rule of thumb: Must items ≤ 60% of capacity. If Musts are 90% of capacity, you&#x27;ve called everything must, which means nothing is.
+
+## Voice rules
+
+- **Show the math.** A score with no decomposition is a vibe with a number bolted on.
+- **State the assumption.** Every score has one — name it. &quot;Assumes reach matches Q1 actuals.&quot;
+- **Recommend a cut.** Saying yes to everything is not prioritization.
+- **No precision theater.** RICE scores of 4823 vs. 4814 are noise. Round to one significant digit and move on.
+
+## Target Audience
+
+The reader is usually an eng lead or VP making a capacity call. They want to know *what to build first, what to drop, and why* — in that order. The framework is the supporting evidence, not the headline.
+
+## Tiny worked example
+
+**Backlog of 5 items, roadmap planning, mixed confidence — RICE chosen.**
+
+| # | Item | R | I | C | E | Score | Note |
+|---|---|---|---|---|---|---|---|
+| 1 | SSO for enterprise tier | 800 (paying users) | 2 | 0.8 | 6 | **213** | Two largest accounts asked. Confidence high. |
+| 2 | Dashboard speed pass | 12,000 (all DAU) | 1 | 0.8 | 3 | **3200** | We have measurements; this is real. |
+| 3 | Mobile redesign | 8,000 | 1 | 0.5 | 12 | **333** | Confidence low — we haven&#x27;t user-tested. |
+| 4 | Webhook retries | 2,000 (API users) | 2 | 1.0 | 2 | **2000** | Top support ticket category. |
+| 5 | Branded export themes | 400 | 0.5 | 0.8 | 4 | **40** | Nobody asked. |
+
+&gt; **Recommended order:** Dashboard speed → Webhooks retries → Mobile redesign (after lightweight user test) → SSO (gates two big accounts but small reach) → Cut: Branded export themes.
+&gt;
+&gt; **Sensitivity check:** If the mobile redesign&#x27;s confidence ticks to 0.8 after one prototype test, it moves above SSO. Run that test before locking the quarter.
+
+## Anti-patterns
+
+- **Defaulting to RICE.** Pick the framework. Don&#x27;t reach.
+- **Scoring without a number for Reach.** &quot;Reach: high&quot; is not a Reach value.
+- **Three-decimal precision.** RICE is for ordering, not for ranking 1st vs. 2nd by score.
+- **No &quot;cut&quot; recommendation.** You optimized for what to keep instead of what to drop. The cut is the harder, more useful call.
+- **Hidden assumptions.** A score without a note next to it is unauditable.
+- **Re-litigating Won&#x27;t items.** MoSCoW only works if &quot;Won&#x27;t&quot; is enforced.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `tasks/prioritization/`
+- **Filename:** `&lt;YYYY-MM-DD&gt;-&lt;topic&gt;.md`
+
+## Final instructions
+
+1. Recommend the framework first. The framework recommendation is part of the deliverable.
+2. Show the math. Every score has an assumption next to it.
+3. End with the cut and the sensitivity check. Those are the lines that get used in the meeting.
+
+## Attribution
+
+Synthesized from: `anthropics/knowledge-work-plugins · roadmap-management` (Apache 2.0); `phuryn/pm-skills · prioritize-features` (MIT); `deanpeters/Product-Manager-Skills · prioritization-advisor` (MIT); Sean McBride&#x27;s original RICE writeup at Intercom; Don Reinertsen&#x27;s *Principles of Product Development Flow* (WSJF); Noriaki Kano&#x27;s model; Dai Clegg&#x27;s MoSCoW formulation.
+</code></pre><button aria-label="Copy code" class="absolute top-2 right-2 text-xs px-2 py-1 border border-border rounded bg-white hover:border-text">Copy</button></div></div></div></div></div></section><section class="max-w-6xl mx-auto px-5 pb-20"><section class="brand-mesh rounded-3xl border border-border shadow-hero p-6 sm:p-10 md:p-12"><p class="eyebrow-pill">Get started</p><h2 class="headline mt-4 max-w-2xl">Clone the repo. Open it in Claude Code.</h2><p class="text-text-muted mt-3 max-w-xl text-base sm:text-lg">Two minutes from clone to your first PRD. Fill in three files and ship.</p><div class="mt-6 grid gap-3 md:grid-cols-[1fr_auto]"><div class="relative"><pre class="font-mono text-xs sm:text-sm bg-white border border-border rounded-lg p-4 pr-20 overflow-x-auto text-text"><code>git clone https://github.com/runtm-ai/claudecode-for-pms.git</code></pre><button class="absolute top-1/2 -translate-y-1/2 right-2 text-xs px-2.5 py-1.5 border border-border rounded-md bg-white text-text font-medium hover:border-text">Copy</button></div><a href="https://github.com/runtm-ai/claudecode-for-pms" class="btn-primary w-full md:w-auto">Open on GitHub</a></div><p class="text-xs text-text-soft mt-4">MIT licensed. Star the repo if it saves you an afternoon.</p></section></section></main><footer class="border-t border-border bg-white mt-24"><div class="max-w-6xl mx-auto px-5 py-12 grid gap-10 md:grid-cols-4"><div class="md:col-span-2"><a href="https://runtm.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 group"><span class="text-[10px] font-medium uppercase tracking-eyebrow text-text-soft group-hover:text-text-muted">Built &amp; maintained by</span><img alt="Runtime" loading="lazy" width="120" height="32" decoding="async" data-nimg="1" class="h-7 w-auto" style="color:transparent" src="/logos/runtime-wordmark.png"/></a><p class="text-sm text-text-muted mt-4 max-w-md leading-relaxed">Claude Code for PMs is an open-source set of templates and skills, stewarded by <a href="https://runtm.com" class="text-accent underline underline-offset-2">Runtime</a>. Sandboxed coding agents with your company’s context, integrations, and guardrails.</p><p class="text-xs text-text-soft mt-4">MIT licensed.</p></div><div><h4 class="text-xs font-semibold uppercase tracking-eyebrow text-text mb-3">Site</h4><ul class="text-sm space-y-2 text-text-muted"><li><a class="hover:text-text" href="/best-practices/">Best practices</a></li><li><a class="hover:text-text" href="/skills/">Skills</a></li><li><a class="hover:text-text" href="/templates/">Templates</a></li><li><a class="hover:text-text" href="/resources/">Resources</a></li></ul></div><div><h4 class="text-xs font-semibold uppercase tracking-eyebrow text-text mb-3">Project</h4><ul class="text-sm space-y-2 text-text-muted"><li><a class="hover:text-text" href="/contribute/">Contribute</a></li><li><a class="hover:text-text" href="/changelog/">Changelog</a></li><li><a href="https://github.com/runtm-ai/claudecode-for-pms" class="hover:text-text">GitHub</a></li><li><a href="/changelog.rss" class="hover:text-text">RSS</a></li><li><a href="https://runtm.com" class="hover:text-text">Runtime →</a></li></ul></div></div><div class="border-t border-border-soft"><div class="max-w-6xl mx-auto px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-text-soft"><p>Last updated <!-- -->2026-05-28<!-- -->.</p><a href="https://github.com/runtm-ai/claudecode-for-pms/edit/main/site/src/app/page.tsx" class="hover:text-text underline underline-offset-2">Suggest a change on GitHub</a></div></div></footer><script src="/_next/static/chunks/webpack-9edee2920554d0a5.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[2456,[\"173\",\"static/chunks/173-cd9cc5704c225cf9.js\",\"439\",\"static/chunks/439-24d781ac7b95afe8.js\",\"177\",\"static/chunks/app/layout-af4cadc2a563ab05.js\"],\"Analytics\"]\n3:I[1838,[\"173\",\"static/chunks/173-cd9cc5704c225cf9.js\",\"439\",\"static/chunks/439-24d781ac7b95afe8.js\",\"177\",\"static/chunks/app/layout-af4cadc2a563ab05.js\"],\"NavBar\"]\n4:I[5244,[],\"\"]\n5:I[3866,[],\"\"]\n6:I[7970,[\"173\",\"static/chunks/173-cd9cc5704c225cf9.js\",\"439\",\"static/chunks/439-24d781ac7b95afe8.js\",\"177\",\"static/chunks/app/layout-af4cadc2a563ab05.js\"],\"Image\"]\n7:I[8173,[\"173\",\"static/chunks/173-cd9cc5704c225cf9.js\",\"974\",\"static/chunks/app/page-de4ad0099b07db8f.js\"],\"\"]\n8:I[3296,[\"173\",\"static/chunks/173-cd9cc5704c225cf9.js\",\"439\",\"static/chunks/439-24d781ac7b95afe8.js\",\"177\",\"static/chunks/app/layout-af4cadc2a563ab05.js\"],\"ConsentBanner\"]\n9:I[5090,[\"433\",\"static/chunks/app/templates/page-49c76e361384115c.js\"],\"CodeBlock\"]\n14:I[1282,[\"433\",\"static/chunks/app/templates/page-49c76e361384115c.js\"],\"RepoCTA\"]\n15:I[6213,[],\"OutletBoundary\"]\n17:I[6213,[],\"MetadataBoundary\"]\n19:I[6213,[],\"ViewportBoundary\"]\n1b:I[4835,[],\"\"]\n:HL[\"/_next/static/css/6d9cff5816cb3bda.css\",\"style\"]\na:Tcaf,"])</script><script>self.__next_f.push([1,"# CLAUDE.md\n\n\u003e Memory file. Claude reads this on every session start. Keep it under 500 lines.\n\u003e Replace the bracketed TODOs with details about your team and product.\n\n## Product\n\n[TODO] One paragraph: what you're building and who it's for.\n\nExample: *We build a payments API for marketplaces with 1–50 sellers. Our buyer is the marketplace's founding engineer. Our anti-buyer is enterprise procurement.*\n\n## Team\n\n- **PM:** [TODO — your name + handle]\n- **Eng lead:** [TODO]\n- **Design:** [TODO]\n- **Anyone else with commit access:** [TODO]\n\n## Stack\n\n- [TODO] Frontend\n- [TODO] Backend\n- [TODO] Database\n- [TODO] Hosting\n- [TODO] Auth\n- [TODO] Analytics\n\n## Voice\n\nHow we write — for docs, release notes, support replies, and anything else that goes out.\n\n- Period-end declarative sentences. No questions in marketing copy.\n- Specific nouns over abstract claims. \"Datadog, Salesforce, Stripe\" beats \"every major tool\".\n- Active verbs. \"Ships the fix\" beats \"facilitates resolution\".\n- Trust the reader. Don't over-explain.\n- Plain words. \"Tag\" not \"invoke\". \"Run\" not \"execute\".\n\n**Words we don't use:** unlock, empower, leverage, seamless, frictionless, revolutionary, next-generation, AI-powered, ecosystem, cutting-edge, robust, scalable, enterprise-grade.\n\n## Agents and skills\n\nSkills live in `skills/`. The ones shipped with this repo:\n\n- `your-brand/` — our design system as a skill\n- `writing-prds/` — paired with `pr_flow/create-prd.mdc`\n- `writing-release-notes/` — user-facing notes from merged PRs\n- `writing-stakeholder-updates/` — weekly updates by audience\n- `synthesizing-user-research/` — interview → themes + JTBD\n- `prioritizing-features/` — framework picker + scoring\n\nWhen you write the same kind of artifact twice, build a skill the third time. Gerund form (`writing-foo`, `prioritizing-bar`) so Claude auto-invokes.\n\n## Workflow\n\nFor any non-trivial feature:\n\n1. Drop a PRD into `tasks/prd-\u003cfeature\u003e.md` using `pr_flow/create-prd.mdc`.\n2. Generate the task list with `pr_flow/generate-tasks.mdc`.\n3. Process tasks one at a time with `pr_flow/process-task-list.mdc`.\n4. Use plan mode (`Shift+Tab` in the CLI) before any file changes.\n\n## What not to do\n\n- Don't commit `.env`, API keys, or anything in `.gitignore`'d paths.\n- Don't paste secrets into chat. They live in the context forever.\n- Don't skip the PRD on features the eng team will spend more than a day on.\n- Don't approve a plan you didn't read.\n- Don't write a skill named `helper`, `utils`, or anything vague.\n- Don't stay in a session past the point Claude has lost the plot — open a new chat.\n- **Don't force-push or reset shared branches.** Never run `git reset --hard`, `git push --force`, or `git rebase -i` against `main` or any branch others use without explicit written approval. Even retroactively \"fixing\" commit history rewrites what others have cloned and causes merge conflicts.\n\n## References\n\nLong-form context Claude can pull in when relevant:\n\n- `docs/product.md` — what we're building, in depth\n- `docs/architecture.md` — stack, dependencies, decisions\n- `docs/voice.md` — voice rules with examples\n- `DESIGN.md` — brand spec (colors, type, components)\n- `pr_flow/*.mdc` — the PRD → tasks → execute rules\n"])</script><script>self.__next_f.push([1,"b:T89c,"])</script><script>self.__next_f.push([1,"# DESIGN.md\n\n\u003e Brand spec template. Fill in your brand values and Claude reads them every session.\n\u003e Reference this file from `CLAUDE.md` so the design system is always in context.\n\u003e\n\u003e For the deeper version (used by Claude when generating artifacts), see `skills/your-brand/SKILL.md`.\n\n## At a glance\n\n| Element | Spec |\n|---|---|\n| Primary color | [TODO `#xxxxxx`] |\n| Logo | [TODO file path + dark/light variants] |\n| Headline type | [TODO size/weight/letter-spacing/color] |\n| Body type | [TODO size/line-height/color] |\n| Voice | [TODO one sentence — e.g. \"Short, declarative, period-ending. One idea per sentence.\"] |\n\n## Colors\n\n- `primary` `[TODO]` — brand color, used sparingly\n- `text` `[TODO]` — body and headlines\n- `textMuted` `[TODO]` — supporting copy\n- `border` `[TODO]` — card borders, dividers\n- `bg` `[TODO]` — default background\n\nStatus colors (use only for meaning, not branding):\n\n- `success` `[TODO]`\n- `info` `[TODO]`\n- `warning` `[TODO]`\n- `error` `[TODO]`\n\n## Typography\n\nSystem stacks recommended (no webfont latency, consistent everywhere):\n\n- Sans: `-apple-system, BlinkMacSystemFont, \"Segoe UI\", system-ui, sans-serif`\n- Mono: `\"SF Mono\", \"JetBrains Mono\", Menlo, monospace`\n\nType scale:\n\n| Role | Size | Weight | Color |\n|---|---|---|---|\n| Hero headline | [TODO] | [TODO] | text |\n| Page H1 | [TODO] | [TODO] | text |\n| Section H2 | [TODO] | [TODO] | text |\n| Body | [TODO] | [TODO] | textMuted |\n| Code | [TODO] | [TODO] | text (mono) |\n\n## Voice\n\n[TODO three paragraphs on how your brand sounds. Include 3–5 example sentences in your voice and 3–5 words you never use.]\n\n### Words we don't use\n\n[TODO list]\n\n## Logo\n\n- Where to find it: [TODO file path]\n- When to invert: [TODO]\n- Minimum clear space: [TODO]\n- What never to do: [TODO]\n\n## Cards \u0026 surfaces\n\n[TODO describe how cards look — border, radius, shadow, padding]\n\n## Checklist before shipping anything branded\n\n- [ ] Color is from the palette above (no improvised hex codes)\n- [ ] Headline reads like one of our example sentences\n- [ ] No words from the \"don't use\" list\n- [ ] Logo respects clear space and color rules\n- [ ] If it lives next to other brand artifacts, they look like siblings\n"])</script><script>self.__next_f.push([1,"c:Tddf,"])</script><script>self.__next_f.push([1,"---\ndescription: PRD authoring rule. Invoke when the user wants a new feature spec.\nglobs:\nalwaysApply: false\n---\n# Rule: Generating a Product Requirements Document (PRD)\n\n## Goal\n\nTo guide an AI assistant in creating a detailed Product Requirements Document (PRD) in Markdown format, based on an initial user prompt. The PRD should be clear, actionable, and suitable for a junior developer to understand and implement the feature.\n\n## Process\n\n1. **Receive Initial Prompt:** The user provides a brief description or request for a new feature or functionality.\n2. **Ask Clarifying Questions:** Before writing the PRD, the AI *must* ask clarifying questions to gather sufficient detail. The goal is to understand the \"what\" and \"why\" of the feature, not necessarily the \"how\" (which the developer will figure out). Make sure to provide options in letter/number lists so the user can respond easily with selections.\n3. **Generate PRD:** Based on the initial prompt and the user's answers, generate a PRD using the structure outlined below.\n4. **Save PRD:** Save the generated document as `prd-[feature-name].md` inside the `/tasks` directory.\n\n## Clarifying Questions (Examples)\n\nAdapt the questions based on the prompt, but cover these areas:\n\n- **Problem/Goal:** \"What problem does this feature solve for the user?\" or \"What is the main goal we want to achieve?\"\n- **Target User:** \"Who is the primary user of this feature?\"\n- **Core Functionality:** \"Can you describe the key actions a user should be able to perform?\"\n- **User Stories:** \"Could you provide a few user stories? (As a [type of user], I want to [perform an action] so that [benefit].)\"\n- **Acceptance Criteria:** \"How will we know when this feature is successfully implemented?\"\n- **Scope/Boundaries:** \"Are there any specific things this feature *should not* do (non-goals)?\"\n- **Data Requirements:** \"What kind of data does this feature need to display or manipulate?\"\n- **Design/UI:** \"Are there existing design mockups or UI guidelines to follow?\"\n- **Edge Cases:** \"Are there any potential edge cases or error conditions to consider?\"\n\n## PRD Structure\n\n1. **Introduction/Overview:** Briefly describe the feature and the problem it solves. State the goal.\n2. **Goals:** List the specific, measurable objectives for this feature.\n3. **User Stories:** Detail the user narratives describing feature usage and benefits.\n4. **Functional Requirements:** List the specific functionalities the feature must have. Number them. Use clear, concise language.\n5. **Non-Goals (Out of Scope):** Clearly state what this feature will *not* include to manage scope.\n6. **Design Considerations (Optional):** Link to mockups, describe UI/UX requirements, or mention relevant components/styles.\n7. **Technical Considerations (Optional):** Mention known technical constraints, dependencies, or suggestions.\n8. **Success Metrics:** How will the success of this feature be measured?\n9. **Open Questions:** List any remaining questions or areas needing further clarification.\n\n## Target Audience\n\nAssume the primary reader of the PRD is a **junior developer**. Requirements must be explicit, unambiguous, and avoid jargon where possible. Provide enough detail for them to understand the feature's purpose and core logic.\n\n## Output\n\n- **Format:** Markdown (`.md`)\n- **Location:** `/tasks/`\n- **Filename:** `prd-[feature-name].md`\n\n## Final instructions\n\n1. Do NOT start implementing the PRD.\n2. Make sure to ask the user clarifying questions.\n3. Take the user's answers and improve the PRD before saving.\n"])</script><script>self.__next_f.push([1,"d:T6af,---\ndescription: Task-list generation rule. Invoke after a PRD exists.\nglobs:\nalwaysApply: false\n---\n# Rule: Generating a Task List from a PRD\n\n## Goal\n\nTo guide an AI assistant in turning a PRD (in `/tasks/prd-[feature-name].md`) into a detailed, step-by-step task list a junior developer can execute one item at a time.\n\n## Output\n\n- **Format:** Markdown (`.md`)\n- **Location:** `/tasks/`\n- **Filename:** `tasks-prd-[feature-name].md` (matching the PRD filename it came from)\n\n## Process\n\n1. **Read the PRD:** Open the referenced PRD in full.\n2. **Generate Parent Tasks (Phase 1):** Produce 4–7 high-level parent tasks that, together, deliver the PRD. Stop and ask: **\"Ready to generate sub-tasks? Respond 'go' to continue.\"**\n3. **Wait for confirmation:** Do not proceed until the user replies `go`.\n4. **Generate Sub-tasks (Phase 2):** Break each parent task into 2–6 ordered sub-tasks. Each sub-task is small enough to complete in one editing session.\n5. **Identify Relevant Files:** List the files the implementer will create or change, with a one-line description each.\n6. **Save** the file to `/tasks/tasks-prd-[feature-name].md` in the structure below.\n\n## Output Structure\n\n```markdown\n# Tasks: [feature name]\n\n## Relevant Files\n\n- `path/to/file.ts` — what changes here\n- `path/to/test.spec.ts` — tests for the above\n\n## Parent Tasks\n\n- [ ] 1.0 Parent task title\n  - [ ] 1.1 Sub-task\n  - [ ] 1.2 Sub-task\n- [ ] 2.0 Parent task title\n  - [ ] 2.1 Sub-task\n```\n\n## Final instructions\n\n1. Do NOT start implementing.\n2. Pause for `go` between Phase 1 and Phase 2.\n3. Each sub-task should be small enough that processing it via `process-task-list.mdc` won't sprawl into multiple files unexpectedly.\ne:T5c5,---\ndescription: Task execution rule. Process one sub-task at a time.\nglobs:\nalwaysApply: false\n---\n# Rule: Processing a Task List\n\n## Goal\n\nTo guide an AI assistant through executing a task list (`/tasks/tasks-prd-[feature-name].md`) **one sub-task at a time**, with user approval between each.\n\n## Process\n\n1. **Find the "])</script><script>self.__next_f.push([1,"next unchecked sub-task** (top-down, left-to-right).\n2. **Implement only that sub-task.** No scope creep. No \"while I'm here\".\n3. **Mark it complete:** change `[ ]` to `[x]` in the task list file.\n4. **Stop and report:**\n   - What you changed (file paths, one line each).\n   - What you tested (or what you couldn't test).\n   - What's next.\n5. **Wait for the user to say `next`** (or equivalent) before starting the next sub-task.\n\n## When a parent task's sub-tasks are all `[x]`\n\n- Mark the parent `[x]`.\n- Run any tests or linters relevant to the parent task.\n- Summarize what the parent delivered.\n- Pause for the user to review before moving on.\n\n## What not to do\n\n- Do NOT batch multiple sub-tasks in one response.\n- Do NOT proceed without explicit `next`.\n- Do NOT modify files outside the \"Relevant Files\" list without flagging it first.\n- Do NOT skip the test/lint step on parent-task completion.\n\n## When you get stuck\n\nIf a sub-task can't be completed as written:\n\n1. Stop. Don't improvise.\n2. Tell the user: *\"Sub-task X.Y is blocked by Z. Options: (a) skip and move to X.Y+1, (b) revise the task, (c) revise the PRD.\"*\n3. Wait for direction.\nf:T15a3,"])</script><script>self.__next_f.push([1,"---\nname: your-brand\ndescription: |\n  Your team's brand system — colors, typography, voice, logo rules, and the\n  surface treatments that make every artifact look like the same studio shipped\n  it. Use whenever generating UI, landing pages, ads, decks, emails, animations,\n  release notes, or any artifact that will be seen by a customer or stakeholder.\nallowed-tools:\n  - Read\n  - Write\n  - Edit\n  - Glob\n  - Grep\n---\n\n# Rule: \u003cYour brand\u003e visual + voice system\n\n\u003e This file is a **template**. Fill in every `[TODO]`. Delete this notice when done.\n\u003e Reference this skill from `CLAUDE.md` so Claude loads it on every session.\n\n## Goal\n\nTo give Claude one source of truth for how your brand looks and sounds, so every artifact it produces — a release note, a landing page, a slide, a tweet — comes out looking like the same studio shipped it. Without this skill, Claude defaults to mesh gradients and Tailwind indigo. With it, your design system wins.\n\n## At a glance\n\n| Element | Spec |\n|---|---|\n| Primary color | `[TODO #xxxxxx]` |\n| Secondary / accent | `[TODO]` |\n| Logo | `[TODO file path]` — `[TODO when to invert]` |\n| Headline type | `[TODO size / weight / letter-spacing / color]` |\n| Body type | `[TODO size / line-height / color]` |\n| Voice | `[TODO one sentence — e.g. \"Short, declarative, period-ending.\"]` |\n\n## Color system\n\n### Primary\n- `primary` `[TODO]` — the brand color. Use sparingly.\n- `primarySoft` `[TODO]` — tinted backgrounds, focus rings.\n\n### Neutrals\n- `text` `[TODO]` — body, headlines.\n- `textMuted` `[TODO]` — supporting copy.\n- `textSoft` `[TODO]` — captions, metadata.\n- `border` `[TODO]` — dividers, card borders.\n\n### Status (use only for meaning, not branding)\n- `success` `[TODO]` · `info` `[TODO]` · `warning` `[TODO]` · `error` `[TODO]`\n\n### Rules\n- Don't introduce a new shade of the primary. If the existing tone doesn't work, change the surface around it.\n- Don't use status colors for branding.\n- Don't use true black. Use `text` (a near-black like `#18181b`).\n\n## Typography\n\nSystem stacks unless you have a tested webfont reason otherwise.\n\n- Sans: `-apple-system, BlinkMacSystemFont, \"Segoe UI\", system-ui, sans-serif`\n- Mono: `\"SF Mono\", \"JetBrains Mono\", Menlo, monospace`\n\n### Type scale\n\n| Role | Size | Weight | Letter-spacing | Line-height | Color |\n|---|---|---|---|---|---|\n| Hero headline | `[TODO]` | `[TODO]` | `[TODO]` | `[TODO]` | text |\n| Page H1 | `[TODO]` | `[TODO]` | normal | `[TODO]` | text |\n| Section H2 | `[TODO]` | `[TODO]` | normal | `[TODO]` | text |\n| Body | `[TODO]` | `[TODO]` | normal | `[TODO]` | textMuted |\n| Eyebrow | `[TODO]` ALL CAPS | `[TODO]` | `[TODO]` | 1 | primary |\n| Code | `[TODO]` | `[TODO]` | normal | inherit | text (mono) |\n\n### Mono use\nOnly for: code blocks, terminal output, IDs, URLs, agent handles, file paths.\n\n## Logo\n\n- Source asset: `[TODO file path]`\n- On dark surfaces: `[TODO invert / use alt asset / never on dark]`\n- Minimum clear space: `[TODO]`\n- What never to do: `[TODO — e.g. recolor, stretch, combine with wordmark]`\n\n## Voice\n\n### In one sentence\n`[TODO — e.g. \"Plainspoken and concrete. Like an engineer confident in what they built, not a marketer trying to convince you.\"]`\n\n### Principles\n- **Specific nouns** over abstract claims. List the three things, not \"every feature\".\n- **Active verbs.** \"Ships\" beats \"facilitates\".\n- **Period-end declarative sentences.** No questions in marketing.\n- **Plain words.** Choose the word a colleague would use in a demo.\n\n### Real example headlines (your voice)\n`[TODO — paste 5 real headlines from shipped work. These are the reference.]`\n\n### Words to avoid\n| Don't say | Say instead |\n|---|---|\n| Unlock, empower, leverage | Use, give, let |\n| Seamless, frictionless | (describe what happens) |\n| Revolutionary, next-generation | (cut) |\n| Ecosystem, platform, solution | The actual product noun |\n| Robust, scalable, enterprise-grade | (specific capability) |\n\n## Cards \u0026 surfaces\n\n`[TODO — describe how your cards look: border, radius, shadow, padding. Include one block of CSS or a tiny tsx snippet.]`\n\n## Iconography\n\n`[TODO — emoji policy, SVG line weight, when to use the brand logo as an icon.]`\n\n## Process\n\n1. Receive the request (a piece of UI, a release note, a deck slide, etc.).\n2. Ask which surface this lives on (`marketing site`, `in-app`, `email`, `social`, `internal doc`).\n3. Apply the rules above. When in doubt, fewer colors, smaller shadows, plainer copy.\n4. Before delivering, run the checklist below.\n\n## Checklist before shipping\n\n- [ ] Color is from the palette above (no improvised hex codes).\n- [ ] Headline reads like one of the example headlines.\n- [ ] Body uses no banned words.\n- [ ] Logo respects clear space and color rules.\n- [ ] Mono font only for code, IDs, URLs.\n- [ ] If it lives next to other brand artifacts, they look like siblings.\n\n## Final instructions\n\n1. Never improvise on color, type, or voice. If a request can't fit the spec, ask the user before extending.\n2. The voice section is non-negotiable. The visual spec accommodates new surfaces; the voice carries across all of them.\n3. When the user pushes back on output, note the rule that was missing. Add it to this skill the same day.\n\n## Attribution\n\nInspired by Runtime's brand skill ([source](https://github.com/runtm-ai/claudecode-for-pms)) and the Notion [Brand Design Template](https://www.notion.so/Brand-Design-Template-29af2126a3a28019ba24fcd5fa6b6fc2). Approach to design-system-as-skill from Owen Williams (Stripe) on *How I AI*.\n"])</script><script>self.__next_f.push([1,"10:T16cd,"])</script><script>self.__next_f.push([1,"---\nname: writing-prds\ndescription: |\n  Authoring a Product Requirements Document — the spec a junior dev can build\n  from. Use when the user says \"write a PRD\", \"spec out a feature\", \"what are\n  the requirements for X\", \"draft a feature brief\", or mentions a feature they\n  want to scope. Pairs with `pr_flow/create-prd.mdc` for the full workflow.\nallowed-tools:\n  - Read\n  - Write\n  - Edit\n---\n\n# Rule: Writing a PRD\n\n## Goal\n\nTurn a one-line feature ask into a Product Requirements Document a junior developer can implement without having to come back with twenty questions. A PRD answers four things a prompt usually doesn't: **what problem we're solving, who it's for, what \"done\" looks like, and what's out of scope.** Hand Claude a prompt without those and it picks its own answers — the prompt becomes a negotiation. A PRD makes it a brief.\n\n## Process\n\n1. **Receive the feature request.** One sentence is fine.\n2. **Ask clarifying questions** (see below) — letter/number options so the user replies with selections, not paragraphs. Never skip this step, even if the request seems clear.\n3. **Draft the PRD** using the structure below.\n4. **Show it to the user, ask for corrections, refine.**\n5. **Save** as `tasks/prd-\u003cfeature-name\u003e.md`.\n\n## Clarifying Questions\n\nPick from these categories. Ask 4–7 questions, not all of them. Format each as a numbered or lettered list so the user can reply \"1, B, 2, A\".\n\n**Problem \u0026 Goal**\n- What problem does this solve?\n- Why now? What changes if we don't ship this?\n- A. New behavior. B. Speeds up an existing behavior. C. Fixes a broken behavior.\n\n**Users**\n- Who's the primary user? Pick one: A. New visitor. B. Existing customer. C. Internal team. D. Partner / API consumer.\n- Roughly how many of them, and how often will they hit this?\n\n**Core functionality**\n- What's the smallest version that delivers the value? List the top 3 actions in order of importance.\n\n**Acceptance criteria**\n- How will we know it's working? Name one metric and one observable behavior.\n\n**Scope**\n- What's explicitly *out* of scope for this version? List 2–3 things this feature will NOT do.\n\n**Data**\n- What does the feature read, write, or transform? Is any of it sensitive?\n\n**Design**\n- Is there a mockup, a Figma link, an existing pattern to match, or do you want Claude to propose UI?\n\n**Edge cases**\n- What happens on: empty state, error state, rate-limit, offline, slow network?\n\n## PRD Structure\n\nThe output is one Markdown file with these sections, in this order.\n\n1. **Introduction / Overview** — one paragraph. The feature in plain words and the problem it solves.\n2. **Goals** — numbered list. Each goal is specific and measurable.\n3. **User Stories** — `As a [user], I want to [action] so that [benefit].` Three to seven.\n4. **Functional Requirements** — numbered. Each starts with \"The system must…\". Junior-dev-clear.\n5. **Non-Goals (Out of Scope)** — bullet list. Each line starts with \"We are NOT…\".\n6. **Design Considerations** — links to mockups, references to existing components, brand notes.\n7. **Technical Considerations** — known constraints, dependencies, \"should integrate with X\".\n8. **Success Metrics** — primary, guardrail, secondary. Number the threshold if you can.\n9. **Open Questions** — list what you couldn't pin down. Don't pretend the doc is final when it isn't.\n\n## Target Audience\n\nAssume the reader is a **junior developer**. Requirements must be explicit and unambiguous. Avoid jargon when a plain word works. If the team has a `docs/architecture.md` or `CLAUDE.md`, reference it instead of restating it.\n\n## Tiny worked example\n\n\u003e *Feature: \"passwordless login\"*\n\u003e\n\u003e **Functional Requirements (excerpt):**\n\u003e 1. The login screen shall display an email field and a single \"Email me a sign-in link\" button.\n\u003e 2. The system shall send a one-time link valid for 15 minutes.\n\u003e 3. Clicking the link shall sign the user in and redirect them to `/dashboard`.\n\u003e 4. If the link is expired or already used, the system shall display \"Link expired. Request a new one.\" with the email pre-filled.\n\u003e 5. The system shall rate-limit magic-link requests to 3 per email per hour.\n\nNumbered, \"system shall\" form, one behavior per line. No \"robust authentication flow\". A junior dev reads this and writes it.\n\n## Anti-patterns\n\n- A PRD without a Non-Goals section. You will regret this within a week.\n- \"Build a feature\" written in chat instead of a file Claude can re-read.\n- Acceptance criteria that are vibes (\"works well\", \"feels fast\"). Pick a number.\n- Functional requirements written like marketing copy. Boring is correct.\n- Skipping the clarifying questions to \"save time\". This costs time downstream.\n\n## Output\n\n- **Format:** Markdown (`.md`)\n- **Location:** `tasks/`\n- **Filename:** `prd-\u003cfeature-name\u003e.md` (kebab-case)\n\n## Final instructions\n\n1. Do NOT start implementing the feature from the PRD. The PRD's job is the spec.\n2. Always ask the clarifying questions before writing. If the user pushes to skip them, write the PRD with explicit `[TBD]` markers for the answers you skipped.\n3. After delivering the draft, ask one question: *\"What's wrong with it?\"* Then revise.\n\n## Attribution\n\nSynthesized from: `anthropics/knowledge-work-plugins · feature-spec` (Apache 2.0); the create-prd.mdc rule popularized in the Cursor community and updated for Claude Code; Andre Albuquerque on Aakash Gupta's [Product Growth podcast](https://www.aakashg.com/albuquerque-podcast/) (the 4-level Lovable→CC→Cursor→Agents framing); Cat Wu / Anthropic team on Lenny's Newsletter; Marcus Moretti / [Every](https://every.to/source-code/claude-code-for-product-managers) on roadmap-then-PRD; Ryan Nystrom (Notion) on [chatprd.ai](https://www.chatprd.ai/how-i-ai/ryan-nystrom-notion-workflows-for-engineering-velocity) for the spec-first dev pattern.\n"])</script><script>self.__next_f.push([1,"11:T158c,"])</script><script>self.__next_f.push([1,"---\nname: writing-release-notes\ndescription: |\n  Drafting user-facing release notes from a list of merged PRs, a git log range,\n  or a changelog. Use when the user says \"release notes\", \"what shipped this\n  week\", \"changelog entry\", \"write the announcement for X\", or shares a PR list.\nallowed-tools:\n  - Read\n  - Write\n  - Edit\n---\n\n# Rule: Writing release notes\n\n## Goal\n\nTurn a list of merged PRs into release notes a customer would actually read. The PRs say what work happened; the release notes say what changed for the user. Most release notes fail by listing the work (\"Refactored billing service\") instead of the change (\"You can now switch plans mid-cycle without losing prorated credit\"). Fix that.\n\n## Process\n\n1. **Receive input** — a list of merged PRs (titles + descriptions), a git log range, a draft changelog, or a Linear / Jira label.\n2. **Ask clarifying questions** to set audience, tone, and grouping.\n3. **Triage** — separate user-visible changes from internal work. Internal work goes in \"Under the hood\" or gets cut.\n4. **Draft** in the structure below.\n5. **Review with the user.** Revise. The first draft is usually too long.\n\n## Clarifying Questions\n\nPick from these. Ask 3–4 max.\n\n**Audience** — who reads this?\n- A. End users (the people who use the product)\n- B. Customers (the people who pay)\n- C. Internal stakeholders\n- D. Cross-team eng (other teams in the company)\n\n**Tone** — match it to the audience and the product's voice.\n- A. Plainspoken, period-ending. Like a colleague's email.\n- B. Excited (real launches, big features). Use sparingly.\n- C. Operational (status / fixes / maintenance).\n\n**Length**\n- 1. Headline-only (one paragraph for the changelog page)\n- 2. Per-feature paragraphs (a digest email)\n- 3. Full announcement (one section per feature with detail)\n\n**Grouping**\n- A. By area / surface (Billing, Dashboard, API)\n- B. By impact (New, Improved, Fixed)\n- C. By the named release / version\n\n## Output Structure\n\n```markdown\n# \u003cRelease name or date\u003e\n\n\u003cTL;DR — one sentence, three things max.\u003e\n\n## Highlights\n\n- \u003cBullet — the change in one line, user-facing.\u003e\n- \u003cBullet\u003e\n- \u003cBullet\u003e\n\n## What's new\n\n### \u003cFeature name\u003e\n\u003cOne paragraph in the brand voice. Specific nouns, active verbs, what the user can now do.\u003e\n\n### \u003cNext feature\u003e\n…\n\n## Improvements\n\n- \u003cOne-liner each, ordered by user impact.\u003e\n\n## Fixed\n\n- \u003cOne-liner each. Be specific — \"Fixed crash on Safari 17 when editing project name\" beats \"Fixed a bug\".\u003e\n\n## Under the hood\n\n- \u003cInternal changes the user doesn't feel but might want to know about. Cut this section if there isn't anything.\u003e\n\n## Known issues\n\n- \u003cThings shipping with known limitations. Be honest.\u003e\n```\n\n## Voice rules\n\n- **List the feature, not the work.** \"You can now switch plans mid-cycle\" beats \"Refactored the billing service\".\n- **Specific nouns.** \"Stripe, Adyen, Braintree\" beats \"all major payment providers\".\n- **Active verbs.** \"Adds\", \"ships\", \"fixes\" — not \"facilitates\", \"enables\", \"unlocks\".\n- **No marketing buzzwords.** No \"unlock\", \"empower\", \"leverage\", \"seamless\", \"next-generation\", \"AI-powered\".\n- **Numbers when you have them.** \"30% faster\" beats \"much faster\".\n- **One emoji per row max** if your brand allows them at all. None in headlines.\n- **Period-end declarative.** No question headlines. No exclamation drama.\n\n## Target Audience\n\nWhoever you picked in Q1. If end users, write like a colleague explaining a change. If customers (paying), include the \"why this matters for your team\" thread. If internal, use the team's jargon — and skip what they already know.\n\n## Tiny worked example\n\n**PR list (input):**\n- #842 \"Refactor billing service to support mid-cycle plan changes\"\n- #847 \"Add prorated credit calculation\"\n- #851 \"Fix Safari 17 crash on /projects/edit\"\n- #855 \"Bump Stripe SDK to v17\"\n\n**Output (excerpt):**\n\u003e ### Switch plans mid-cycle without losing credit\n\u003e You can now upgrade or downgrade your plan in the middle of a billing period. Any unused time on your old plan is converted to prorated credit and applied to the new one — no support ticket needed.\n\u003e\n\u003e ## Fixed\n\u003e - Editing a project name no longer crashes Safari 17.\n\nNote what disappears: the SDK bump (irrelevant to the user) and the \"refactor\" framing (internal). What survives is the user-visible change with a specific verb.\n\n## Anti-patterns\n\n- One bullet per PR, copy-pasted from the title. PRs aren't release notes.\n- \"We're excited to announce…\" The reader doesn't care that you're excited.\n- \"Multiple bug fixes and improvements\". Name three of them, by impact.\n- Hiding a breaking change in \"Under the hood\". Breaking changes get their own callout at the top.\n- Release notes longer than the feature they describe. Cut by half.\n\n## Output\n\n- **Format:** Markdown (`.md`)\n- **Location:** `tasks/release-notes/` or wherever your team keeps them.\n- **Filename:** `\u003cYYYY-MM-DD\u003e-\u003crelease-name\u003e.md`\n\n## Final instructions\n\n1. Always ask the clarifying questions first. The same PR list produces different notes for end users vs. exec audiences.\n2. Read your draft aloud. If a sentence sounds like a press release, rewrite it.\n3. Cut at least 30% on the second pass. Most first drafts are too long.\n\n## Attribution\n\nSynthesized from: `phuryn/pm-skills · release-notes` (11.6k★, MIT); voice principles from the Runtime brand skill; Aman Khan's framing of \"skills encode judgment\" from his Substack on [Every PM should be building skills](https://amankhan1.substack.com/p/every-pm-should-be-building-skills).\n"])</script><script>self.__next_f.push([1,"12:T1a7d,"])</script><script>self.__next_f.push([1,"---\nname: writing-stakeholder-updates\ndescription: |\n  Drafting weekly or per-meeting updates for different audiences — eng leads,\n  executives, customer success, cross-team partners. Use when the user mentions\n  \"weekly update\", \"exec note\", \"team update\", \"Friday recap\", \"stakeholder\n  email\", \"status report\", or asks for \"something to send the team\".\nallowed-tools:\n  - Read\n  - Write\n  - Edit\n---\n\n# Rule: Writing stakeholder updates\n\n## Goal\n\nA good stakeholder update answers three things in the first 30 seconds: **what shipped, what's blocked, what I need from you.** Anything else is supporting material. The mistake most PMs make is writing the same update for every audience — exec versions read like sprint reports, eng versions read like marketing. This skill picks the right shape for the audience and resists the temptation to over-explain.\n\n## Process\n\n1. **Receive input** — a sprint report, a list of PRs, the team's Linear board, a transcript, or just \"draft an update\".\n2. **Ask the audience and the time horizon.** Without those two, every other choice is wrong.\n3. **Pull the three threads** — shipped, in-flight, blocked. Add risks + decisions needed.\n4. **Draft** in the structure for the chosen audience.\n5. **Cut by a third.** First drafts are too long.\n\n## Clarifying Questions\n\n**Audience** — who reads this? Pick one:\n- 1. Eng leads + tech leads\n- 2. Executives (VPs, founders, C-suite)\n- 3. Customer success / support\n- 4. Cross-team partners (other PMs, design, data)\n- 5. The whole company\n\n**Time horizon**\n- A. Last week\n- B. Last 2 weeks (a sprint)\n- C. Last month\n- D. The quarter so far\n\n**Signal** — what's the headline?\n- 1. Shipped something\n- 2. Stuck and need help\n- 3. Risk surfacing\n- 4. Decision needed\n- 5. Steady progress, no drama\n\n**Tone**\n- A. Plainspoken, period-ending (default)\n- B. Formal (board-style)\n- C. Conversational (slack-style)\n\n## Output Structure — per audience\n\n### A. Eng leads + tech leads\n\n```markdown\n**\u003cTeam / project name\u003e — week of \u003cdate\u003e**\n\n**Shipped**\n- \u003cOne line each. Link to PRs.\u003e\n\n**In flight**\n- \u003cOne line. ETA if you have one.\u003e\n\n**Blocked / risk**\n- \u003cSpecific blocker. Who can unblock and by when.\u003e\n\n**Decisions needed**\n- \u003cOne per line, format: \"Decision needed by [date]: [the question]\". Tag the decider.\u003e\n\n**Heads up**\n- \u003cAnything else they should know but no action required.\u003e\n```\n\n### B. Executives\n\n```markdown\n**\u003cTeam / project\u003e — \u003cperiod\u003e**\n\n**TL;DR.** One sentence. The thing that matters.\n\n**Metrics**\n- \u003cPrimary metric\u003e: \u003ccurrent vs. target\u003e\n- \u003cGuardrail metric\u003e: \u003cstate\u003e\n\n**What moved this week**\n- \u003c2–4 bullets, each tied to a metric or a goal.\u003e\n\n**Risks**\n- \u003cOne line per risk. Format: \"Risk + mitigation + when we'll know if it's working\".\u003e\n\n**Asks**\n- \u003cSpecific. \"Need \u003cname\u003e to approve \u003cthing\u003e by \u003cdate\u003e\" — not \"would appreciate input\".\u003e\n```\n\n### C. Customer success / support\n\n```markdown\n**What's new for customers — \u003cdate\u003e**\n\n**Shipped this week**\n- \u003cCustomer-visible change in one line.\u003e\n\n**Known issues**\n- \u003cIssue + workaround + ETA.\u003e\n\n**Customer-requested items**\n- \u003cTop 3 from feedback this period. Status: shipped / in flight / not on roadmap.\u003e\n\n**FYI**\n- \u003cThings to be aware of in customer conversations.\u003e\n```\n\n### D. Cross-team partners\n\n```markdown\n**\u003cTeam\u003e sync — \u003cdate\u003e**\n\n**What we shipped that you might care about**\n- \u003cThings with cross-team impact. Be specific about the impact.\u003e\n\n**What we're starting that touches your area**\n- \u003cHeads-up items. Who to talk to on our side.\u003e\n\n**What we need from you**\n- \u003cDirect asks. Person + thing + date.\u003e\n```\n\n### E. Whole company\n\nShort. Format like option B (Exec) but lighter — TL;DR + 3 bullets + asks. Slack-friendly.\n\n## Voice rules\n\n- **Period-end declarative.** No questions. No \"thoughts?\" at the end.\n- **Specific names and dates.** \"Need Priya's approval by Thursday\" beats \"need input soon\".\n- **Numbers over adjectives.** \"Down 12% this week\" beats \"down significantly\".\n- **Active verbs.** \"Shipped\", \"Blocked on\", \"Decided to\" — not \"facilitated\", \"explored\".\n- **Bullets are sentences, not phrases.** Two-word bullets are a coward's update.\n- **No buzzwords.** No \"alignment\", \"synergy\", \"leverage\", \"seamless\".\n\n## Risk communication\n\nEvery risk gets three lines:\n\n1. **The risk.** \"If A doesn't happen, B fails.\"\n2. **The mitigation.** \"We're doing C to reduce the chance.\"\n3. **The trip-wire.** \"We'll know if it's working by [date / signal].\"\n\nWithout all three, it's not a risk — it's a worry, and exec readers will treat it as one.\n\n## Target Audience\n\nYou picked it in Q1. Now write *only* what that audience needs. The PM error pattern is to copy-paste sections \"in case it's useful\". It isn't. Different audience = different doc.\n\n## Tiny worked example\n\n**Audience: Exec, weekly**\n\n\u003e **Checkout flow — week of Mar 24**\n\u003e\n\u003e **TL;DR.** Mobile checkout conversion ticked up 1.8 points after we shipped the simplified shipping selector. We're prepping a similar pass on the payment screen next week.\n\u003e\n\u003e **Metrics**\n\u003e - Mobile checkout conversion: **22.4%** (up from 20.6%, target 25% by EOQ).\n\u003e - Refund rate (guardrail): 1.1%, no change.\n\u003e\n\u003e **What moved**\n\u003e - Shipped simplified shipping selector on Tuesday (cut 3 fields to 1).\n\u003e - Cleaned up 2 prod errors on Safari that were silently failing checkout.\n\u003e\n\u003e **Risks**\n\u003e - Risk: payment-screen experiment may not show signal in 1 week if traffic dips for spring break. Mitigation: extended runway 7 days. Trip-wire: 50k sessions by Apr 7.\n\u003e\n\u003e **Asks**\n\u003e - Need legal sign-off on the 3DS copy by Friday — sent the draft to Priya yesterday.\n\n## Anti-patterns\n\n- The same update sent to three audiences. Pick one, write for them, send a different shape to others.\n- \"Things are going well\" with no numbers. Pick a metric.\n- A blocked-items list without dates or decision owners.\n- Risks without trip-wires. They read as worry.\n- Updates longer than 250 words for exec audiences. Cut.\n\n## Output\n\n- **Format:** Markdown (`.md`) or paste directly into Slack / email.\n- **Location:** `tasks/updates/` if archived.\n- **Filename:** `\u003cYYYY-MM-DD\u003e-\u003caudience\u003e.md`\n\n## Final instructions\n\n1. Always confirm audience and time horizon before drafting. Don't guess.\n2. After drafting, count the asks. If there isn't a specific named ask, the update is a status report, not a stakeholder update.\n3. Read aloud. If you wouldn't say it in a hallway conversation, rewrite it.\n\n## Attribution\n\nSynthesized from: `anthropics/knowledge-work-plugins · stakeholder-comms` (Apache 2.0); Ryan Nystrom (Notion EM) on async work patterns from [chatprd.ai](https://www.chatprd.ai/how-i-ai/ryan-nystrom-notion-workflows-for-engineering-velocity); Cat Wu / Anthropic team's update cadence via Lenny's; voice rules from the Runtime brand skill.\n"])</script><script>self.__next_f.push([1,"13:T22e8,"])</script><script>self.__next_f.push([1,"---\nname: prioritizing-features\ndescription: |\n  Picking the right prioritization framework (RICE, MoSCoW, WSJF, Kano) and\n  applying it to a backlog. Use when the user says \"how should I prioritize\",\n  \"score this backlog\", \"which framework\", \"what should we cut\", \"roadmap\n  prioritization\", or \"RICE / MoSCoW / WSJF / Kano\".\nallowed-tools:\n  - Read\n  - Write\n  - Edit\n---\n\n# Rule: Prioritizing features\n\n## Goal\n\nMost prioritization fails one of two ways: someone picks RICE because it's the framework they know, then spends an afternoon multiplying made-up numbers — or no framework is used and the loudest stakeholder wins. The job of this skill is to **pick the framework that fits the question being asked**, score honestly (showing the math), and recommend what to cut. The output is a defensible ordering, not a precise number.\n\n## Process\n\n1. **Receive input** — a backlog (any format), a strategic ask (\"what do we ship next quarter?\"), or a \"help me decide between A and B\".\n2. **Ask the clarifying questions** below. The stage of work determines the framework.\n3. **Recommend a framework first**, with a one-sentence why. Don't default.\n4. **Score the items** transparently. Every score has an assumption next to it.\n5. **Surface the sensitivity.** \"If reach is off by 2x, item #4 jumps to #2.\" This is the most useful line in the doc.\n6. **Recommend the cut.** What you'd drop, not just what you'd keep.\n\n## Clarifying Questions\n\n**Stage of work**\n- 1. Early discovery (we don't know what to build yet)\n- 2. Roadmap planning (next quarter)\n- 3. Sprint backlog (next 2 weeks)\n- 4. Cut list (we have too much; what goes?)\n\n**Primary constraint**\n- A. Time (a deadline is non-negotiable)\n- B. Engineering capacity (people-weeks)\n- C. Strategic bet (must move metric X)\n- D. Customer commitment (specific accounts asked)\n\n**How many items**\n- Under 10 / 10–30 / 30+\n\n**Confidence in the inputs**\n- A. Solid (we've measured reach / effort recently)\n- B. Mixed (some real numbers, some guesses)\n- C. Vibes (we're guessing on all of it — say so)\n\n## Framework picker\n\nUse this as the recommendation table. The skill should *open* with a framework call, not assume one.\n\n| If the question is… | Framework | Why |\n|---|---|---|\n| \"What should we ship next quarter from this big list?\" | **RICE** | Forces reach + impact + confidence onto a comparable scale. Best when items vary a lot in size. |\n| \"What's in scope for this release?\" | **MoSCoW** | Categorical (Must / Should / Could / Won't) — fast, no false precision. |\n| \"Which of these will pay off soonest given fixed engineering capacity?\" | **WSJF** | Cost-of-delay ÷ job size. Built for capacity-constrained roadmaps. |\n| \"Are we missing the basics that make customers love this?\" | **Kano** | Separates table-stakes from delighters from must-haves. Use after research, not in a vacuum. |\n| \"Should we do A or B?\" | **None — just decide.** | Two items don't need a framework. Pick the one with the bigger consequence-of-being-wrong and ship. |\n\n## Output Structure\n\n```markdown\n# \u003cProject / quarter\u003e — prioritization\n\n**Recommended framework: \u003cname\u003e.** \u003cOne sentence why this fits the question.\u003e\n**What changes if we change framework:** \u003cOne sentence — show you considered alternatives.\u003e\n\n## Inputs\n\n- Items considered: \u003cN\u003e\n- Source: \u003cwhere they came from\u003e\n- Confidence: \u003cA / B / C from above\u003e\n\n## Scored list\n\n| # | Item | \u003cScore components shown\u003e | Score | Notes |\n|---|---|---|---|---|\n| 1 | \u003cItem\u003e | R 8000 · I 3 · C 0.8 · E 4 | **4800** | \u003cOne line: the key assumption.\u003e |\n| 2 | \u003cItem\u003e | … | … | … |\n\n(For RICE, columns are R / I / C / E and the score = R × I × C / E. Show the math, not just the result.)\n(For MoSCoW, columns are category + rationale.)\n(For WSJF, columns are User-business value / Time criticality / Risk-opportunity / Job size, score = (sum of first three) / job size.)\n\n## What I would cut\n\n- \u003c2–4 items from the bottom, named, with a one-line reason.\u003e \"\u003cItem\u003e: lowest reach, requires a new vendor relationship. Park until Q3.\"\n\n## Sensitivity check\n\n- \u003c\"If reach on item #4 is half what we estimated, it drops below the line.\"\u003e\n- \u003c\"If the legal review on item #2 takes 6 weeks not 2, it should slip to next quarter.\"\u003e\n\n## Recommended next step\n\n\u003cOne paragraph. The first three items in priority order, who's the owner, when each kicks off. Specific.\u003e\n\n## What I'm not sure about\n\n- \u003cHonest list of guesses. Confidence calibration matters more than precision.\u003e\n```\n\n## RICE quick reference\n\nFor when RICE is the chosen framework. Score each on these scales — don't invent new ones.\n\n- **Reach (R):** Number of users / events the change touches in a chosen period (e.g. per quarter). Use a real number.\n- **Impact (I):** 0.25 (minimal) · 0.5 (low) · 1 (medium) · 2 (high) · 3 (massive). Anchored — don't invent intermediate values.\n- **Confidence (C):** 0.5 (low) · 0.8 (medium) · 1.0 (high). If lower than 0.5, do more research before scoring.\n- **Effort (E):** Person-months (or weeks — pick one and stay consistent).\n- **Score:** R × I × C / E.\n\nThe point of RICE isn't the number. It's that two PMs scoring the same item in a room together usually agree within 2x — which is good enough to order a backlog.\n\n## WSJF quick reference\n\nWhen capacity is the binding constraint:\n\n- **Cost of Delay (CoD)** = User-business value + Time criticality + Risk reduction / Opportunity enablement.\n- **WSJF score** = CoD / Job size.\n- Score each component on a 1 / 2 / 3 / 5 / 8 / 13 / 20 Fibonacci scale. Higher = more.\n\n## MoSCoW quick reference\n\n- **Must:** the release fails without it.\n- **Should:** important, but the release survives without it (with workarounds).\n- **Could:** nice to have if there's time.\n- **Won't:** explicitly out of this release. Document so it doesn't re-litigate.\n\nRule of thumb: Must items ≤ 60% of capacity. If Musts are 90% of capacity, you've called everything must, which means nothing is.\n\n## Voice rules\n\n- **Show the math.** A score with no decomposition is a vibe with a number bolted on.\n- **State the assumption.** Every score has one — name it. \"Assumes reach matches Q1 actuals.\"\n- **Recommend a cut.** Saying yes to everything is not prioritization.\n- **No precision theater.** RICE scores of 4823 vs. 4814 are noise. Round to one significant digit and move on.\n\n## Target Audience\n\nThe reader is usually an eng lead or VP making a capacity call. They want to know *what to build first, what to drop, and why* — in that order. The framework is the supporting evidence, not the headline.\n\n## Tiny worked example\n\n**Backlog of 5 items, roadmap planning, mixed confidence — RICE chosen.**\n\n| # | Item | R | I | C | E | Score | Note |\n|---|---|---|---|---|---|---|---|\n| 1 | SSO for enterprise tier | 800 (paying users) | 2 | 0.8 | 6 | **213** | Two largest accounts asked. Confidence high. |\n| 2 | Dashboard speed pass | 12,000 (all DAU) | 1 | 0.8 | 3 | **3200** | We have measurements; this is real. |\n| 3 | Mobile redesign | 8,000 | 1 | 0.5 | 12 | **333** | Confidence low — we haven't user-tested. |\n| 4 | Webhook retries | 2,000 (API users) | 2 | 1.0 | 2 | **2000** | Top support ticket category. |\n| 5 | Branded export themes | 400 | 0.5 | 0.8 | 4 | **40** | Nobody asked. |\n\n\u003e **Recommended order:** Dashboard speed → Webhooks retries → Mobile redesign (after lightweight user test) → SSO (gates two big accounts but small reach) → Cut: Branded export themes.\n\u003e\n\u003e **Sensitivity check:** If the mobile redesign's confidence ticks to 0.8 after one prototype test, it moves above SSO. Run that test before locking the quarter.\n\n## Anti-patterns\n\n- **Defaulting to RICE.** Pick the framework. Don't reach.\n- **Scoring without a number for Reach.** \"Reach: high\" is not a Reach value.\n- **Three-decimal precision.** RICE is for ordering, not for ranking 1st vs. 2nd by score.\n- **No \"cut\" recommendation.** You optimized for what to keep instead of what to drop. The cut is the harder, more useful call.\n- **Hidden assumptions.** A score without a note next to it is unauditable.\n- **Re-litigating Won't items.** MoSCoW only works if \"Won't\" is enforced.\n\n## Output\n\n- **Format:** Markdown (`.md`)\n- **Location:** `tasks/prioritization/`\n- **Filename:** `\u003cYYYY-MM-DD\u003e-\u003ctopic\u003e.md`\n\n## Final instructions\n\n1. Recommend the framework first. The framework recommendation is part of the deliverable.\n2. Show the math. Every score has an assumption next to it.\n3. End with the cut and the sensitivity check. Those are the lines that get used in the meeting.\n\n## Attribution\n\nSynthesized from: `anthropics/knowledge-work-plugins · roadmap-management` (Apache 2.0); `phuryn/pm-skills · prioritize-features` (MIT); `deanpeters/Product-Manager-Skills · prioritization-advisor` (MIT); Sean McBride's original RICE writeup at Intercom; Don Reinertsen's *Principles of Product Development Flow* (WSJF); Noriaki Kano's model; Dai Clegg's MoSCoW formulation.\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"QIkd7i__WTiC2pHmSQHzf\",\"p\":\"\",\"c\":[\"\",\"templates\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"templates\",{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/6d9cff5816cb3bda.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"min-h-screen flex flex-col\",\"children\":[[\"$\",\"$L2\",null,{}],[\"$\",\"$L3\",null,{}],[\"$\",\"main\",null,{\"className\":\"flex-1\",\"children\":[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[],[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}],[\"$\",\"footer\",null,{\"className\":\"border-t border-border bg-white mt-24\",\"children\":[[\"$\",\"div\",null,{\"className\":\"max-w-6xl mx-auto px-5 py-12 grid gap-10 md:grid-cols-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"md:col-span-2\",\"children\":[[\"$\",\"a\",null,{\"href\":\"https://runtm.com\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex items-center gap-2.5 group\",\"children\":[[\"$\",\"span\",null,{\"className\":\"text-[10px] font-medium uppercase tracking-eyebrow text-text-soft group-hover:text-text-muted\",\"children\":\"Built \u0026 maintained by\"}],[\"$\",\"$L6\",null,{\"src\":\"/logos/runtime-wordmark.png\",\"alt\":\"Runtime\",\"width\":120,\"height\":32,\"className\":\"h-7 w-auto\"}]]}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-muted mt-4 max-w-md leading-relaxed\",\"children\":[\"Claude Code for PMs is an open-source set of templates and skills, stewarded by \",[\"$\",\"a\",null,{\"href\":\"https://runtm.com\",\"className\":\"text-accent underline underline-offset-2\",\"children\":\"Runtime\"}],\". Sandboxed coding agents with your company’s context, integrations, and guardrails.\"]}],[\"$\",\"p\",null,{\"className\":\"text-xs text-text-soft mt-4\",\"children\":\"MIT licensed.\"}]]}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"h4\",null,{\"className\":\"text-xs font-semibold uppercase tracking-eyebrow text-text mb-3\",\"children\":\"Site\"}],[\"$\",\"ul\",null,{\"className\":\"text-sm space-y-2 text-text-muted\",\"children\":[[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/best-practices/\",\"className\":\"hover:text-text\",\"children\":\"Best practices\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/skills/\",\"className\":\"hover:text-text\",\"children\":\"Skills\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/templates/\",\"className\":\"hover:text-text\",\"children\":\"Templates\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/resources/\",\"className\":\"hover:text-text\",\"children\":\"Resources\"}]}]]}]]}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"h4\",null,{\"className\":\"text-xs font-semibold uppercase tracking-eyebrow text-text mb-3\",\"children\":\"Project\"}],[\"$\",\"ul\",null,{\"className\":\"text-sm space-y-2 text-text-muted\",\"children\":[[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/contribute/\",\"className\":\"hover:text-text\",\"children\":\"Contribute\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/changelog/\",\"className\":\"hover:text-text\",\"children\":\"Changelog\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms\",\"className\":\"hover:text-text\",\"children\":\"GitHub\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"/changelog.rss\",\"className\":\"hover:text-text\",\"children\":\"RSS\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://runtm.com\",\"className\":\"hover:text-text\",\"children\":\"Runtime →\"}]}]]}]]}]]}],[\"$\",\"div\",null,{\"className\":\"border-t border-border-soft\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-6xl mx-auto px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-text-soft\",\"children\":[[\"$\",\"p\",null,{\"children\":[\"Last updated \",\"2026-05-28\",\".\"]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/edit/main/site/src/app/page.tsx\",\"className\":\"hover:text-text underline underline-offset-2\",\"children\":\"Suggest a change on GitHub\"}]]}]}]]}],[\"$\",\"$L8\",null,{}]]}]}]]}],{\"children\":[\"templates\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"templates\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"section\",null,{\"className\":\"brand-mesh\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-6xl mx-auto px-5 pt-14 pb-12 sm:pt-16 sm:pb-16\",\"children\":[[\"$\",\"p\",null,{\"className\":\"eyebrow-pill\",\"children\":\"Templates\"}],[\"$\",\"h1\",null,{\"className\":\"headline-xl mt-5 max-w-3xl\",\"children\":\"Every template Claude reads on session start.\"}],[\"$\",\"p\",null,{\"className\":\"text-base sm:text-lg text-text-muted mt-5 max-w-2xl leading-relaxed\",\"children\":\"Files in the cloneable repo. Read end-to-end, copy what helps, swap your defaults in.\"}]]}]}],[\"$\",\"section\",null,{\"className\":\"max-w-6xl mx-auto px-5 pb-10\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"card-content mb-8\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-sm font-semibold uppercase tracking-wider text-text mb-3\",\"children\":\"Quick jump\"}],[\"$\",\"ul\",null,{\"className\":\"grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm\",\"children\":[[\"$\",\"li\",\"CLAUDE.md\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#CLAUDE-md\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"CLAUDE.md\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"PM defaults Claude loads every session\"]}]]}],[\"$\",\"li\",\"DESIGN.md\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#DESIGN-md\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"DESIGN.md\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"Brand tokens, voice, surface rules\"]}]]}],[\"$\",\"li\",\"pr_flow/create-prd.mdc\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#pr_flow-create-prd-mdc\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"pr_flow/create-prd.mdc\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"The PRD authoring rule\"]}]]}],[\"$\",\"li\",\"pr_flow/generate-tasks.mdc\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#pr_flow-generate-tasks-mdc\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"pr_flow/generate-tasks.mdc\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"Turn a PRD into a task list\"]}]]}],[\"$\",\"li\",\"pr_flow/process-task-list.mdc\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#pr_flow-process-task-list-mdc\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"pr_flow/process-task-list.mdc\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"Work the list one sub-task at a time\"]}]]}],[\"$\",\"li\",\"skills/your-brand/SKILL.md\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#skills-your-brand-SKILL-md\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"skills/your-brand/SKILL.md\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"Your team’s brand-as-skill template\"]}]]}],[\"$\",\"li\",\"skills/writing-prds/SKILL.md\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#skills-writing-prds-SKILL-md\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"skills/writing-prds/SKILL.md\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"PRD authoring skill\"]}]]}],[\"$\",\"li\",\"skills/writing-release-notes/SKILL.md\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#skills-writing-release-notes-SKILL-md\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"skills/writing-release-notes/SKILL.md\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"Release notes skill\"]}]]}],[\"$\",\"li\",\"skills/writing-stakeholder-updates/SKILL.md\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#skills-writing-stakeholder-updates-SKILL-md\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"skills/writing-stakeholder-updates/SKILL.md\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"Weekly update skill\"]}]]}],[\"$\",\"li\",\"skills/prioritizing-features/SKILL.md\",{\"children\":[[\"$\",\"a\",null,{\"href\":\"#skills-prioritizing-features-SKILL-md\",\"className\":\"font-mono text-text-muted hover:text-text\",\"children\":\"skills/prioritizing-features/SKILL.md\"}],[\"$\",\"span\",null,{\"className\":\"text-text-soft\",\"children\":[\" — \",\"Prioritization framework picker\"]}]]}]]}]]}],[\"$\",\"div\",null,{\"className\":\"space-y-8\",\"children\":[[\"$\",\"div\",\"CLAUDE.md\",{\"id\":\"CLAUDE-md\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"CLAUDE.md\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"PM defaults Claude loads every session\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"CLAUDE.md\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/CLAUDE.md\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$a\",\"snippetId\":\"CLAUDE.md\"}]]}]]}],[\"$\",\"div\",\"DESIGN.md\",{\"id\":\"DESIGN-md\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"DESIGN.md\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"Brand tokens, voice, surface rules\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"DESIGN.md\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/DESIGN.md\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$b\",\"snippetId\":\"DESIGN.md\"}]]}]]}],[\"$\",\"div\",\"pr_flow/create-prd.mdc\",{\"id\":\"pr_flow-create-prd-mdc\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"pr_flow/create-prd.mdc\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"The PRD authoring rule\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"pr_flow/create-prd.mdc\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/pr_flow/create-prd.mdc\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$c\",\"snippetId\":\"pr_flow/create-prd.mdc\"}]]}]]}],[\"$\",\"div\",\"pr_flow/generate-tasks.mdc\",{\"id\":\"pr_flow-generate-tasks-mdc\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"pr_flow/generate-tasks.mdc\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"Turn a PRD into a task list\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"pr_flow/generate-tasks.mdc\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/pr_flow/generate-tasks.mdc\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$d\",\"snippetId\":\"pr_flow/generate-tasks.mdc\"}]]}]]}],[\"$\",\"div\",\"pr_flow/process-task-list.mdc\",{\"id\":\"pr_flow-process-task-list-mdc\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"pr_flow/process-task-list.mdc\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"Work the list one sub-task at a time\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"pr_flow/process-task-list.mdc\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/pr_flow/process-task-list.mdc\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$e\",\"snippetId\":\"pr_flow/process-task-list.mdc\"}]]}]]}],[\"$\",\"div\",\"skills/your-brand/SKILL.md\",{\"id\":\"skills-your-brand-SKILL-md\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"skills/your-brand/SKILL.md\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"Your team’s brand-as-skill template\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"skills/your-brand/SKILL.md\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/your-brand/SKILL.md\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$f\",\"snippetId\":\"skills/your-brand/SKILL.md\"}]]}]]}],[\"$\",\"div\",\"skills/writing-prds/SKILL.md\",{\"id\":\"skills-writing-prds-SKILL-md\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"skills/writing-prds/SKILL.md\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"PRD authoring skill\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"skills/writing-prds/SKILL.md\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-prds/SKILL.md\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$10\",\"snippetId\":\"skills/writing-prds/SKILL.md\"}]]}]]}],[\"$\",\"div\",\"skills/writing-release-notes/SKILL.md\",{\"id\":\"skills-writing-release-notes-SKILL-md\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"skills/writing-release-notes/SKILL.md\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"Release notes skill\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"skills/writing-release-notes/SKILL.md\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-release-notes/SKILL.md\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$11\",\"snippetId\":\"skills/writing-release-notes/SKILL.md\"}]]}]]}],[\"$\",\"div\",\"skills/writing-stakeholder-updates/SKILL.md\",{\"id\":\"skills-writing-stakeholder-updates-SKILL-md\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"skills/writing-stakeholder-updates/SKILL.md\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"Weekly update skill\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"skills/writing-stakeholder-updates/SKILL.md\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-stakeholder-updates/SKILL.md\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$12\",\"snippetId\":\"skills/writing-stakeholder-updates/SKILL.md\"}]]}]]}],[\"$\",\"div\",\"skills/prioritizing-features/SKILL.md\",{\"id\":\"skills-prioritizing-features-SKILL-md\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-baseline gap-3 mb-3\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"font-mono text-lg text-text\",\"children\":\"skills/prioritizing-features/SKILL.md\"}],[\"$\",\"p\",null,{\"className\":\"text-sm text-text-soft\",\"children\":\"Prioritization framework picker\"}]]}],[\"$\",\"div\",null,{\"className\":\"card-content\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center justify-between gap-3 mb-3\",\"children\":[[\"$\",\"code\",null,{\"className\":\"font-mono text-sm text-text\",\"children\":\"skills/prioritizing-features/SKILL.md\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/prioritizing-features/SKILL.md\",\"className\":\"text-xs text-text-soft hover:text-text underline underline-offset-2\",\"children\":\"View on GitHub\"}]]}],[\"$\",\"$L9\",null,{\"code\":\"$13\",\"snippetId\":\"skills/prioritizing-features/SKILL.md\"}]]}]]}]]}]]}],[\"$\",\"section\",null,{\"className\":\"max-w-6xl mx-auto px-5 pb-20\",\"children\":[\"$\",\"$L14\",null,{\"context\":\"templates-index\"}]}]],null,[\"$\",\"$L15\",null,{\"children\":\"$L16\"}]]}],{},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"NHt0plS7lFCeh2A_dRlV6\",{\"children\":[[\"$\",\"$L17\",null,{\"children\":\"$L18\"}],[\"$\",\"$L19\",null,{\"children\":\"$L1a\"}],null]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$1b\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"1a:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n18:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"1\",{\"children\":\"Templates — Claude Code for PMs\"}],[\"$\",\"meta\",\"2\",{\"name\":\"description\",\"content\":\"The CLAUDE.md, DESIGN.md, pr_flow rules, and skill files in the cloneable repo. Copy any of them into your project.\"}],[\"$\",\"link\",\"3\",{\"rel\":\"canonical\",\"href\":\"https://claudecodeforpms.com/\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:title\",\"content\":\"Claude Code for PMs\"}],[\"$\",\"meta\",\"5\",{\"property\":\"og:description\",\"content\":\"Open-source templates, skills, and best practices for product managers using Claude Code.\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:url\",\"content\":\"https://claudecodeforpms.com/\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:site_name\",\"content\":\"Claude Code for PMs\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"9\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:title\",\"content\":\"Claude Code for PMs\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:description\",\"content\":\"Open-source templates, skills, and best practices for product managers using Claude Code.\"}]]\n"])</script><script>self.__next_f.push([1,"16:null\n"])</script></body></html>
