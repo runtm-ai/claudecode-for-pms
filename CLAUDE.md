@@ -67,6 +67,7 @@ For any non-trivial feature:
 - Don't approve a plan you didn't read.
 - Don't write a skill named `helper`, `utils`, or anything vague.
 - Don't stay in a session past the point Claude has lost the plot — open a new chat.
+- **Don't force-push or reset shared branches.** Never run `git reset --hard`, `git push --force`, or `git rebase -i` against `main` or any branch others use without explicit written approval. Even retroactively "fixing" commit history rewrites what others have cloned and causes merge conflicts.
 
 ## References
 
