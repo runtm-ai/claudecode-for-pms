@@ -4,20 +4,45 @@ number: 8
 blurb: Colors, type, voice, surfaces. Claude defaults to indigo and mesh gradients without it.
 ---
 
-Owen Williams (Stripe) puts it bluntly on *How I AI*: the design system has to be a skill, or every page comes back indigo.
+[TypeUI](https://www.typeui.sh/blog/design-skills-for-claude) has built a library of 48 design skills, each a single `SKILL.md` that gives Claude a consistent design language. Install one, and every UI Claude generates uses the same color tokens, type scale, and spacing. No more *"the pricing section spacing is off."*
 
-### The pattern
+The opposite — letting Claude default to whatever — is what Owen Williams (Design Manager at Stripe) calls *"the Tailwind Indigo blur slop."* Designers and PMs at Stripe were generating prototypes that looked nothing like the actual product, until they wired the company's design system into Claude as an MCP + a bundle of rules.
 
-`skills/your-brand/SKILL.md` is the full design system, expressed in the same SKILL.md shape as every other skill in the repo. The model auto-loads it whenever it's generating a UI, a landing page, a deck slide, a release note — anything a customer will see.
+### How to do it
 
-### What goes in it
+<Step n={1}>
+Pick a style. Recommendations by context:
 
-- **Color tokens** — primary, soft, dark, neutrals, status. No "any indigo will do".
-- **Typography** — size / weight / letter-spacing / line-height per role. System fonts unless you have a tested webfont reason.
-- **Voice in one sentence** plus banned words.
-- **Surface treatments** — cards, shadows, radii. One block of CSS or one tsx snippet.
-- **Pre-ship checklist** — six bullets, runs before every PR.
+- **Tech / AI products:** [Cosmic](https://www.typeui.sh/design-skills/cosmic) (dark, neon, futuristic) or [Modern](https://www.typeui.sh/design-skills/modern) (safe default).
+- **Indie / dev tools:** [Neobrutalism](https://www.typeui.sh/design-skills/neobrutalism) (chunky, opinionated) or [Mono](https://www.typeui.sh/design-skills/mono) (terminal aesthetic).
+- **Polished SaaS:** [Sleek](https://www.typeui.sh/design-skills/sleek) or [Premium](https://www.typeui.sh/design-skills/premium).
+</Step>
+
+<Step n={2}>
+Install: `npx typeui.sh pull <skill-name>`.
+</Step>
+
+<Step n={3}>
+The skill drops a `SKILL.md` into `~/.claude/skills/`. Done.
+</Step>
+
+### When to combine with your own brand spec
+
+If your company has a real brand (logo, colors, voice — see [practice 05](/best-practices/design-md)), your `DESIGN.md` is the source of truth. A design skill is a **fallback**: useful for surfaces that don't have explicit brand guidance (admin panels, internal tools, prototypes).
+
+This site itself blends three TypeUI styles on top of the Runtime brand — Cosmic for the hero, Perspective for depth, Neobrutalism for CTAs and anchor cards.
 
 ### Why this beats a Figma library
 
 A Figma library is something the model can't read. A `SKILL.md` is something it can. Both should exist; the skill is the one that changes output.
+
+<AntiPatterns>
+- Installing 5 design skills and hoping Claude picks the right one. Install one.
+- Layering a design skill on top of a different brand spec. The skill wins; your brand loses.
+- Choosing "Cosmic" because it sounds cool when your product is a B2B accounting tool. Pick by user expectation, not by what's trendy.
+</AntiPatterns>
+
+### Sources
+
+- [TypeUI — Design skills for Claude](https://www.typeui.sh/blog/design-skills-for-claude)
+- [Owen Williams (Stripe) on How I AI](https://youtu.be/hQFEAZK__q0)

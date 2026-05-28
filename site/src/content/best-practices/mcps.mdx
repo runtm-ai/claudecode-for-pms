@@ -4,21 +4,70 @@ number: 6
 blurb: GitHub, Linear, Notion, PostHog. The model can read real data, not your paraphrase of it.
 ---
 
-Model Context Protocol (MCP) servers let Claude read real systems instead of guessing from the prompt. For a PM, four cover most of the day:
+MCPs (Model Context Protocol servers) are how Claude talks to your tools — GitHub, Notion, Linear, Figma, Supabase, your analytics. Wiring them is one-time work that pays back daily. The friction is that every machine you use needs its own wiring, and secrets management gets messy fast.
 
-- **GitHub** — read PRs, file issues, check CI state.
-- **Linear** — pull current tickets, status, owners.
-- **Notion** — pull the actual PRD or strategy doc, not a paraphrase.
-- **PostHog (or your analytics)** — pull funnel data into the conversation.
+[Runtime](https://runtime.dev) solves this by pre-configuring MCPs in the sandbox so every session starts with the integrations already connected. If you don't use Runtime, the `.mcp.json` pattern (per-repo, version-controlled, secrets in `.env`) is the canonical answer.
 
-### Setup
+### How to do it (without Runtime)
 
-`mcp.json.example` in the repo root is a template. Copy to `.mcp.json` (gitignored), set the env vars in your shell, and the servers come up when Claude Code starts.
+<Step n={1}>
+Copy `mcp.json.example` from this repo to `.mcp.json` in your repo root. Use the `${VAR}` placeholders — never inline tokens.
+</Step>
 
-### The catch
+<Step n={2}>
+Add the MCPs you actually use. Less is more — each one adds context overhead at startup.
+</Step>
 
-Every MCP you add costs context budget and slows session start. Add them when the cost of paraphrasing the data into chat is higher than the cost of the round-trip. For most PMs that's two or three, not ten.
+<Step n={3}>
+Reference secrets via env vars. Add them to `.env.local` (gitignored) and document the keys in `.env.example` (committed).
+</Step>
+
+<Step n={4}>
+Commit `.mcp.json`. **Do not commit `.env.local`.**
+</Step>
+
+### Curated MCPs PMs should consider
+
+- **GitHub** — for issues, PRs, file operations.
+- **Notion** — for reading specs, writing meeting notes, querying databases.
+- **Linear / Jira** — for ticket creation and triage.
+- **PostHog** — for analytics queries and feature flag flips.
+- **Supabase** — for DB inspection and migrations.
+- **Figma (Dev Mode MCP)** — for design context.
+
+Marcus Moretti at Every uses an **Arxiv MCP** for academic research synthesis. Ryan Nystrom at Notion uses the **Honeycomb MCP** for CI metrics. Pick yours by what you query weekly, not by what looks cool.
+
+### The .mcp.json format
+
+```json
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--access-token",
+        "${SUPABASE_ACCESS_TOKEN}"
+      ]
+    }
+  }
+}
+```
+
+The `${SUPABASE_ACCESS_TOKEN}` reads from your shell env. Combine with [practice 07](/best-practices/secrets) for safe rotation.
 
 ### The skip
 
 Don't add an MCP because the integration exists. Add it because there's a specific task you do weekly that needs that data. If you can't name the task, you don't need the MCP.
+
+<AntiPatterns>
+- Hardcoding API keys in `.mcp.json`. See [practice 07](/best-practices/secrets).
+- Installing 30 MCPs you'll never use. Each one adds startup overhead.
+- Forgetting to share your `.env.example` updates with the team when you add a new MCP.
+</AntiPatterns>
+
+### Sources
+
+- [Marcus Moretti — Claude Code for PMs (Every)](https://every.to/source-code/claude-code-for-product-managers)
+- [Ryan Nystrom / Notion — ChatPRD interview](https://www.chatprd.ai/how-i-ai/ryan-nystrom-notion-workflows-for-engineering-velocity)

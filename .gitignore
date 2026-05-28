@@ -1,38 +1,64 @@
-# Secrets
+# --- Secrets ---
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
+# Keep .env.example committed — it is the template.
+!.env.example
 
-# OS
+# --- OS ---
 .DS_Store
+.AppleDouble
+.LSOverride
 Thumbs.db
 
-# Editors
-.vscode/
+# --- Editors ---
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 .idea/
 *.swp
+*.swo
 *~
 
-# Node
+# --- Node ---
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
 
-# Next.js
+# --- TypeScript ---
+*.tsbuildinfo
+site/next-env.d.ts
+
+# --- Next.js ---
 site/.next/
 site/out/
 site/build/
 site/dist/
 .next/
 out/
+.vercel/
 
-# Logs
+# --- Testing / coverage ---
+coverage/
+.nyc_output/
+
+# --- Logs ---
 *.log
 logs/
 
-# Misc
+# --- Misc ---
 .cache/
 .parcel-cache/
 .turbo/
+
+# --- Runtime ---
+*.pid
+*.seed
+*.pid.lock
+
+# --- Claude / agent local state ---
+.claude/settings.local.json

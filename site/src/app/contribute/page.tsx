@@ -6,7 +6,7 @@ import { SITE } from '@/lib/tokens';
 export const metadata = {
   title: 'Contribute',
   description:
-    'How to add a skill, fix a practice, or rewrite a template. We accept PRs and we read them.',
+    'How to add a skill, fix a practice, or rewrite a template. We curate, we don’t gatekeep. Drive-by PRs welcome.',
 };
 
 export default function ContributePage() {
@@ -19,67 +19,153 @@ export default function ContributePage() {
             Help us make this useful to the next PM.
           </h1>
           <p className="text-base sm:text-lg text-text-muted mt-5 leading-relaxed">
-            The repo is MIT. The site is open source. Send PRs against either.
+            The repo is MIT. The site is open source. We curate, we
+            don&rsquo;t gatekeep &mdash; a drive-by PR is welcome.
           </p>
         </div>
       </section>
-      <section className="max-w-3xl mx-auto px-5 pt-10 pb-10">
 
-        <div className="prose-runtime mt-10">
-          <h2>What we accept</h2>
+      <section className="max-w-3xl mx-auto px-5 pt-10 pb-6">
+        <SectionEyebrow>What we accept</SectionEyebrow>
+        <div className="prose-runtime mt-4">
           <ul>
             <li>
               <strong>New skills.</strong> One <code>SKILL.md</code> per PR, using the
-              seven-section format the six starter skills follow. Add an attribution footer.
+              seven-section format the six starter skills follow. Add an attribution
+              footer. Edit{' '}
+              <code>site/src/content/skills.json</code> to surface it on{' '}
+              <a href="/skills/">/skills</a>.
             </li>
             <li>
-              <strong>Better practice pages.</strong> If a practice page is wrong,
-              outdated, or missing context, file an issue or send a PR.
+              <strong>Better practice pages.</strong> If a practice MDX file in{' '}
+              <code>site/src/content/best-practices/</code> is wrong, outdated, or
+              missing context, file an issue or send a PR. Cite a public source.
             </li>
             <li>
-              <strong>Template improvements.</strong> If <code>CLAUDE.md</code> would be
-              clearer with one more section, propose it.
+              <strong>Template improvements.</strong> If <code>CLAUDE.md</code> or
+              any of the <code>pr_flow/</code> rules would be clearer with one more
+              section, propose it.
             </li>
             <li>
-              <strong>Translations.</strong> Open an issue first so we can plan structure.
+              <strong>Fixes &amp; improvements.</strong> Broken links, typos, tightened
+              copy, a11y fixes. Small ones get merged fast.
+            </li>
+            <li>
+              <strong>Translations.</strong> English-only in V1. If you want to translate,
+              open an issue first so we can plan routing.
             </li>
           </ul>
+        </div>
+      </section>
 
-          <h2>What we don&rsquo;t accept</h2>
+      <section className="max-w-3xl mx-auto px-5 py-6">
+        <SectionEyebrow>What we don&rsquo;t accept</SectionEyebrow>
+        <div className="prose-runtime mt-4">
           <ul>
+            <li>Marketing for your product. We have nothing against you &mdash; just keep it out of the playbook.</li>
+            <li>Unverified claims or anything you can&rsquo;t link to a public source.</li>
             <li>Skills that re-package a tool&rsquo;s manual. Skills encode judgment.</li>
-            <li>Anything that adds a paid service to the cloneable repo.</li>
+            <li>Skills that require a paid service to install.</li>
+            <li>Anything that turns this into a course or gated content.</li>
             <li>Breaking changes to the template file paths. Other tools depend on them.</li>
           </ul>
+        </div>
+      </section>
 
-          <h2>How to PR</h2>
+      <section className="max-w-3xl mx-auto px-5 py-6">
+        <SectionEyebrow>How to open a PR</SectionEyebrow>
+        <div className="prose-runtime mt-4">
           <ol>
-            <li>Fork the repo.</li>
+            <li>
+              Fork{' '}
+              <a href={SITE.repo} target="_blank" rel="noopener noreferrer">
+                runtm-ai/claudecode-for-pms
+              </a>
+              .
+            </li>
             <li>Branch off <code>main</code>. Keep the change small.</li>
             <li>Run the site locally to check formatting:</li>
           </ol>
         </div>
-
         <CodeBlock
           code={`git clone ${SITE.repo}.git
 cd claudecode-for-pms/site
 npm install
-npm run dev`}
+npm run dev    # http://localhost:3000`}
           snippetId="contribute-clone"
+          label="local dev"
         />
-
-        <div className="prose-runtime mt-6">
+        <div className="prose-runtime mt-4">
           <ol start={4}>
-            <li>Open a PR with a clear title. Link the practice or skill it touches.</li>
             <li>
-              For a new skill, the title should be <code>add: skills/&lt;name&gt;</code>.
+              For a new skill, name the PR <code>add: skills/&lt;name&gt;</code>.
             </li>
+            <li>
+              For a new practice, name it <code>add: best-practices/&lt;slug&gt;</code>.
+            </li>
+            <li>Open the PR with a 2-3 sentence description (what + why). We respond within a week.</li>
           </ol>
+        </div>
+      </section>
 
-          <h2>Code of conduct</h2>
+      <section className="max-w-3xl mx-auto px-5 py-6">
+        <SectionEyebrow>Secrets</SectionEyebrow>
+        <div className="prose-runtime mt-4">
           <p>
-            Be kind, specific, and patient. The reviewer is volunteering their afternoon.
-            Disagreements get resolved on the issue thread, not in comments on the diff.
+            Never commit a real API key. The repo ships with{' '}
+            <a
+              href={`${SITE.repo}/blob/main/.gitleaks.toml`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <code>.gitleaks.toml</code>
+            </a>
+            {' '}&mdash; wire it as a pre-commit hook before your first commit. Use{' '}
+            <code>.env.local</code> (gitignored) and <code>$&#123;VAR&#125;</code>
+            {' '}substitution in <code>.mcp.json</code>. The full playbook is in{' '}
+            <a href="/best-practices/secrets/">practice 07</a>, including how we
+            burned ourselves on day zero.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-5 py-6">
+        <SectionEyebrow>Voice</SectionEyebrow>
+        <div className="prose-runtime mt-4">
+          <ul>
+            <li>Plainspoken, declarative, period-ending sentences.</li>
+            <li>
+              No buzzwords. Banned-words list lives in{' '}
+              <a
+                href={`${SITE.repo}/blob/main/CLAUDE.md`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <code>CLAUDE.md</code>
+              </a>
+              .
+            </li>
+            <li>Active verbs, specific nouns.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-5 py-6">
+        <SectionEyebrow>Code of conduct</SectionEyebrow>
+        <div className="prose-runtime mt-4">
+          <p>
+            We follow the{' '}
+            <a
+              href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contributor Covenant
+            </a>
+            . Be kind, assume good faith, leave the playbook better than you
+            found it. The reviewer is volunteering their afternoon &mdash;
+            disagreements get resolved on the issue thread, not in comments on
+            the diff.
           </p>
         </div>
       </section>

@@ -4,18 +4,27 @@ number: 2
 blurb: Plan mode forces Claude to think before it edits. Approve the plan, then implementation gets boring.
 ---
 
-The default Claude Code session edits as it thinks. That works for one-file fixes. For anything that touches three files or more, plan mode is the difference between a clean PR and an afternoon of cleanup.
+Plan mode is Claude Code's "pause before you build" gear. It forces Claude to write down what it plans to do, get your approval, and only then touch a file. For PMs, this is the difference between watching Claude rewrite three files you didn't want it to touch and getting a clean PR.
 
-### The pattern
+The instinct to skip plan mode "to save time" is the wrong instinct. You're paying one extra turn to avoid a twenty-turn rework when the agent picks a path you'd have stopped earlier.
 
-1. Toggle plan mode (Shift+Tab in the CLI; toggle in the UI).
-2. Ask for the change. Claude returns a plan instead of edits.
-3. Read it. Push back where it picked the wrong scope. Ask for alternatives.
-4. Approve. Implementation now runs against a contract you both agreed to.
+### How to do it
 
-### Why it works
+<Step n={1}>
+Toggle plan mode (`Shift+Tab` in the CLI) or invoke it explicitly: *"Plan first. Don't write code."*
+</Step>
 
-A plan is cheap to revise. A diff is expensive. By the time you see the diff, the model has committed to a thousand small decisions and rolling back is a negotiation. Plan mode lets you negotiate while the cost is still words.
+<Step n={2}>
+Read the plan. If it's wrong, push back **in prose** — don't try to micromanage individual steps. A good correction sounds like *"Use the existing `lib/mdx.ts` instead of writing a new helper,"* not *"step 4 should be different."*
+</Step>
+
+<Step n={3}>
+Approve. Only then will Claude write.
+</Step>
+
+<Callout tone="success">
+**Plan mode is cheap insurance.** Even when bypass-permissions is safe (e.g. inside a Runtime sandbox where everything is reversible), plan mode is about *alignment*, not safety. Use it.
+</Callout>
 
 ### What good plans contain
 
@@ -23,3 +32,18 @@ A plan is cheap to revise. A diff is expensive. By the time you see the diff, th
 - The order of operations.
 - The trade-offs the model considered and rejected — read these; they're where you'll catch a bad assumption.
 - A list of what's out of scope for this change.
+
+### When plan mode isn't enough
+
+Plan mode is in-session. It doesn't persist across resets. For multi-session work or multi-person handoffs, write a real PRD ([practice 01](/best-practices/prd-first)) — that survives the chat window.
+
+<AntiPatterns>
+- Skipping plan mode "to save time" and then spending 20 minutes reverting.
+- Approving a plan you didn't read.
+- Treating plan mode output as a contract. It's a starting point; push back hard.
+- Using plan mode for trivial one-line changes. Reserve it for anything multi-file.
+</AntiPatterns>
+
+### Sources
+
+- [Anthropic — Skill best practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)
