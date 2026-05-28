@@ -27,7 +27,7 @@ export function SkillCard({ skill }: { skill: SkillCardData }) {
   };
 
   return (
-    <div className="card-anchor flex flex-col">
+    <div id={skill.slug} className="card-anchor flex flex-col">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3 className="font-semibold text-text">{skill.title}</h3>

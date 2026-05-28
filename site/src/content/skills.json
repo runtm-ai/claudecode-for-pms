@@ -384,6 +384,18 @@
       "sourceUrl": "https://www.typeui.sh/design-skills/sleek",
       "install": "npx typeui.sh pull sleek",
       "shipped": false
+    },
+    {
+      "slug": "animating-with-remotion",
+      "name": "animating-with-remotion",
+      "title": "Animating with Remotion",
+      "category": "design",
+      "blurb": "Scaffold product animations, onboarding walkthroughs, and feature demos that re-render on every UI change. No video editor needed.",
+      "trigger": "\"create a Remotion animation\", \"build an onboarding video\", \"set up Remotion\", \"animate my product\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "sourceUrl": "https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/animating-with-remotion/SKILL.md",
+      "install": "cp -r skills/animating-with-remotion ~/.claude/skills/",
+      "shipped": true
     }
   ]
 }
