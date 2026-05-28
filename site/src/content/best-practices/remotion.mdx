@@ -1,31 +1,21 @@
 ---
-title: Generate product animations with Remotion
+title: Generate ad assets with Remotion
 number: 9
-blurb: Programmatic video renders React into MP4. Ship onboarding, demos, and tutorials without hiring a video editor.
+blurb: Programmatic video lets one PM ship variant ads in an afternoon instead of a sprint.
 ---
 
-Remotion compiles React components to video. For a PM, that means you describe an animation in code, ship it to production or email, and update it instantly when the UI changes. No editing suite. No render farm.
+Remotion renders React components to video. For a PM that means you can describe an ad variant in code, render twelve versions of it overnight, and ship them to creative testing without going through a design queue.
 
 ### When this pays off
 
-- **Onboarding walkthroughs:** New user flows that need a guided demo. Update them when you ship the feature.
-- **Feature launches:** Ship a 30-second "here's what's new" video alongside the changelog.
-- **Tutorial content:** Showing a workflow step-by-step, synced to the actual UI. When you refactor the flow, re-render the video.
-- **Release notes:** Instead of static screenshots in an email, send an MP4 showing the before/after.
+- A growth team that wants to test five hooks across three audiences.
+- A product launch that needs the same announce in fifteen-second, thirty-second, and sixty-second cuts.
+- An onboarding video that has to be re-rendered every time the UI changes.
 
 ### The PM job
 
-You're not writing Remotion code yourself, mostly. You write the storyboard (what happens, in order) and the script (voiceover, if needed). A developer wires those into a Remotion component. Then you edit the storyboard like a PRD—no build step needed. The video re-renders on save.
+You're not writing the Remotion code, mostly. You're writing the brief and the variant matrix. The brief lives next to the rest of your PRDs. The variant matrix is a CSV the renderer reads.
 
 ### What this is not
 
-It's not "AI video" or "deepfakes." The output is deterministic: same code, same render every time. The variation comes from data you supply (different user names, different numbers) or from the animation you designed, not from a model guessing. That's what makes it safe for customer-facing content—you can audit every frame and you control exactly what ships.
-
-### How to start
-
-1. Share your storyboard in a PRD-format: scene 1 (duration, voiceover, UI state), scene 2, etc.
-2. Ask a developer to wire it into a Remotion template component.
-3. Push updates to the storyboard by editing the PRD. The developer re-renders on each change.
-4. Export to MP4, post to your site or send to sales as an attachment.
-
-For most PMs, one Remotion project (onboarding, tutorial, or launch video) takes an afternoon to set up and then becomes a one-liner to update.
+It's not "AI video generation". The output is deterministic: same code, same render. The variation comes from data you supply, not from a model improvising. That's what makes it usable for paid media — you can audit every frame.
