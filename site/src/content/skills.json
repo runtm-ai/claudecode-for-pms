@@ -22,7 +22,7 @@
       "trigger": "\"release notes\", \"what shipped this week\"",
       "source": "runtm-ai/claudecode-for-pms",
       "sourceUrl": "https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-release-notes/SKILL.md",
-      "install": "cp -r skills/writing-release-notes ~/.claude/skills/",
+      "install": "git clone https://github.com/runtm-ai/claudecode-for-pms.git && cp -r claudecode-for-pms/skills/writing-release-notes ~/.claude/skills/",
       "shipped": true
     },
     {
@@ -34,7 +34,7 @@
       "trigger": "\"weekly update\", \"exec note\", \"Friday recap\"",
       "source": "runtm-ai/claudecode-for-pms",
       "sourceUrl": "https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/writing-stakeholder-updates/SKILL.md",
-      "install": "cp -r skills/writing-stakeholder-updates ~/.claude/skills/",
+      "install": "git clone https://github.com/runtm-ai/claudecode-for-pms.git && cp -r claudecode-for-pms/skills/writing-stakeholder-updates ~/.claude/skills/",
       "shipped": true
     },
     {
@@ -46,7 +46,7 @@
       "trigger": "\"synthesize this research\", \"pull out the themes\"",
       "source": "runtm-ai/claudecode-for-pms",
       "sourceUrl": "https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/synthesizing-user-research/SKILL.md",
-      "install": "cp -r skills/synthesizing-user-research ~/.claude/skills/",
+      "install": "git clone https://github.com/runtm-ai/claudecode-for-pms.git && cp -r claudecode-for-pms/skills/synthesizing-user-research ~/.claude/skills/",
       "shipped": true
     },
     {
@@ -58,7 +58,7 @@
       "trigger": "\"how should I prioritize\", \"score this backlog\"",
       "source": "runtm-ai/claudecode-for-pms",
       "sourceUrl": "https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/prioritizing-features/SKILL.md",
-      "install": "cp -r skills/prioritizing-features ~/.claude/skills/",
+      "install": "git clone https://github.com/runtm-ai/claudecode-for-pms.git && cp -r claudecode-for-pms/skills/prioritizing-features ~/.claude/skills/",
       "shipped": true
     },
     {
@@ -70,7 +70,7 @@
       "trigger": "\"generate a landing page\", \"draft a deck slide\"",
       "source": "runtm-ai/claudecode-for-pms",
       "sourceUrl": "https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/your-brand/SKILL.md",
-      "install": "cp -r skills/your-brand ~/.claude/skills/",
+      "install": "git clone https://github.com/runtm-ai/claudecode-for-pms.git && cp -r claudecode-for-pms/skills/your-brand ~/.claude/skills/",
       "shipped": true
     },
 
@@ -384,6 +384,18 @@
       "sourceUrl": "https://www.typeui.sh/design-skills/sleek",
       "install": "npx typeui.sh pull sleek",
       "shipped": false
+    },
+    {
+      "slug": "animating-with-remotion",
+      "name": "animating-with-remotion",
+      "title": "Animating with Remotion",
+      "category": "design",
+      "blurb": "Scaffold product animations, onboarding walkthroughs, and feature demos that re-render on every UI change. No video editor needed.",
+      "trigger": "\"create a Remotion animation\", \"build an onboarding video\", \"set up Remotion\", \"animate my product\"",
+      "source": "runtm-ai/claudecode-for-pms",
+      "sourceUrl": "https://github.com/runtm-ai/claudecode-for-pms/blob/main/skills/animating-with-remotion/SKILL.md",
+      "install": "git clone https://github.com/runtm-ai/claudecode-for-pms.git && cp -r claudecode-for-pms/skills/animating-with-remotion ~/.claude/skills/",
+      "shipped": true
     }
   ]
 }

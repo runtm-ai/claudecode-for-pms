@@ -10,6 +10,7 @@ Six starter skills to get a PM productive on day one. Each is a `SKILL.md` Claud
 | `writing-stakeholder-updates/` | "Draft a weekly update", "exec note", "what to tell the team". |
 | `synthesizing-user-research/` | "I have N interview transcripts", "synthesize this research". |
 | `prioritizing-features/` | "How should I prioritize", "score this backlog", "which framework". |
+| `animating-with-remotion/` | "Create a Remotion animation", "animate my product", "build an onboarding video". |
 
 ## How skills load
 
