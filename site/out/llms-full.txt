@@ -1,0 +1,54 @@
+# Claude Code for PMs — full content dump
+
+Open-source templates, skills, and best practices for product managers using
+Claude Code. Repo: https://github.com/runtm-ai/claudecode-for-pms (MIT).
+
+## 10 best practices (one-line each)
+
+1. Write the PRD before the prompt — answers problem, user, done, out-of-scope.
+2. Use plan mode for anything non-trivial — negotiate the plan, not the diff.
+3. Make CLAUDE.md the single source of truth — product / voice / stack / conventions.
+4. Author skills, not prompts — they auto-load by trigger phrase.
+5. Ship a DESIGN.md with brand tokens — at the source so contributors can't reach default indigo.
+6. Wire up the right MCPs early — GitHub, Linear, Notion, PostHog. Real data, not a paraphrase.
+7. Never commit a secret — .env in .gitignore, MCP tokens from the shell.
+8. Treat the design system as a skill — colors / type / voice / surfaces, all in one SKILL.md.
+9. Generate ad assets with Remotion — programmatic video, deterministic output.
+10. Onboard the agent like a teammate — first-day reading list, code map, voice doc.
+
+## Six shipped skills (skills/<name>/SKILL.md)
+
+- writing-prds              — PRD authoring with 9-section output and clarifying questions
+- writing-release-notes     — Merged PRs to customer-facing notes by audience
+- writing-stakeholder-updates — Per-audience weekly updates (eng leads, exec, CS, cross-team)
+- synthesizing-user-research — Transcripts to themes, JTBD, next step
+- prioritizing-features     — Framework picker (RICE, MoSCoW, WSJF, Kano) + scored backlog
+- your-brand                — Fill-in template for color, type, voice, surfaces
+
+## Templates in the repo
+
+- CLAUDE.md                 — what Claude reads on session start
+- DESIGN.md                 — brand tokens, voice, surface rules
+- pr_flow/create-prd.mdc    — explicit PRD-authoring rule
+- pr_flow/generate-tasks.mdc — PRD to task list
+- pr_flow/process-task-list.mdc — work the list sub-task at a time
+- mcp.json.example          — MCP servers for GitHub / Linear / Notion / PostHog
+- .env.example              — env keys, never values
+
+## Voice we wrote in
+
+Plainspoken, period-end declarative. No buzzwords (unlock, leverage, seamless,
+robust, next-generation). Specific nouns over abstractions. Numbers when we
+have them.
+
+## Synthesized from
+
+- anthropics/knowledge-work-plugins (Apache 2.0)
+- phuryn/pm-skills (MIT)
+- deanpeters/Product-Manager-Skills (MIT)
+- Aakash Gupta — Albuquerque podcast
+- Aman Khan — "Every PM should be building skills"
+- Cat Wu / Anthropic team via Lenny's Newsletter
+- Ryan Nystrom (Notion) via chatprd.ai
+- Owen Williams (Stripe) on How I AI
+- Marcus Moretti at Every
