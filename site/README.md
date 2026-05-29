@@ -16,11 +16,13 @@ npm run dev          # http://localhost:3000
 ## Build for production
 
 ```bash
-npm run build        # generates out/
+cd site && npm ci && npm run build   # generates site/out/
 ```
 
-The `out/` folder is deployable to any static host (Vercel, Cloudflare Pages,
-GitHub Pages, an S3 bucket).
+The `site/out/` folder is deployable to any static host. The build reads files
+from the repo root (`templates/`, `pr_flow/`, `skills/`), so run the build
+from the **repo root**, not from inside `site/`. See the root `README.md` for
+platform-specific deploy settings (Vercel config is already committed).
 
 ## Project layout
 
