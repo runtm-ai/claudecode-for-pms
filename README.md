@@ -8,7 +8,7 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 
 ## Two paths
 
-**You want the templates?** Read `CLAUDE.md`, copy what you need into your own repo. You're done.
+**You want the templates?** Browse `templates/`. Copy `templates/CLAUDE.md` and `templates/DESIGN.md` into your own repo root. You're done.
 
 **You want to run the site locally?** `cd site && npm install && npm run dev`. See `site/README.md`.
 
@@ -16,8 +16,14 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 
 ```
 .
-├── CLAUDE.md                      # The memory file Claude reads every session
-├── DESIGN.md                      # Brand template (fill it in)
+├── CLAUDE.md                      # Project memory for this repo (Claude reads every session)
+├── templates/                     # Copy these into your own project
+│   ├── CLAUDE.md                  # Memory file template — fill in your product, team, stack
+│   ├── DESIGN.md                  # Brand spec template — fill in your colors, type, voice
+│   └── docs/                      # Long-form context templates Claude loads on demand
+│       ├── product.md
+│       ├── architecture.md
+│       └── voice.md
 ├── .env.example                   # Common env keys
 ├── .gitignore                     # Includes .env*, .DS_Store, node_modules
 ├── .mcp.json                      # Starter MCP config (GitHub, Notion, Linear, PostHog)
@@ -26,14 +32,14 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 │   ├── generate-tasks.mdc
 │   └── process-task-list.mdc
 ├── tasks/                         # Where your PRDs and task lists live
-├── skills/                        # Six starter skills, ready to use
+├── skills/                        # Seven starter skills, ready to use
 │   ├── your-brand/                # Blank brand skill — fill in your design system
 │   ├── writing-prds/              # PRD authoring (pairs with pr_flow/)
 │   ├── writing-release-notes/     # User-facing release notes from PRs
 │   ├── writing-stakeholder-updates/  # Weekly updates by audience
 │   ├── synthesizing-user-research/   # Interview transcripts → JTBD + themes
-│   └── prioritizing-features/     # RICE / MoSCoW / WSJF framework picker
-├── docs/                          # Long-form context Claude loads on demand
+│   ├── prioritizing-features/     # RICE / MoSCoW / WSJF framework picker
+│   └── animating-with-remotion/   # Product animations via Remotion
 └── site/                          # The website source (Next.js)
 ```
 
