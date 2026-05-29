@@ -7,22 +7,22 @@ alwaysApply: false
 
 ## Goal
 
-To guide an AI assistant in turning a PRD (in `/tasks/prd-[feature-name].md`) into a detailed, step-by-step task list a junior developer can execute one item at a time.
+To guide an AI assistant in turning a PRD (`tasks/[feature-name]/task.md`) into a detailed, step-by-step task list a junior developer can execute one item at a time.
 
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `/tasks/`
-- **Filename:** `tasks-prd-[feature-name].md` (matching the PRD filename it came from)
+- **Location:** `tasks/[feature-name]/`
+- **Filename:** `tasks.md`
 
 ## Process
 
-1. **Read the PRD:** Open the referenced PRD in full.
+1. **Read the PRD:** Open `tasks/[feature-name]/task.md` in full.
 2. **Generate Parent Tasks (Phase 1):** Produce 4–7 high-level parent tasks that, together, deliver the PRD. Stop and ask: **"Ready to generate sub-tasks? Respond 'go' to continue."**
 3. **Wait for confirmation:** Do not proceed until the user replies `go`.
 4. **Generate Sub-tasks (Phase 2):** Break each parent task into 2–6 ordered sub-tasks. Each sub-task is small enough to complete in one editing session.
 5. **Identify Relevant Files:** List the files the implementer will create or change, with a one-line description each.
-6. **Save** the file to `/tasks/tasks-prd-[feature-name].md` in the structure below.
+6. **Save** the file to `tasks/[feature-name]/tasks.md` in the structure below.
 
 ## Output Structure
 

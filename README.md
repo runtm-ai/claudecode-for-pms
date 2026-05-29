@@ -8,7 +8,7 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 
 ## Two paths
 
-**You want the templates?** Read `CLAUDE.md`, copy what you need into your own repo. You're done.
+**You want the templates?** Browse `templates/`. Copy `templates/CLAUDE.md` and `templates/DESIGN.md` into your own repo root. You're done.
 
 **You want to run the site locally?** `cd site && npm install && npm run dev`. See `site/README.md`.
 
@@ -16,8 +16,14 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 
 ```
 .
-├── CLAUDE.md                      # The memory file Claude reads every session
-├── DESIGN.md                      # Brand template (fill it in)
+├── CLAUDE.md                      # Project memory for this repo (Claude reads every session)
+├── templates/                     # Copy these into your own project
+│   ├── CLAUDE.md                  # Memory file template — fill in your product, team, stack
+│   ├── DESIGN.md                  # Brand spec template — fill in your colors, type, voice
+│   └── docs/                      # Long-form context templates Claude loads on demand
+│       ├── product.md
+│       ├── architecture.md
+│       └── voice.md
 ├── .env.example                   # Common env keys
 ├── .gitignore                     # Includes .env*, .DS_Store, node_modules
 ├── .mcp.json                      # Starter MCP config (GitHub, Notion, Linear, PostHog)
@@ -26,18 +32,18 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 │   ├── generate-tasks.mdc
 │   └── process-task-list.mdc
 ├── tasks/                         # Where your PRDs and task lists live
-├── skills/                        # Six starter skills, ready to use
+├── skills/                        # Seven starter skills, ready to use
 │   ├── your-brand/                # Blank brand skill — fill in your design system
 │   ├── writing-prds/              # PRD authoring (pairs with pr_flow/)
 │   ├── writing-release-notes/     # User-facing release notes from PRs
 │   ├── writing-stakeholder-updates/  # Weekly updates by audience
 │   ├── synthesizing-user-research/   # Interview transcripts → JTBD + themes
-│   └── prioritizing-features/     # RICE / MoSCoW / WSJF framework picker
-├── docs/                          # Long-form context Claude loads on demand
+│   ├── prioritizing-features/     # RICE / MoSCoW / WSJF framework picker
+│   └── animating-with-remotion/   # Product animations via Remotion
 └── site/                          # The website source (Next.js)
 ```
 
-## The 10 practices
+## The 11 practices
 
 1. Write a PRD before you write a prompt
 2. Use plan mode for anything non-trivial
@@ -49,6 +55,7 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 8. Use design skills so your UI doesn't look like ChatGPT made it
 9. Use Remotion (and other prebuilt packages) for visuals you'd otherwise skip
 10. Treat the agent as a teammate — give it the same onboarding doc
+11. Log every session so Claude can pick up where you left off
 
 Each practice is one page at [claudecodeforpms.com/best-practices](https://claudecodeforpms.com/best-practices).
 

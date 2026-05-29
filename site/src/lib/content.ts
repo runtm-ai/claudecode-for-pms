@@ -40,8 +40,8 @@ export function readRepoFile(relativePath: string): string {
 }
 
 export const REPO_TEMPLATE_FILES: { path: string; label: string }[] = [
-  { path: 'CLAUDE.md', label: 'PM defaults Claude loads every session' },
-  { path: 'DESIGN.md', label: 'Brand tokens, voice, surface rules' },
+  { path: 'templates/CLAUDE.md', label: 'PM defaults Claude loads every session' },
+  { path: 'templates/DESIGN.md', label: 'Brand tokens, voice, surface rules' },
   { path: 'pr_flow/create-prd.mdc', label: 'The PRD authoring rule' },
   { path: 'pr_flow/generate-tasks.mdc', label: 'Turn a PRD into a task list' },
   { path: 'pr_flow/process-task-list.mdc', label: 'Work the list one sub-task at a time' },

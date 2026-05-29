@@ -42,7 +42,7 @@ export default function ContributePage() {
               missing context, file an issue or send a PR. Cite a public source.
             </li>
             <li>
-              <strong>Template improvements.</strong> If <code>CLAUDE.md</code> or
+              <strong>Template improvements.</strong> If <code>templates/CLAUDE.md</code> or
               any of the <code>pr_flow/</code> rules would be clearer with one more
               section, propose it.
             </li>
@@ -137,11 +137,11 @@ npm run dev    # http://localhost:3000`}
             <li>
               No buzzwords. Banned-words list lives in{' '}
               <a
-                href={`${SITE.repo}/blob/main/CLAUDE.md`}
+                href={`${SITE.repo}/blob/main/templates/CLAUDE.md`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <code>CLAUDE.md</code>
+                <code>templates/CLAUDE.md</code>
               </a>
               .
             </li>

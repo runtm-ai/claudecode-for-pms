@@ -1,0 +1,67 @@
+---
+title: Log every session so Claude can pick up where you left off
+number: 11
+blurb: Two files per task — requirements and a running work log — so Claude starts each session with full context instead of a blank slate.
+---
+
+Every Claude Code session starts cold. Close the terminal, open it the next day, and Claude has no memory of the feature you were building, the decisions you made, or what's left to do. The catch-up prompt becomes your most expensive one.
+
+Vanja Petreski's fix: two files per task instead of one. `task.md` holds the requirements — stable, rarely changes. `sessions.md` holds a running log of every work session — what was built, what was decided, what's next. Load both at the start of each session and Claude has everything it needs.
+
+### How to do it
+
+<Step n={1}>
+Create a folder for the task: `tasks/{feature-name}/`. Write `task.md` with the goal, requirements, technical notes, and out-of-scope. Or use `pr_flow/create-prd.mdc` — it creates both files automatically.
+</Step>
+
+<Step n={2}>
+At the start of each session, give Claude this prompt:
+
+`"Read tasks/{feature-name}/task.md and tasks/{feature-name}/sessions.md. Give me a summary and let's continue from where we left off."`
+
+Claude loads the requirements and the full history of prior sessions. No re-explaining.
+</Step>
+
+<Step n={3}>
+Do the work. Use `pr_flow/process-task-list.mdc` to step through sub-tasks one at a time.
+</Step>
+
+<Step n={4}>
+At the end of each session, say: `"Update tasks/{feature-name}/sessions.md with today's progress."` Claude appends a dated entry — accomplished, decisions made, next steps, status.
+</Step>
+
+<Step n={5}>
+When the task is done, move the folder to `tasks/archive/` or delete it. Keep `tasks/` reflecting active work only.
+</Step>
+
+### What goes in sessions.md
+
+Each entry follows the same structure Claude will produce when you ask it to update the log:
+
+```markdown
+## YYYY-MM-DD
+
+**Accomplished:**
+- What was built or changed this session
+
+**Decisions:**
+- Choices made and the reasoning behind them
+
+**Next steps:**
+- First unchecked item and what depends on it
+
+**Status:** In progress / Blocked / Done
+```
+
+The decisions section is the most valuable part. In two weeks, you won't remember why you chose NextAuth over a custom implementation. The log will.
+
+<AntiPatterns>
+- Opening a session without loading both files. Claude reconstructs context you already wrote down.
+- Writing sessions.md in first person ("I implemented the login form"). Write it for Claude: "Accomplished: implemented the login form."
+- One sessions.md entry covering the whole project. Date-stamp every session — you want to know when decisions were made.
+- Keeping 20 open task folders. Archive aggressively. tasks/ should show what's active, not a wishlist.
+</AntiPatterns>
+
+### Sources
+
+- [Vanja Petreski — PRD system for Claude Code](https://vanja.io/prd-system-for-claude-code/)

@@ -1,29 +1,27 @@
 # CLAUDE.md
 
 > Memory file. Claude reads this on every session start. Keep it under 500 lines.
-> Replace the bracketed TODOs with details about your team and product.
 
 ## Product
 
-[TODO] One paragraph: what you're building and who it's for.
+We publish an open-source playbook of best practices, templates, and skills for PMs using Claude Code. Our buyer is the PM who wants a repeatable system for AI-assisted product work. Our anti-buyer is the developer looking for a general coding assistant.
 
-Example: *We build a payments API for marketplaces with 1–50 sellers. Our buyer is the marketplace's founding engineer. Our anti-buyer is enterprise procurement.*
+The playbook lives at claudecodeforpms.com (a Next.js static site deployed on Runtime) and as a cloneable GitHub repo at runtm-ai/claudecode-for-pms. The repo ships ready-to-use templates (in `templates/`), a workflow system (`pr_flow/`), and seven starter skills (`skills/`). The site displays and explains all of them.
 
 ## Team
 
-- **PM:** [TODO — your name + handle]
+- **PM:** Manolo (@manoloah)
 - **Eng lead:** [TODO]
 - **Design:** [TODO]
 - **Anyone else with commit access:** [TODO]
 
 ## Stack
 
-- [TODO] Frontend
-- [TODO] Backend
-- [TODO] Database
-- [TODO] Hosting
-- [TODO] Auth
-- [TODO] Analytics
+- **Frontend:** Next.js 15.1 / React 19 / TailwindCSS 3.4 — app router, static export to `site/out/`
+- **Content:** MDX files in `site/src/content/` via next-mdx-remote + gray-matter
+- **Hosting:** Runtime (runtm.ai) — preview per session, production at claudecodeforpms.com
+- **Auth:** None — fully public static site
+- **Analytics:** [TODO]
 
 ## Voice
 
@@ -41,12 +39,13 @@ How we write — for docs, release notes, support replies, and anything else tha
 
 Skills live in `skills/`. The ones shipped with this repo:
 
-- `your-brand/` — our design system as a skill
+- `your-brand/` — blank design system skill template
 - `writing-prds/` — paired with `pr_flow/create-prd.mdc`
 - `writing-release-notes/` — user-facing notes from merged PRs
 - `writing-stakeholder-updates/` — weekly updates by audience
 - `synthesizing-user-research/` — interview → themes + JTBD
 - `prioritizing-features/` — framework picker + scoring
+- `animating-with-remotion/` — product animations via Remotion
 
 When you write the same kind of artifact twice, build a skill the third time. Gerund form (`writing-foo`, `prioritizing-bar`) so Claude auto-invokes.
 
@@ -54,10 +53,11 @@ When you write the same kind of artifact twice, build a skill the third time. Ge
 
 For any non-trivial feature:
 
-1. Drop a PRD into `tasks/prd-<feature>.md` using `pr_flow/create-prd.mdc`.
-2. Generate the task list with `pr_flow/generate-tasks.mdc`.
+1. Create `tasks/<feature>/task.md` using `pr_flow/create-prd.mdc`. It also seeds `tasks/<feature>/sessions.md`.
+2. Generate `tasks/<feature>/tasks.md` with `pr_flow/generate-tasks.mdc`.
 3. Process tasks one at a time with `pr_flow/process-task-list.mdc`.
-4. Use plan mode (`Shift+Tab` in the CLI) before any file changes.
+4. At session end, update `tasks/<feature>/sessions.md` with what was done.
+5. Use plan mode (`Shift+Tab` in the CLI) before any file changes.
 
 ## What not to do
 
@@ -67,14 +67,16 @@ For any non-trivial feature:
 - Don't approve a plan you didn't read.
 - Don't write a skill named `helper`, `utils`, or anything vague.
 - Don't stay in a session past the point Claude has lost the plot — open a new chat.
-- **Don't force-push or reset shared branches.** Never run `git reset --hard`, `git push --force`, or `git rebase -i` against `main` or any branch others use without explicit written approval. Even retroactively "fixing" commit history rewrites what others have cloned and causes merge conflicts.
+- **Don't force-push or reset shared branches.** Never run `git reset --hard`, `git push --force`, or `git rebase -i` against `main` or any branch others use without explicit written approval.
+- Don't edit files inside `site/out/` directly — it's a generated build artifact. Change source in `site/src/` instead.
 
 ## References
 
 Long-form context Claude can pull in when relevant:
 
-- `docs/product.md` — what we're building, in depth
-- `docs/architecture.md` — stack, dependencies, decisions
-- `docs/voice.md` — voice rules with examples
-- `DESIGN.md` — brand spec (colors, type, components)
+- `templates/CLAUDE.md` — the CLAUDE.md template we ship to users
+- `templates/DESIGN.md` — brand spec template
+- `templates/docs/` — product, architecture, and voice doc templates
+- `site/src/content/best-practices/` — the practice MDX pages
+- `site/src/lib/content.ts` — how the site reads repo files and lists templates
 - `pr_flow/*.mdc` — the PRD → tasks → execute rules

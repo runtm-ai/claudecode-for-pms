@@ -87,6 +87,14 @@ export const PRACTICES: Practice[] = [
       'First-day reading list, code map, voice doc. Treat the agent like a new hire who reads fast.',
     related: ['claude-md', 'plan-mode'],
   },
+  {
+    slug: 'prd-sessions',
+    number: 11,
+    title: 'Log every session so Claude can pick up where you left off',
+    blurb:
+      'Two files per task — requirements and a running work log — so Claude starts each session with full context instead of a blank slate.',
+    related: ['prd-first', 'claude-md', 'plan-mode'],
+  },
 ];
 
 export const getPractice = (slug: string): Practice | undefined =>

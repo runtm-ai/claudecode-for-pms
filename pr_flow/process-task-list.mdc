@@ -7,7 +7,15 @@ alwaysApply: false
 
 ## Goal
 
-To guide an AI assistant through executing a task list (`/tasks/tasks-prd-[feature-name].md`) **one sub-task at a time**, with user approval between each.
+To guide an AI assistant through executing a task list (`tasks/[feature-name]/tasks.md`) **one sub-task at a time**, with user approval between each.
+
+## Starting a session
+
+Before picking up the first sub-task, read both:
+- `tasks/[feature-name]/task.md` — the full requirements
+- `tasks/[feature-name]/sessions.md` — the history of prior sessions
+
+Give a one-paragraph summary of where things stand, then ask which sub-task to start with (or default to the next unchecked one).
 
 ## Process
 
@@ -27,12 +35,32 @@ To guide an AI assistant through executing a task list (`/tasks/tasks-prd-[featu
 - Summarize what the parent delivered.
 - Pause for the user to review before moving on.
 
+## Ending a session
+
+When the user signals they're done for the day (or after completing a parent task), append a dated entry to `tasks/[feature-name]/sessions.md`:
+
+```markdown
+## YYYY-MM-DD
+
+**Accomplished:**
+- What was built or changed
+
+**Decisions:**
+- Any choices made and why
+
+**Next steps:**
+- First unchecked sub-task and anything that depends on it
+
+**Status:** In progress / Blocked / Done
+```
+
 ## What not to do
 
 - Do NOT batch multiple sub-tasks in one response.
 - Do NOT proceed without explicit `next`.
 - Do NOT modify files outside the "Relevant Files" list without flagging it first.
 - Do NOT skip the test/lint step on parent-task completion.
+- Do NOT skip updating `sessions.md` at session end — it's the handoff note for the next session.
 
 ## When you get stuck
 
