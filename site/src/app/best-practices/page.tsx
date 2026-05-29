@@ -4,9 +4,9 @@ import { RepoCTA } from '@/components/ui/RepoCTA';
 import { PRACTICES } from '@/lib/practices';
 
 export const metadata = {
-  title: '10 best practices',
+  title: '12 best practices',
   description:
-    'The ten things PMs shipping fastest with Claude Code do differently — from PRD-first workflows to skills, MCPs, and design tokens.',
+    'Twelve things PMs shipping fastest with Claude Code do differently — from PRD-first workflows to skills, MCPs, and design tokens.',
 };
 
 export default function BestPracticesIndex() {
@@ -19,7 +19,7 @@ export default function BestPracticesIndex() {
             What PMs shipping fastest with Claude Code do differently.
           </h1>
           <p className="text-base sm:text-lg text-text-muted mt-5 max-w-2xl leading-relaxed">
-            Ten practices, one per page. Read in order or jump to the one that
+            Twelve practices, one per page. Read in order or jump to the one that
             fixes the problem you have today.
           </p>
         </div>
