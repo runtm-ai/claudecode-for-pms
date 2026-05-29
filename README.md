@@ -43,7 +43,7 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 └── site/                          # The website source (Next.js)
 ```
 
-## The 10 practices
+## The 11 practices
 
 1. Write a PRD before you write a prompt
 2. Use plan mode for anything non-trivial
@@ -55,6 +55,7 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 8. Use design skills so your UI doesn't look like ChatGPT made it
 9. Use Remotion (and other prebuilt packages) for visuals you'd otherwise skip
 10. Treat the agent as a teammate — give it the same onboarding doc
+11. Log every session so Claude can pick up where you left off
 
 Each practice is one page at [claudecodeforpms.com/best-practices](https://claudecodeforpms.com/best-practices).
 

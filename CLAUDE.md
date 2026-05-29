@@ -53,10 +53,11 @@ When you write the same kind of artifact twice, build a skill the third time. Ge
 
 For any non-trivial feature:
 
-1. Drop a PRD into `tasks/prd-<feature>.md` using `pr_flow/create-prd.mdc`.
-2. Generate the task list with `pr_flow/generate-tasks.mdc`.
+1. Create `tasks/<feature>/task.md` using `pr_flow/create-prd.mdc`. It also seeds `tasks/<feature>/sessions.md`.
+2. Generate `tasks/<feature>/tasks.md` with `pr_flow/generate-tasks.mdc`.
 3. Process tasks one at a time with `pr_flow/process-task-list.mdc`.
-4. Use plan mode (`Shift+Tab` in the CLI) before any file changes.
+4. At session end, update `tasks/<feature>/sessions.md` with what was done.
+5. Use plan mode (`Shift+Tab` in the CLI) before any file changes.
 
 ## What not to do
 
