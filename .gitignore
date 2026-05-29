@@ -35,6 +35,7 @@ site/next-env.d.ts
 
 # --- Next.js ---
 site/.next/
+site/out/
 site/build/
 site/dist/
 .next/

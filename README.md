@@ -12,6 +12,8 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 
 **You want to run the site locally?** `cd site && npm install && npm run dev`. See `site/README.md`.
 
+**You want to deploy the site?** See [Deploy](#deploy) below.
+
 ## What's in the box
 
 ```
@@ -58,6 +60,23 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 11. Log every session so Claude can pick up where you left off
 
 Each practice is one page at [claudecodeforpms.com/best-practices](https://claudecodeforpms.com/best-practices).
+
+## Deploy
+
+The site builds to a static `site/out/` directory from a Next.js static export.
+The build reads `templates/`, `pr_flow/`, and `skills/` from the repo root, so
+the **whole repo must be checked out** during the build, not just `site/`.
+
+**Vercel:** `vercel.json` at the repo root is already wired. Import the repo,
+accept all defaults, and deploy. No extra settings needed.
+
+**Anywhere else** (Runtime, Cloudflare Pages, Netlify, GitHub Pages, S3):
+
+| Setting          | Value                     |
+|------------------|---------------------------|
+| Install command  | `cd site && npm ci`       |
+| Build command    | `cd site && npm run build`|
+| Output directory | `site/out`                |
 
 ## Contribute
 
