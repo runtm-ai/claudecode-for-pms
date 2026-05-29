@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { HeroCard } from './HeroCard';
 
 type Props = {
   eyebrow: string;
@@ -35,7 +34,12 @@ export function Hero({ eyebrow, headline, subhead, primaryCta, secondaryCta }: P
             </p>
           </div>
           <div className="relative">
-            <HeroCard />
+            <img
+              src="/hero-animation.apng"
+              alt="Claude Code for PMs — 3-scene terminal animation"
+              className="w-full"
+              style={{ maxWidth: 820 }}
+            />
           </div>
         </div>
       </div>
