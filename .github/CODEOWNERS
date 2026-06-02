@@ -1,0 +1,5 @@
+# Every change to this repo requests a review from the maintainers.
+# CODEOWNERS needs a real user or an @org/team — a bare @runtm-ai is not valid.
+# If the @runtm-ai/maintainers team does not exist yet, swap this line for the
+# maintainer's personal handle (e.g. @manoloah) until the team is created.
+* @runtm-ai/maintainers

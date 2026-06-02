@@ -4,10 +4,12 @@ We curate, we don't gatekeep. Drive-by PRs are welcome.
 
 ## What we accept
 
-- **A new best practice** — backed by a published source (article, podcast, repo). Add an MDX file in `site/content/practices/` + a row in `site/content/practices.ts`.
-- **A new skill in the curation** — add a row to `site/content/skills.json` with install command, category, source URL.
+- **A new best practice** — backed by a published source (article, podcast, repo). Add an MDX file in `site/src/content/best-practices/` + a row in `site/src/lib/practices.ts`.
+- **A new skill in the curation** — add a row to `site/src/content/skills.json` with install command, category, source URL. Skills must be free to install.
 - **A fix or improvement** — broken links, typos, tightened copy, a11y fixes.
-- **A new person / podcast / article / repo** — edit `site/content/resources.ts`.
+- **A new resource (person / podcast / article / repo)** — edit the resources page under `site/src/app/resources/`.
+
+Not sure where something goes? Open an issue first — there are templates for proposing a [practice](.github/ISSUE_TEMPLATE/new-practice.yml) or a [skill](.github/ISSUE_TEMPLATE/new-skill.yml).
 
 ## What we don't accept
 
@@ -17,24 +19,31 @@ We curate, we don't gatekeep. Drive-by PRs are welcome.
 - Skills that require payment to install.
 - Anything that turns this into a course or gated content.
 
-## How to open a PR
+## Branching & merging
 
-1. Fork `runtm-ai/claudecode-for-pms`.
-2. Make your change on a branch.
+`main` is protected. **Direct commits and pushes to `main` are rejected — for everyone, maintainers included.** The only way in is a reviewed pull request.
+
+1. Fork `runtm-ai/claudecode-for-pms` (or branch, if you have write access).
+2. Make your change on a branch — `git checkout -b your-change`.
 3. Open a PR with a one-line title and a 2-3 sentence description (what + why).
-4. Add yourself to the Contributors section in the changelog if it's substantive.
+4. CI runs lint, typecheck, build, and a gitleaks secret scan. All must pass.
+5. A maintainer reviews. PRs need **1 approving review** to merge.
+6. We squash-merge; your branch is deleted automatically after merge.
+7. Add yourself to the Contributors section in the changelog if it's substantive.
 
 We aim to respond within a week.
 
 ## Local development
 
+This repo uses **npm** (there's a `package-lock.json` — don't switch to pnpm or yarn).
+
 ```bash
 cd site
-pnpm install
-pnpm dev          # http://localhost:3000
-pnpm lint         # eslint
-pnpm typecheck    # tsc --noEmit
-pnpm build        # production build
+npm install
+npm run dev        # http://localhost:3000
+npm run lint       # next lint
+npm run typecheck  # tsc --noEmit
+npm run build      # production build
 ```
 
 ## Code style
@@ -52,7 +61,22 @@ pnpm build        # production build
 
 ## Secrets
 
-Never commit a real API key. The repo has [`.gitleaks.toml`](.gitleaks.toml) and a pre-commit guard — but you should also do the work to check. Use `.env.local` (gitignored) and `${VAR}` substitution in `.mcp.json`. Read [practice 07](https://claudecodeforpms.com/best-practices/secrets) for the full story (including how we burned ourselves on day zero).
+Never commit a real API key. Use `.env.local` (gitignored) and `${VAR}` substitution in `.mcp.json`.
+
+We scan for leaks two ways: GitHub secret scanning with push protection (blocks a secret at push time) and a [`gitleaks`](.gitleaks.toml) job that runs on every PR. Neither replaces your own care.
+
+Want a local guard too? Opt into a pre-commit hook — it isn't installed automatically:
+
+```bash
+# from the repo root, requires gitleaks installed locally
+cat > .git/hooks/pre-commit <<'EOF'
+#!/usr/bin/env bash
+exec gitleaks protect --staged --config .gitleaks.toml --no-banner
+EOF
+chmod +x .git/hooks/pre-commit
+```
+
+Read [practice 07](https://claudecodeforpms.com/best-practices/secrets) for the full story (including how we burned ourselves on day zero).
 
 ## Code of conduct
 

@@ -59,6 +59,16 @@ For any non-trivial feature:
 4. At session end, update `tasks/<feature>/sessions.md` with what was done.
 5. Use plan mode (`Shift+Tab` in the CLI) before any file changes.
 
+## Contributing to this repo
+
+This applies when working on *this* repository (not the downstream template).
+
+- **Never commit or push directly to `main`.** It is protected — pushes are rejected. Always branch (`git checkout -b <name>`), push the branch, and open a PR.
+- Every change lands via a PR with **1 approving review** and passing CI (lint, typecheck, build, gitleaks).
+- Before opening a PR, run `cd site && npm run lint && npm run typecheck && npm run build` and confirm gitleaks is clean.
+- Use **npm**, not pnpm or yarn (the repo has a `package-lock.json`).
+- Follow the voice rules above and the "What we accept" list in `CONTRIBUTING.md`. PRs squash-merge; the head branch auto-deletes.
+
 ## What not to do
 
 - Don't commit `.env`, API keys, or anything in `.gitignore`'d paths.

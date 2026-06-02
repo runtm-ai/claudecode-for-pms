@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Website
+    url: https://claudecodeforpms.com
+    about: Browse the practices and skills before filing.
+  - name: Contributing guide
+    url: https://github.com/runtm-ai/claudecode-for-pms/blob/main/CONTRIBUTING.md
+    about: What we accept, how to open a PR, and local dev setup.

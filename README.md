@@ -1,5 +1,8 @@
 # Claude Code for PMs
 
+[![CI](https://github.com/runtm-ai/claudecode-for-pms/actions/workflows/ci.yml/badge.svg)](https://github.com/runtm-ai/claudecode-for-pms/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 > An opinionated open-source playbook of best practices, templates, and skills for PMs using Claude Code. Cloneable today.
 
 Built by [Runtime](https://runtm.com). MIT licensed.
@@ -28,7 +31,7 @@ The website lives at [claudecodeforpms.com](https://claudecodeforpms.com).
 │       └── voice.md
 ├── .env.example                   # Common env keys
 ├── .gitignore                     # Includes .env*, .DS_Store, node_modules
-├── .mcp.json                      # Starter MCP config (GitHub, Notion, Linear, PostHog)
+├── mcp.json.example               # Starter MCP config (GitHub, Notion, Linear, PostHog)
 ├── pr_flow/                       # PRD → tasks → execute workflow
 │   ├── create-prd.mdc
 │   ├── generate-tasks.mdc
@@ -80,7 +83,7 @@ accept all defaults, and deploy. No extra settings needed.
 
 ## Contribute
 
-Open a PR. We curate, we don't gatekeep. See `/contribute` on the site.
+Open a PR — `main` is protected, so every change lands through a reviewed PR with passing CI. We curate, we don't gatekeep. Read [CONTRIBUTING.md](CONTRIBUTING.md), or see `/contribute` on the site.
 
 ## License
 

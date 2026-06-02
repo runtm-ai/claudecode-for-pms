@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { RepoCTA } from '@/components/ui/RepoCTA';
 import { CodeBlock } from '@/components/ui/CodeBlock';
@@ -123,7 +124,7 @@ npm run dev    # http://localhost:3000`}
             {' '}&mdash; wire it as a pre-commit hook before your first commit. Use{' '}
             <code>.env.local</code> (gitignored) and <code>$&#123;VAR&#125;</code>
             {' '}substitution in <code>.mcp.json</code>. The full playbook is in{' '}
-            <a href="/best-practices/secrets/">practice 07</a>, including how we
+            <Link href="/best-practices/secrets/">practice 07</Link>, including how we
             burned ourselves on day zero.
           </p>
         </div>

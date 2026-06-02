@@ -1,0 +1,50 @@
+name: Propose a skill
+description: Suggest a skill for the curation. Must be free to install.
+labels: ["skill"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Skills in the curation must be free to install — no paid gates, no
+        course-ware. See [CONTRIBUTING](../blob/main/CONTRIBUTING.md).
+  - type: input
+    id: name
+    attributes:
+      label: Skill name
+      placeholder: e.g. writing-release-notes
+    validations:
+      required: true
+  - type: input
+    id: install
+    attributes:
+      label: Install command
+      placeholder: e.g. npx skills add owner/repo
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source URL
+      description: Where the skill lives (repo, docs, marketplace).
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Writing
+        - Research
+        - Design
+        - Prioritization
+        - Engineering
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: free
+    attributes:
+      label: Confirmation
+      options:
+        - label: This skill is free to install (no payment required).
+          required: true
