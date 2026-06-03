@@ -1,0 +1,31 @@
+name: Propose a best practice
+description: Suggest a new practice for the playbook. Must be backed by a public source.
+labels: ["practice"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We curate, we don't gatekeep — but every practice has to be backed by a
+        published source (article, podcast, repo). No product marketing, no
+        unverifiable claims. See [CONTRIBUTING](../blob/main/CONTRIBUTING.md).
+  - type: input
+    id: practice
+    attributes:
+      label: The practice, in one line
+      placeholder: e.g. "Log every session so Claude can pick up where you left off."
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public source URL
+      description: The article, podcast, or repo that backs this. Required.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs here
+      description: Who does it help, and what does it change about how they work?
+    validations:
+      required: true

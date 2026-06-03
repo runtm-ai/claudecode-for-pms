@@ -1,0 +1,26 @@
+name: Bug report
+description: Something on the site, in a template, or in a skill is broken or wrong.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: URL, file path, or skill name.
+      placeholder: e.g. site/src/content/best-practices/secrets.mdx
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: How can a maintainer see it for themselves?
+    validations:
+      required: false

@@ -1,0 +1,6 @@
+# Every change to this repo requests a review from the maintainers.
+# CODEOWNERS needs a real user or an @org/team — a bare @runtm-ai is not valid.
+#
+# TODO: once a @runtm-ai/maintainers team exists (with write access), switch the
+# line below to:  * @runtm-ai/maintainers
+* @manoloah
