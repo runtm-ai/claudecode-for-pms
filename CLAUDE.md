@@ -59,6 +59,46 @@ For any non-trivial feature:
 4. At session end, update `tasks/<feature>/sessions.md` with what was done.
 5. Use plan mode (`Shift+Tab` in the CLI) before any file changes.
 
+## Adding a best practice
+
+Best practices live in `site/src/content/best-practices/` as MDX files. The site auto-discovers them by scanning that directory — no registration or index update needed.
+
+**Steps to add one:**
+
+1. Create a new file: `site/src/content/best-practices/<slug>.mdx`
+   - The slug becomes the URL: `/best-practices/<slug>`
+   - Use kebab-case, descriptive, gerund or noun form (e.g. `writing-prds`, `agent-secrets-state`)
+
+2. Add the required frontmatter at the top:
+   ```yaml
+   ---
+   title: Your practice title
+   number: 13          # next sequential number — check existing files for the highest
+   blurb: One or two sentences shown on the card and listing page.
+   related:
+     - slug-of-related-practice
+   ---
+   ```
+
+3. Write the body in MDX. Available components:
+   - `<Step n={1}>` — numbered step with code blocks inside
+   - `<AntiPatterns>` — bulleted list of what not to do
+   - `<Callout>` — highlighted aside
+
+4. Verify it appears on the site:
+   ```bash
+   cd site && npm run dev
+   # open /best-practices to confirm the card appears
+   # open /best-practices/<slug> to confirm the full page renders
+   ```
+
+5. Run checks before opening a PR:
+   ```bash
+   cd site && npm run lint && npm run typecheck && npm run build
+   ```
+
+The `number` field controls sort order on the listing page and prev/next navigation. Pick the next integer; gaps are fine.
+
 ## Contributing to this repo
 
 This applies when working on *this* repository (not the downstream template).
