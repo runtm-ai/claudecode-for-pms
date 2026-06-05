@@ -1,8 +1,6 @@
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { TemplateBlock } from '@/components/ui/TemplateBlock';
 import { RepoCTA } from '@/components/ui/RepoCTA';
+import { TemplatesExplorer } from '@/components/ui/TemplatesExplorer';
 import { readRepoFile, REPO_TEMPLATE_FILES } from '@/lib/content';
-import { SITE } from '@/lib/tokens';
 
 export const metadata = {
   title: 'Templates',
@@ -31,41 +29,8 @@ export default function TemplatesPage() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-5 pb-10">
-        <aside className="card-content mb-8">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-text mb-3">
-            Quick jump
-          </h2>
-          <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
-            {files.map((f) => (
-              <li key={f.path}>
-                <a
-                  href={`#${f.path.replace(/[\/\.]/g, '-')}`}
-                  className="font-mono text-text-muted hover:text-text"
-                >
-                  {f.path}
-                </a>
-                <span className="text-text-soft"> &mdash; {f.label}</span>
-              </li>
-            ))}
-          </ul>
-        </aside>
-
-        <div className="space-y-8">
-          {files.map((f) => (
-            <div key={f.path} id={f.path.replace(/[\/\.]/g, '-')}>
-              <div className="flex items-baseline gap-3 mb-3">
-                <h2 className="font-mono text-lg text-text">{f.path}</h2>
-                <p className="text-sm text-text-soft">{f.label}</p>
-              </div>
-              <TemplateBlock
-                path={f.path}
-                content={f.content}
-                href={`${SITE.repo}/blob/main/${f.path}`}
-              />
-            </div>
-          ))}
-        </div>
+      <section className="max-w-6xl mx-auto px-5 pt-12 sm:pt-16 pb-10">
+        <TemplatesExplorer files={files} />
       </section>
 
       <section className="max-w-6xl mx-auto px-5 pb-20">
