@@ -58,7 +58,7 @@ export function TemplatesExplorer({ files }: { files: FileEntry[] }) {
             {anyOpen ? 'Collapse all' : 'Expand all'}
           </button>
         </div>
-        <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
+        <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-3 text-sm">
           {files.map((f) => (
             <li key={f.path}>
               <a
@@ -68,16 +68,18 @@ export function TemplatesExplorer({ files }: { files: FileEntry[] }) {
                   history.replaceState(null, '', `#${anchorId(f.path)}`);
                   openAndJump(f.path);
                 }}
-                className="group inline-flex items-baseline gap-1.5 py-1 rounded-md text-accent hover:text-accent-dark"
+                className="group flex items-baseline gap-1.5 text-accent hover:text-accent-dark"
               >
-                <span aria-hidden className="text-text-soft transition-transform group-hover:translate-x-0.5">
+                <span aria-hidden className="shrink-0 text-text-soft transition-transform group-hover:translate-x-0.5">
                   &rarr;
                 </span>
-                <span className="font-mono underline decoration-accent/30 underline-offset-2 group-hover:decoration-accent">
+                <span className="font-mono break-words underline decoration-accent/30 underline-offset-2 group-hover:decoration-accent">
                   {f.path}
                 </span>
-                <span className="text-text-soft no-underline">&mdash; {f.label}</span>
               </a>
+              <p className="mt-1 pl-[1.375rem] text-xs leading-snug text-text-soft">
+                {f.label}
+              </p>
             </li>
           ))}
         </ul>
