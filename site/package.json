@@ -28,7 +28,7 @@
     "eslint-config-next": "15.1.0",
     "postcss": "8.5.15",
     "remotion": "^4.0.469",
-    "tailwindcss": "3.4.15",
+    "tailwindcss": "4.3.0",
     "typescript": "6.0.3"
   },
   "description": "The Next.js source for [claudecodeforpms.com](https://claudecodeforpms.com).",
