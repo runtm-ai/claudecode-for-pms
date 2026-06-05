@@ -1,0 +1,17 @@
+name: Notify personal repo to sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger sync on personal repo
+        run: |
+          gh workflow run sync-upstream.yml \
+            --repo manoloah/claudecode-for-pms
+        env:
+          GH_TOKEN: ${{ secrets.SYNC_PAT }}
