@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "gray-matter": "4.0.3",
-    "next": "15.1.0",
-    "next-mdx-remote": "5.0.0",
+    "next": "^15.5.16",
+    "next-mdx-remote": "^6.0.0",
     "react": "19.2.7",
     "react-dom": "19.2.7"
   },
@@ -25,7 +25,7 @@
     "@types/react-dom": "19.2.3",
     "autoprefixer": "10.5.0",
     "eslint": "8.57.1",
-    "eslint-config-next": "15.1.0",
+    "eslint-config-next": "^15.5.16",
     "postcss": "8.5.15",
     "remotion": "^4.0.469",
     "tailwindcss": "3.4.15",
@@ -35,5 +35,8 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "overrides": {
+    "postcss": "$postcss"
+  }
 }
