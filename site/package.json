@@ -37,6 +37,8 @@
   "author": "",
   "license": "MIT",
   "overrides": {
-    "postcss": "$postcss"
+    "postcss": "$postcss",
+    "brace-expansion@^1.0.0": "1.1.16",
+    "brace-expansion@^5.0.0": "5.0.7"
   }
 }
