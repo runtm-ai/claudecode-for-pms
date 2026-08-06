@@ -14,19 +14,19 @@
     "gray-matter": "4.0.3",
     "next": "^15.5.22",
     "next-mdx-remote": "^6.0.0",
-    "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@remotion/cli": "^4.0.471",
+    "@remotion/cli": "^4.0.504",
     "@remotion/renderer": "^4.0.469",
     "@types/node": "22.9.0",
-    "@types/react": "19.2.16",
-    "@types/react-dom": "19.2.3",
-    "autoprefixer": "10.5.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "autoprefixer": "10.5.4",
     "eslint": "8.57.1",
     "eslint-config-next": "^15.5.16",
-    "postcss": "8.5.23",
+    "postcss": "8.5.25",
     "remotion": "^4.0.469",
     "tailwindcss": "3.4.15",
     "typescript": "6.0.3"
